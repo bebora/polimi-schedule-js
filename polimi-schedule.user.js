@@ -82,13 +82,13 @@ function sleep(ms) {
 }
 
 async function addDownloadButton() {
-	try {
+  try {
     let divOrari;
     let orariText = undefined;
     let showButton = false;
     if (/.*GestioneCarrelloPublic\.do.*/.test(window.location.href)) { //Manifesto degli Studi
-      if (/.*tab_selected=2.*/.test(window.location.href))
-      	showButton = true;
+      if (document.getElementById('orarioTestuale') != null)
+        showButton = true;
       let ulOrarioTestuale = document.getElementsByClassName('ui-tabs-nav ui-helper-reset ui-helper-clearfix')[0];
       ulOrarioTestuale.children[0].children[0].innerText += ' + file iCalendar';
       let tdOrarioTestuale = document.getElementsByClassName('ElementInfoCard2 ui-corner-bottom')[0]; //Better not to use getElementById because target id is duplicated (#orarioTestuale)
