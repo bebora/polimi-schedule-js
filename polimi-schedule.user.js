@@ -9,7 +9,6 @@
 // ==/UserScript==
 
 
-//TODO handle missing schedule as in original polimi-schedule
 //TODO add EXDATE for holidays
 let ICS = this['ics-js'];
 let weekdays = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
@@ -21,6 +20,11 @@ function parseText(allCourses) {
     cal.addProp('VERSION', 2);
     cal.addProp('PRODID', 'bebora@github');
     for (let course of coursesList) {
+      let noLessonTest = /\s*L'orario non è stato definito/;
+      let noScheduleTest = /\s*Nessun orario definito/;
+      if (noLessonTest.test(course) || noScheduleTest.test(course)) {
+        continue;
+      }
       let titleMatch = /(\d{6}) - (.+)/.exec(course);
       let tempText = titleMatch[2].split('(');
       tempText.pop();
@@ -32,7 +36,8 @@ function parseText(allCourses) {
       if (courseDays[1] !== '') {
         let rows = courseDays[1].trim().split('\n');
         for (let j of rows) {
-          let timeMatch = /([^\s]*) dalle (\d{2}):(\d{2}) alle (\d{2}):(\d{2}), .*? aula (.*)/.exec(j);
+          let timeMatch = /([^\s]*) dalle (\d{2}):(\d{2}) alle (\d{2}):(\d{2})/.exec(j);
+          let noRoomTest = /.*? Aula al momento non disponibile.*/;
           let weekDay = weekdays.indexOf(timeMatch[1]);
           let firstDay = new Date(start);
           if (weekDay < start.getDay()) {
@@ -55,16 +60,19 @@ function parseText(allCourses) {
           event.addProp('DURATION', 'PT'+(timeMatch[4]-timeMatch[2])+'H'); //Assuming that the duration of the lessons is a multiple of one hour
           event.addProp('DTSTAMP', new Date(), { VALUE: 'DATE-TIME' });
           event.addProp('UID');
-          event.addProp('LOCATION', timeMatch[6]);
+          if (!noRoomTest.test(j)) {
+            let roomMatch = /aula (.*)/.exec(j);
+            event.addProp('LOCATION', roomMatch[1]);
+          }
           event.addProp('RRULE', 'FREQ=WEEKLY;UNTIL='+lastDay.getFullYear()+(lastDay.getMonth()+1)+lastDay.getDate());
           cal.addComponent(event);
         }
       }
     }
-		return cal.toString();
+    return cal.toString();
   }
   catch(err) {
-    console.log('Il sito è stato aggiornato e non è più compatibile con polimi-schedule-js. ('+err.message+')');
+    console.log('The website is no longer compatible with polimi-schedule-js. ('+err.message+')');
   }
   return '';
 }
@@ -72,7 +80,7 @@ function parseText(allCourses) {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-  
+
 async function addDownloadButton() {
 	try {
     let divOrari;
@@ -104,13 +112,13 @@ async function addDownloadButton() {
       orariText = fakeDiv.innerText;
     }
     if (showButton) {
+      let icsContent = parseText(orariText);
       let buttonNode = document.createElement('BUTTON');
       buttonNode.innerHTML = 'Esporta orario come iCalendar';
       buttonNode.type = 'button';
       buttonNode.style.marginTop = '35px';
       buttonNode.style.backgroundColor = '#c0ff85';
       divOrari.appendChild(buttonNode);
-      let icsContent = parseText(orariText);
       buttonNode.addEventListener('click', function(){
         let blob = new Blob([icsContent || 'Something has prevented the script from correctly creating the calendar'], {type: 'text/plain;charset=utf-8'});
         saveAs(blob, 'orarioPolimi.ics');
