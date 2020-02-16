@@ -26,7 +26,10 @@ async function addDownloadButton() {
       if (document.getElementById('orarioTestuale') != null)
         showButton = true;
       let ulOrarioTestuale = document.getElementsByClassName('ui-tabs-nav ui-helper-reset ui-helper-clearfix')[0];
-      ulOrarioTestuale.children[0].children[0].innerText += ' + file iCalendar';
+      let sectionButton = ulOrarioTestuale.children[0].children[0];
+      if (sectionButton.innerText.indexOf('iCalendar') == -1) {
+        sectionButton.innerText += ' + file iCalendar';
+      }
       let tdOrarioTestuale = document.getElementsByClassName('ElementInfoCard2 ui-corner-bottom')[0]; //Better not to use getElementById because target id is duplicated (#orarioTestuale)
       divOrari = tdOrarioTestuale.children[0];
       orariText = divOrari.children[1].innerText;
@@ -47,13 +50,14 @@ async function addDownloadButton() {
       document.body.appendChild(fakeDiv);
       orariText = fakeDiv.innerText;
     }
-    if (showButton) {
+    if (showButton && document.getElementById('exportCalButton') == null) {
       let icsContent = parseText(orariText);
       let buttonNode = document.createElement('BUTTON');
       buttonNode.innerHTML = 'Esporta orario come iCalendar';
       buttonNode.type = 'button';
       buttonNode.style.marginTop = '35px';
       buttonNode.style.backgroundColor = '#c0ff85';
+      buttonNode.id = 'exportCalButton';
       divOrari.appendChild(buttonNode);
       buttonNode.addEventListener('click', function(){
         let blob = new Blob([icsContent || 'Something has prevented the script from correctly creating the calendar'], {type: 'text/plain;charset=utf-8'});
