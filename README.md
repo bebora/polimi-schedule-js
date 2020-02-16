@@ -9,6 +9,6 @@ Compatibile sia con l'orario dei [Servizi Online](https://www.polimi.it/servizio
 
 
 
-Realizzato con [Filesaver.js](https://github.com/eligrey/FileSaver.js/) e  [ics-js](https://github.com/eligrey/FileSaver.js/).
+Realizzato con [Filesaver.js](https://github.com/eligrey/FileSaver.js/) e  [ics-js](https://github.com/angeloashmore/ics-js).
 
 Ispirato a [polimi-schedule](https://github.com/jacopo-j/polimi-schedule).
