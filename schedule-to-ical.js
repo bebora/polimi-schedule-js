@@ -3,20 +3,19 @@ let weekdays = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Ve
 
 function parseText(allCourses) {
   try {
-    let coursesList = allCourses.trim().split('\n\n\n');
+    let coursesList = allCourses.trim().split('\n\n\n\n');
     let cal = new ICS.VCALENDAR();
     cal.addProp('VERSION', 2);
     cal.addProp('PRODID', 'bebora@github');
-    for (let course of coursesList) {
+    for (let wholeCourse of coursesList) {
+      let course = wholeCourse.split('\n\n\n')[0];
       let noLessonTest = /\s*L'orario non è stato definito/;
       let noScheduleTest = /\s*Nessun orario definito/;
       if (noLessonTest.test(course) || noScheduleTest.test(course)) {
         continue;
       }
-      let titleMatch = /(\d{6}) - (.+)/.exec(course);
-      let tempText = titleMatch[2].split('(');
-      tempText.pop();
-      let courseName = tempText.join('(');
+      let titleMatch = /(\d{6}) - (.*?)(?:\s*\(Docente:.*\)|$)/m.exec(course);
+      let courseName = titleMatch[2];
       let datesMatch = /Inizio lezioni: (\d{2}\/\d{2}\/\d{4}) Fine lezioni: (\d{2}\/\d{2}\/\d{4})/.exec(course);
       let start = new Date(datesMatch[1].replace(/(\d{2})\/(\d{2})\/(\d{4})/,'$3-$2-$1'));
       let end = new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/,'$3-$2-$1'));
