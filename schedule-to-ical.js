@@ -52,7 +52,7 @@ function parseText(allCourses) {
             let roomMatch = /aula (.*)/.exec(j);
             event.addProp('LOCATION', roomMatch[1]);
           }
-          event.addProp('RRULE', 'FREQ=WEEKLY;UNTIL='+lastDay.getFullYear()+(lastDay.getMonth()+1)+lastDay.getDate());
+          event.addProp('RRULE', 'FREQ=WEEKLY;UNTIL='+lastDay.getFullYear()+('0'+(lastDay.getMonth()+1)).slice(-2)+('0'+lastDay.getDate()).slice(-2)+'T235959Z');
           cal.addComponent(event);
         }
       }
