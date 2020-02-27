@@ -1,16 +1,31 @@
 let ICS = this["ics-js"];
-let weekdays = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"];
+const weekdays = {
+  "Domenica": 0,
+  "Lunedì": 1,
+  "Martedì": 2,
+  "Mercoledì": 3,
+  "Giovedì": 4,
+  "Venerdì": 5,
+  "Sabato": 6,
+  "Sunday": 0,
+  "Monday": 1,
+  "Tuesday": 2,
+  "Wednesday": 3,
+  "Thurstday": 4,
+  "Friday": 5,
+  "Saturday": 6,
+};
 
 function parseCourse(course) {
   let events = [];
-  let noLessonTest = /\s*L'orario non è stato definito/;
-  let noScheduleTest = /\s*Nessun orario definito/;
+  let noLessonTest = /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
+  let noScheduleTest = /\s*Nessun orario definito/; //TODO find english version
   if (noLessonTest.test(course) || noScheduleTest.test(course)) {
     return [];
   }
-  let titleMatch = /(\d{6}) - (.*?)(?:\s*\(Docente:.*\)|$)/m.exec(course);
+  let titleMatch = /(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):.*\)|$)/m.exec(course);
   let courseName = titleMatch[2];
-  let datesRegex = /(1|2|A|Annual(?:e*))\s*Inizio lezioni: (\d{2}\/\d{2}\/\d{4}) Fine lezioni: (\d{2}\/\d{2}\/\d{4})/g;
+  let datesRegex = /(1|2|A|Annual(?:e*))\s*(?:Inizio lezioni|Start of lessons): (\d{2}\/\d{2}\/\d{4}) (?:Fine lezioni|End of lesson(?:s*)): (\d{2}\/\d{2}\/\d{4})/g;
   let datesGroups = [...course.matchAll(datesRegex)];
   // Some annual courses consist of two courses, but the main course heading does not have any relevant event data and should be removed from the parsing.
   if (datesGroups.length > 1) {
@@ -24,9 +39,9 @@ function parseCourse(course) {
     if (courseDays[1] !== "") {
       let rows = courseDays[1].trim().split("\n");
       for (let j of rows) {
-        let timeMatch = /([^\s]*) dalle (\d{2}):(\d{2}) alle (\d{2}):(\d{2})/.exec(j);
-        let noRoomTest = /.*? Aula al momento non disponibile.*/;
-        let weekDay = weekdays.indexOf(timeMatch[1]);
+        let timeMatch = /([^\s]*) dalle (\d{2}):(\d{2}) alle (\d{2}):(\d{2})/i.exec(j);
+        let noRoomTest = /.*? Aula al momento non disponibile.*/; //TODO find english version
+        let weekDay = weekdays[timeMatch[1]];
         let firstDay = new Date(start);
         if (weekDay < start.getDay()) {
           firstDay.setDate(firstDay.getDate()-firstDay.getDay()+7+weekDay);
@@ -46,7 +61,7 @@ function parseCourse(course) {
         firstEnd.setHours(timeMatch[4], timeMatch[5], 0);
         let location = null;
         if (!noRoomTest.test(j)) {
-          let roomMatch = /aula (.*)/.exec(j);
+          let roomMatch = /(?:aula|classroom) (.*)/.exec(j);
           location = roomMatch[1];
         }
         events.push(

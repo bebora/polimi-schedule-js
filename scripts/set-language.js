@@ -48,4 +48,5 @@ function setLanguage(lang) {
     for (let i of Object.keys(strings).filter(item => item !== tempLang)) {
         document.getElementById(i+"Flag").classList.add("grayscale");
     }
+    document.title = strings[tempLang].text.title;
 }
