@@ -36,7 +36,7 @@ function initClient() {
     authorizeButton.onclick = handleAuthClick;
     signoutButton.onclick = handleSignoutClick;
   }, function (error) {
-    appendPre(JSON.stringify(error, null, 2));
+    console.log(JSON.stringify(error, null, 2));
   });
 }
 
@@ -48,7 +48,6 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     loggedOutSection.style.display = "none";
     loggedInSection.style.display = "block";
-    //listUpcomingEvents(true);
     getCalendars();
   } else {
     loggedOutSection.style.display = "block";
@@ -70,57 +69,13 @@ function handleSignoutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
 }
 
-/**
- * Append a pre element to the body containing the given message
- * as its text node. Used to display the results of the API call.
- *
- * @param {string} message Text to be placed in pre element.
- */
-function appendPre(message) {
-  var pre = document.getElementById("pop-content");
-  var textContent = document.createTextNode(message + "\n");
-  pre.appendChild(textContent);
-}
 
 /**
  * Print the summary and start datetime/date of the next ten events in
  * the authorized user"s calendar. If no events are found an
  * appropriate message is printed.
  */
-function listUpcomingEvents(getPrimary) {
-  if (getPrimary === undefined || getPrimary === true) {
-    calendarId = "primary";
-  }
-  else {
-    console.log(getPrimary);
-    let s = document.getElementById("calendarId");
-    calendarId = s.options[s.selectedIndex].value;
-  }
-  gapi.client.calendar.events.list({
-    "calendarId": calendarId,
-    "timeMin": (new Date()).toISOString(),
-    "showDeleted": false,
-    "singleEvents": true,
-    "maxResults": 10,
-    "orderBy": "startTime"
-  }).then(function (response) {
-    var events = response.result.items;
-    appendPre("Upcoming events:");
 
-    if (events.length > 0) {
-      for (i = 0; i < events.length; i++) {
-        var event = events[i];
-        var when = event.start.dateTime;
-        if (!when) {
-          when = event.start.date;
-        }
-        appendPre(event.summary + " (" + when + ")")
-      }
-    } else {
-      appendPre("No upcoming events found.");
-    }
-  });
-}
 function importMultipleEvents(genericEvents, calendarId) {
   let events = [];
   genericEvents.forEach(function (item, key) {
