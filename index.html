@@ -22,13 +22,19 @@
 
 <body>
   <div style="margin: 2.5vh 2.5vw">
-    <h1 style="font-family: sans-serif;">Convertitore orario Polimi</h1>
-    <textarea id="input" placeholder="Incolla il testo copiato dall'orario testuale"></textarea>
-    <button id="download" class="btn"><i class="fa fa-download" aria-hidden="true"></i> Salva su file</button>
-    <button id="import-gcal" class="btn btn-ggl"><i class="fab fa-google"></i> Importa su Google Calendar</button>
+    <div style="display: table; width: 100%; padding: 20px 0;">
+      <h1 id="title" style="display: table-cell; vertical-align:middle;">Convertitore orario PoliMi</h1>
+      <span id="flags" style="float: right;">
+        <img id="itFlag" class="middleImage" src="images/italy-flag-icon-64.png" alt="Italian Flag" onclick="setLanguage('it')" title="Imposta italiano">
+        <img id="enFlag" class="middleImage" src="images/united-kingdom-flag-icon-64.png" alt="UK Flag" onclick="setLanguage('en')" title="Set language to english">
+      </span>
+    </div>
+    <textarea id="input" placeholder="Incolla le lezioni copiate dall'orario testuale"></textarea>
+    <button id="download" class="btn"><i class="fa fa-download" aria-hidden="true"></i><span id="saveFile"> Salva su file</span></button>
+    <button id="import-gcal" class="btn btn-ggl"><i class="fab fa-google"></i><span id="importToGcal"> Importa su Google Calendar</span></button>
     <p id="error">Errore! Non riesco a generare il calendario</p>
     <a style="position: absolute; bottom: 4vh; left: 2.5vw; font-size: 18px;"
-      href="https://github.com/bebora/polimi-schedule-js">View on Github <i class="fab fa-github"></i></a>
+      href="https://github.com/bebora/polimi-schedule-js">Github repo <i class="fab fa-github"></i></a>
   </div>
   <div id="pop-bg" onclick="hideOverlay()" style="display: none;">
     <div id="pop-window">
@@ -39,19 +45,19 @@
         </div>
         <div id="logged_in_section">
           <div id="select-cal">
-            <p>Seleziona il calendario dove importare gli eventi</p>
+            <p id="selectCalText">Seleziona il calendario dove importare gli eventi</p>
             <select id="calendarId" style="font-size: 20px; max-width: 100%;"></select>
           </div>
-          <p>oppure</p>
+          <p id="orSelect">oppure</p>
           <div>
             <input type="checkbox" id="newCalendar" name="newCalendar" value="newCalendar" onclick="displayNewName();">
-            <label id="newCalendarText" for="newCalendar"> Crea nuovo calendario</label>
+            <label id="newCalendarLabel" for="newCalendar"> Crea nuovo calendario</label>
           </div>
           <div id="inputElem" style="display: none; padding: 12px 0;">
-            <label for="newName">Nome:</label>
+            <label id="newNameLabel" for="newName">Nome:</label>
             <input type="text" id="newName" name="newName" style="font-size: 20px; max-width: 100%;" value="PoliMi">
           </div>
-          <button id="import_button" class="btn btn-ggl"><i class="fas fa-cloud-upload-alt"></i></i> Importa</button>
+          <button id="import_button" class="btn btn-ggl"><i class="fas fa-cloud-upload-alt"></i> <span id="importButtonText">Importa</span></button>
           <button id="signout_button" class="btn btn-red"><i class="fas fa-sign-out-alt"></i> Logout</button>
         </div>
       </div>
@@ -104,6 +110,7 @@
       }
     } 
   </script>
+  <script async defer src="scripts/set-language.js" onload="setLanguage((navigator.language || navigator.userLanguage).slice(0, 2))"></script>
   <script async defer src="scripts/gapi-importer.js"></script>
   <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()">

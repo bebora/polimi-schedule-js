@@ -94,3 +94,21 @@
   body {
       font-family: sans-serif;
   }
+
+  .middleImage {
+    display: table-cell;
+    vertical-align:middle;
+    margin: 5px 5px;
+    cursor: pointer;
+  }
+
+  .grayscale {
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+  }
+
+  .grayscale:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+  }
