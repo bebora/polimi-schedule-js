@@ -66,7 +66,6 @@
   <script>
     document.getElementById("download").addEventListener("click", function () {
       let icsContent = getIcalendar(document.getElementById("input").value);
-      console.log(icsContent);
       if (icsContent == "") {
         document.getElementById("error").style.display = "inline-block"
         setTimeout(function () {
