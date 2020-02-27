@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <title>Convertitore orario Polimi</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Convertitore orario Polimi">
+  <meta property="og:description"
+    content="Crea un file iCalendar per importare l'orario del Polimi sul tuo calendario preferito">
+  <meta property="og:url" content="https://bebora.github.io/polimi-schedule-js">
+  <meta name="twitter:card" content="summary">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style/style.css" />
+  <script src="https://cdn.jsdelivr.net/gh/angeloashmore/ics-js/dist/ics-js.js"></script>
+  <script src="scripts/schedule-to-ical.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"
+    integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div style="margin: 2.5vh 2.5vw">
+    <h1 style="font-family: sans-serif;">Convertitore orario Polimi</h1>
+    <textarea id="input" placeholder="Incolla il testo copiato dall'orario testuale"></textarea>
+    <button id="download" class="btn"><i class="fa fa-download" aria-hidden="true"></i> Salva su file</button>
+    <button id="import-gcal" class="btn btn-ggl"><i class="fab fa-google"></i> Importa su Google Calendar</button>
+    <p id="error">Errore! Non riesco a generare il calendario</p>
+    <a style="position: absolute; bottom: 4vh; left: 2.5vw; font-size: 18px;"
+      href="https://github.com/bebora/polimi-schedule-js">View on Github <i class="fab fa-github"></i></a>
+  </div>
+  <div id="pop-bg" onclick="hideOverlay()" style="display: none;">
+    <div id="pop-window">
+      <span id="pop-close" onclick="hideOverlay()"><i class="fas fa-times"></i> </span>
+      <div id="pop-content">
+        <div id="logged_out_section">
+          <button id="authorize_button" class="btn btn-ggl"><i class="fab fa-google"></i> Login</button>
+        </div>
+        <div id="logged_in_section">
+          <div id="select-cal">
+            <p>Seleziona il calendario dove importare gli eventi</p>
+            <select id="calendarId" style="font-size: 20px; max-width: 100%;"></select>
+          </div>
+          <p>oppure</p>
+          <div>
+            <input type="checkbox" id="newCalendar" name="newCalendar" value="newCalendar" onclick="displayNewName();">
+            <label id="newCalendarText" for="newCalendar"> Crea nuovo calendario</label>
+          </div>
+          <div id="inputElem" style="display: none; padding: 12px 0;">
+            <label for="newName">Nome:</label>
+            <input type="text" id="newName" name="newName" style="font-size: 20px; max-width: 100%;" value="PoliMi">
+          </div>
+          <button id="import_button" class="btn btn-ggl"><i class="fas fa-cloud-upload-alt"></i></i> Importa</button>
+          <button id="signout_button" class="btn btn-red"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("download").addEventListener("click", function () {
+      let icsContent = getIcalendar(document.getElementById("input").value);
+      console.log(icsContent);
+      if (icsContent == "") {
+        document.getElementById("error").style.display = "inline-block"
+        setTimeout(function () {
+          document.getElementById("error").style.display = "none";
+        }, 3000);
+      }
+      else {
+        let blob = new Blob([icsContent], { type: "text/plain;charset=utf-8" });
+        saveAs(blob, "orarioPolimi.ics");
+      }
+    });
+    document.getElementById("import_button").addEventListener("click", function () {
+      const events = parseText(document.getElementById("input").value);
+      if (events === null || events.length === 0) {
+        document.getElementById("error").style.display = "inline-block"
+        setTimeout(function () {
+          document.getElementById("error").style.display = "none";
+        }, 3000);
+      }
+      else {
+        handleGcalendarImport(events);
+      }
+    });
+    document.getElementById("import-gcal").addEventListener("click", function () {
+      showOverlay();
+    });
+    document.getElementById("pop-window").addEventListener("click", function (e) { e.stopPropagation(); })
+    function hideOverlay() {
+      document.getElementById("pop-bg").style.display = "none";
+    }
+    function showOverlay() {
+      document.getElementById("pop-bg").style.display = "block";
+    }
+    function displayNewName() {
+      const checkBox = document.getElementById("newCalendar");
+      const inputElem = document.getElementById("inputElem");
+      if (checkBox.checked == true) {
+        inputElem.style.display = "block";
+      } else {
+        inputElem.style.display = "none";
+      }
+    } 
+  </script>
+  <script async defer src="scripts/gapi-importer.js"></script>
+  <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+</body>
+
+</html>
