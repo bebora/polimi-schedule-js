@@ -11,6 +11,7 @@
   <meta property="og:url" content="https://bebora.github.io/polimi-schedule-js">
   <meta name="twitter:card" content="summary">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
     integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
   <link rel="stylesheet" href="style/style.css" />
@@ -31,7 +32,7 @@
     </div>
     <textarea id="input" placeholder="Incolla le lezioni copiate dall'orario testuale"></textarea>
     <button id="download" class="btn"><i class="fa fa-download" aria-hidden="true"></i><span id="saveFile"> Salva su file</span></button>
-    <button id="import-gcal" class="btn btn-ggl"><i class="fab fa-google"></i><span id="importToGcal"> Importa su Google Calendar</span></button>
+    <button id="import-gcal" class="btn btn-blue"><i class="fab fa-google"></i><span id="importToGcal"> Importa su Google Calendar</span></button>
     <p id="error">Errore! Non riesco a generare il calendario</p>
     <a style="position: absolute; bottom: 4vh; left: 2.5vw; font-size: 18px;"
       href="https://github.com/bebora/polimi-schedule-js">Github repo <i class="fab fa-github"></i></a>
@@ -41,7 +42,11 @@
       <span id="pop-close" onclick="hideOverlay()"><i class="fas fa-times"></i> </span>
       <div id="pop-content">
         <div id="logged_out_section">
-          <button id="authorize_button" class="btn btn-ggl"><i class="fab fa-google"></i> Login</button>
+          <button id="authorize_button" class="btn btn-ggl">
+            <span class="google-icon" style="display: table-cell;"></span>
+            <span style="display: table-cell; width: 16px;"></span>
+            <span style="display: table-cell;">Sign in with Google</span>
+          </button>
         </div>
         <div id="logged_in_section">
           <div id="select-cal">
@@ -57,7 +62,7 @@
             <label id="newNameLabel" for="newName">Nome:</label>
             <input type="text" id="newName" name="newName" style="font-size: 20px; max-width: 100%;" value="PoliMi">
           </div>
-          <button id="import_button" class="btn btn-ggl"><i class="fas fa-cloud-upload-alt"></i> <span id="importButtonText">Importa</span></button>
+          <button id="import_button" class="btn btn-blue"><i class="fas fa-cloud-upload-alt"></i> <span id="importButtonText">Importa</span></button>
           <button id="signout_button" class="btn btn-red"><i class="fas fa-sign-out-alt"></i> Logout</button>
         </div>
       </div>
@@ -107,7 +112,7 @@
       } else {
         inputElem.style.display = "none";
       }
-    } 
+    }
   </script>
   <script async defer src="scripts/set-language.js" onload="setLanguage((navigator.language || navigator.userLanguage).slice(0, 2))"></script>
   <script async defer src="scripts/gapi-importer.js"></script>
