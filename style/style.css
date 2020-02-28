@@ -130,7 +130,7 @@ html {
 	display: inline-block;
 	width: 18px;
 	height: 18px;
-	background: url("/images/googlelogo.png") no-repeat center center;
+	background: url("../images/googlelogo.png") no-repeat center center;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
 	background-size: contain;
