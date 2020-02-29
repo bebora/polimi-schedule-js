@@ -130,6 +130,7 @@ function handleGcalendarImport(genericEvents) {
   const checkBox = document.getElementById("newCalendar");
   let calendarId = null;
   if (checkBox.checked == true) {
+    document.getElementById("creationProgress").style.display = "block";
     const newName = document.getElementById("newName").value;
     gapi.client.calendar.calendars.insert({
       "resource": {
@@ -138,6 +139,9 @@ function handleGcalendarImport(genericEvents) {
       }
     })
       .then(function (response) {
+        document.getElementById("creationProgress").style.display = "none";
+        document.getElementById("creationOk").style.display = "block";
+        setTimeout(function () { document.getElementById("creationOk").style.display = "none"; }, 3000);
         console.log(response.result);
         calendarId = response.result.id;
         console.log(calendarId);

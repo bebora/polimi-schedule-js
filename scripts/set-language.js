@@ -9,7 +9,9 @@ const strings = {
             "orSelect": "or",
             "newCalendarLabel": " Create new calendar",
             "newNameLabel": "Name:",
-            "importButtonText": "Import"
+            "importButtonText": "Import",
+            "creationProgress": "Creating calendar...",
+            "creationOk": "Calendar created"
         },
         "placeholder": {
             "input": "Paste lessons copied from the text timetable"
@@ -25,7 +27,9 @@ const strings = {
             "orSelect": "oppure",
             "newCalendarLabel": " Create nuovo calendario",
             "newNameLabel": "Nome:",
-            "importButtonText": "Importa"
+            "importButtonText": "Importa",
+            "creationProgress": "Creando il calendario...",
+            "creationOk": "Calendario creato"
         },
         "placeholder": {
             "input": "Incolla le lezioni copiate dall'orario testuale"
