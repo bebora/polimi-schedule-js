@@ -11,7 +11,7 @@ const weekdays = {
   "Monday": 1,
   "Tuesday": 2,
   "Wednesday": 3,
-  "Thurstday": 4,
+  "Thursday": 4,
   "Friday": 5,
   "Saturday": 6,
 };
