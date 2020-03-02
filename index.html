@@ -7,7 +7,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Convertitore orario Polimi">
   <meta property="og:description"
-    content="Crea un file iCalendar per importare l'orario del Polimi sul tuo calendario preferito">
+    content="Importa l'orario del Polimi sul tuo calendario preferito">
   <meta property="og:url" content="https://bebora.github.io/polimi-schedule-js">
   <meta name="twitter:card" content="summary">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="style/style.css" />
   <script src="https://cdn.jsdelivr.net/gh/angeloashmore/ics-js/dist/ics-js.js"></script>
   <script src="scripts/schedule-to-ical.js"></script>
-  <script src="scripts/gapi-importer.js"></script>
+  <script src="scripts/gapi-importer.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"
     integrity="sha256-FPJJt8nA+xL4RU6/gsriA8p8xAeLGatoyTjldvQKGdE=" crossorigin="anonymous"></script>
 </head>
@@ -28,7 +28,7 @@
       <h1 id="title" style="display: table-cell; vertical-align:middle;">Convertitore orario PoliMi</h1>
       <span id="flags" style="float: right;">
         <img id="itFlag" class="middleImage" src="images/italy-flag-icon-64.png" alt="Italian Flag" onclick="setLanguage('it')" title="Imposta italiano">
-        <img id="enFlag" class="middleImage" src="images/united-kingdom-flag-icon-64.png" alt="UK Flag" onclick="setLanguage('en')" title="Set language to english">
+        <img id="enFlag" class="middleImage" src="images/united-kingdom-flag-icon-64.png" alt="UK Flag" onclick="setLanguage('en')" title="Set language to English">
       </span>
     </div>
     <textarea id="input" placeholder="Incolla le lezioni copiate dall'orario testuale"></textarea>
