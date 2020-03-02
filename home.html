@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <title>Convertitore orario PoliMi - Home</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Convertitore orario Polimi - Home">
+    <meta property="og:description" content="Importa l'orario del Polimi sul tuo calendario preferito">
+    <meta property="og:url" content="https://bebora.github.io/polimi-schedule-js/home.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css" />
+</head>
+
+<body>
+    <div class="content">
+        <div style="display: table; width: 100%; padding: 20px 0;">
+            <h1 id="title" style="display: table-cell; vertical-align:middle;">Convertitore orario PoliMi</h1>
+            <span id="flags" style="float: right;">
+                <img id="itFlag" class="middleImage" src="images/italy-flag-icon-64.png" alt="Italian Flag"
+                    onclick="setLanguage('it')" title="Imposta italiano">
+                <img id="enFlag" class="middleImage" src="images/united-kingdom-flag-icon-64.png" alt="UK Flag"
+                    onclick="setLanguage('en')" title="Set language to English">
+            </span>
+        </div>
+        <div>
+            <h2 id="homeOverview">Converti le lezioni del Politecnico di Milano in un file iCalendar o importale su
+                Google Calendar</h2>
+            <p id="homeInfo">Il PoliMi non consente normalmente di importare gli orari delle lezioni su calendari
+                esterni. Con questo convertitore è possibile trasformare l'orario testuale dei Servizi Online in un
+                calendario in formato standard, ovvero iCalendar. Gli orari in formato iCalendar possono essere
+                importati facilmente nella maggior parte delle applicazioni o servizi di calendario. Per esempio, nelle
+                seguenti pagine è descritto come importare file iCalendar su alcuni servizi popolari:</p>
+            <li><a id="homeImportGoogle" href="https://support.google.com/calendar/answer/37118">Importazione su Google
+                    Calendar</a></li>
+            <li><a id="homeImportOutlook"
+                    href="https://support.office.com/en-us/article/Import-or-subscribe-to-a-calendar-in-Outlook-com-cff1429c-5af6-41ec-a5b4-74f2c278e98c">Importazione
+                    su Outlook</a></li>
+            <p id="homeDetails"> Con questo tool è inoltre possibile importare gli eventi direttamente su Google
+                Calendar, senza dover
+                scaricare il file iCalendar, per rendere l'importazione ancora più semplice.
+                <br>
+                Il tool è disponibile al seguente link:
+            </p>
+            <a
+                href="https://bebora.github.io/polimi-schedule-js/index.html">https://bebora.github.io/polimi-schedule-js</a>
+            <p id="homeUserscriptInfo">
+                Il convertitore può essere usato dal sito del PoliMi se installato come Userscript, cliccando <a
+                    href="https://github.com/bebora/polimi-schedule-js/raw/master/scripts/polimi-schedule.user.js">qui</a>.
+                In tal caso è necessario avere un Userscipt manager, come Greasemonkey o Tampermonkey. Con questa
+                modalità non è integrata l'importazione veloce su Google Calendar.
+            </p>
+            <p id="repoInfo">
+                È possibile consultare il codice del tool nella sua <a
+                    href="https://github.com/bebora/polimi-schedule-js">repository Github</a>.
+            </p>
+            <h3 id="howToUseHead">Come si usa?</h3>
+            <p id="howToUseContent">
+                Vai sulla pagina degli orari che vuoi convertire. Puoi usare sia quella dei <a
+                    href="https://www.polimi.it/servizionline/">Servizi Online</a> con gli orari
+                dei tuoi corsi, sia quella del <a href="https://polimi.it/orario-lezioni">Manifesto degli Studi</a>. In
+                quest'ultimo caso, assicurati di abilitare
+                l'orario personalizzato e scegliere delle materie, poi clicca su "Visualizza l'orario".<br>
+                Clicca quindi su "Orario testuale" e seleziona gli orari con il mouse, poi copiali con il tasto destro
+                oppure premendo CTRL+C.
+            </p>
+            <img class="shadow" src="images/textselection.png" style="max-width: 100%;">
+            <p id="howToUseEnd">
+                Vai sulla pagina del convertitore ed incolla il testo con il tasto destro o premendo CTRL+V. Clicca sul
+                bottone opportuno per scaricare il calendario o per importarlo su Google Calendar.
+            </p>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="https://github.com/bebora/polimi-schedule-js">Github repo <i class="fab fa-github"></i></a>
+        <a href="privacy_policy.html" style="margin-left: 10px;">Privacy policy</a>
+    </div>
+    <script async defer src="scripts/set-language.js"
+        onload="setLanguage((navigator.language || navigator.userLanguage).slice(0, 2))"></script>
+</body>
+
+</html>
