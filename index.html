@@ -23,7 +23,7 @@
 </head>
 
 <body>
-  <div style="margin: 2.5vh 2.5vw">
+  <div class="content">
     <div style="display: table; width: 100%; padding: 20px 0;">
       <h1 id="title" style="display: table-cell; vertical-align:middle;">Convertitore orario PoliMi</h1>
       <span id="flags" style="float: right;">
@@ -35,10 +35,10 @@
     <button id="download" class="btn"><i class="fa fa-download" aria-hidden="true"></i><span id="saveFile"> Salva su file</span></button>
     <button id="import-gcal" class="btn btn-blue"><i class="fab fa-google"></i><span id="importToGcal"> Importa su Google Calendar</span></button>
     <p id="error">Errore! Non riesco a generare il calendario</p>
-    <div style="position: absolute; bottom: 4vh; left: 2.5vw; font-size: 18px;">
-      <a href="https://github.com/bebora/polimi-schedule-js">Github repo <i class="fab fa-github"></i></a>
-      <a href="privacy_policy.html" style="margin-left: 10px;">Privacy policy</a>
-    </div>
+  </div>
+  <div class="footer">
+    <a href="https://github.com/bebora/polimi-schedule-js">Github repo <i class="fab fa-github"></i></a>
+    <a href="privacy_policy.html" style="margin-left: 10px;">Privacy policy</a>
   </div>
   <div id="pop-bg" onclick="hideOverlay()" style="display: none;">
     <div id="pop-window">

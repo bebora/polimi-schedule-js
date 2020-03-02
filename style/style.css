@@ -9,7 +9,6 @@ textarea {
   resize: none;
 }
 html {
-  height: 100%;
   background-image: linear-gradient(#fbb, #fff);
   background-repeat: no-repeat;
 }
@@ -138,4 +137,25 @@ html {
   margin-right: 10px;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+  margin: 2.5vh 2.5vw;
+}
+.footer {
+  flex-shrink: 0;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 18px 0px rgba(0,0,0,1);
+  -moz-box-shadow: 0px 0px 18px 0px rgba(0,0,0,1);
+  box-shadow: 0px 0px 18px 0px rgba(0,0,0,1);
 }
