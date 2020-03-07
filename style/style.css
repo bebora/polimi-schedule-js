@@ -167,3 +167,14 @@ body {
   color: inherit;
   padding-right: 10px;
 }
+
+#title {
+  display: table-cell;
+  vertical-align:middle;
+}
+
+@media only screen and (max-width: 900px) {
+  #title {
+    display: block;
+  }
+}
