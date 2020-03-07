@@ -97,11 +97,12 @@ function parseText(allCourses) {
   return null;
 }
 
-function getIcalendar(allCourses) {
-  //process events
+function getIcalendar(allCourses, logError=true) {
   let events = parseText(allCourses);
   if (events === null) {
-    alert("Unable to parse courses data!");
+    if (logError) {
+      alert("Unable to parse courses data! Text may be invalid or empty.");
+    }
     return "";
   }
   else {

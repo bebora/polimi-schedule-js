@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     polimi-schedule-js
-// @version  1.2
+// @version  1.3
 // @require  https://raw.githubusercontent.com/eligrey/FileSaver.js/master/dist/FileSaver.js
 // @require  https://raw.githubusercontent.com/angeloashmore/ics-js/master/dist/ics-js.js
 // @require  schedule-to-ical.js
@@ -51,18 +51,23 @@ async function addDownloadButton() {
       orariText = fakeDiv.innerText;
     }
     if (showButton && document.getElementById("exportCalButton") == null) {
-      let icsContent = getIcalendar(orariText);
-      let buttonNode = document.createElement("BUTTON");
-      buttonNode.innerHTML = "Esporta orario come iCalendar";
-      buttonNode.type = "button";
-      buttonNode.style.marginTop = "35px";
-      buttonNode.style.backgroundColor = "#c0ff85";
-      buttonNode.id = "exportCalButton";
-      divOrari.appendChild(buttonNode);
-      buttonNode.addEventListener("click", function () {
-        let blob = new Blob([icsContent || "Something has prevented the script from correctly creating the calendar"], { type: "text/plain;charset=utf-8" });
-        saveAs(blob, "orarioPolimi.ics");
-      });
+      let icsContent = getIcalendar(orariText, false);
+      if (icsContent === "") {
+        alert("The userscript can't detect any course, please add something to the timetable")
+      }
+      else {
+        let buttonNode = document.createElement("BUTTON");
+        buttonNode.innerHTML = "Esporta orario come iCalendar";
+        buttonNode.type = "button";
+        buttonNode.style.marginTop = "35px";
+        buttonNode.style.backgroundColor = "#c0ff85";
+        buttonNode.id = "exportCalButton";
+        divOrari.appendChild(buttonNode);
+        buttonNode.addEventListener("click", function () {
+          let blob = new Blob([icsContent || "Something has prevented the script from correctly creating the calendar"], { type: "text/plain;charset=utf-8" });
+          saveAs(blob, "orarioPolimi.ics");
+        });
+      }
     }
   }
   catch (err) {
