@@ -25,7 +25,7 @@ function parseCourse(course) {
   }
   let titleMatch = /(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):.*\)|$)/m.exec(course);
   let courseName = titleMatch[2];
-  let datesRegex = /(1|2|A|Annual(?:e*))\s*(?:Inizio lezioni|Start of lessons): (\d{2}\/\d{2}\/\d{4}) (?:Fine lezioni|End of lesson(?:s*)): (\d{2}\/\d{2}\/\d{4})/g;
+  let datesRegex = /(1|2|A|Annual(?:e*))\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4}) (?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
   let datesGroups = [...course.matchAll(datesRegex)];
   // Some annual courses consist of two courses, but the main course heading does not have any relevant event data and should be removed from the parsing.
   if (datesGroups.length > 1) {
@@ -39,7 +39,7 @@ function parseCourse(course) {
     if (courseDays[1] !== "") {
       let rows = courseDays[1].trim().split("\n\n")[0].split("\n");
       for (let j of rows) {
-        let timeMatch = /([^\s]*) dalle (\d{2}):(\d{2}) alle (\d{2}):(\d{2})/i.exec(j);
+        let timeMatch = /([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2})/i.exec(j);
         let noRoomTest = /.*? Aula al momento non disponibile.*/; //TODO find english version
         let weekDay = weekdays[timeMatch[1]];
         let firstDay = new Date(start);
@@ -61,7 +61,7 @@ function parseCourse(course) {
         firstEnd.setHours(timeMatch[4], timeMatch[5], 0);
         let location = null;
         if (!noRoomTest.test(j)) {
-          let roomMatch = /(?:aula|classroom) (.*)/.exec(j);
+          let roomMatch = /(?:aula|classroom|lecture theatre) (.*)/.exec(j);
           location = roomMatch[1];
         }
         events.push(
