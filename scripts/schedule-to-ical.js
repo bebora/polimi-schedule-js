@@ -19,7 +19,7 @@ const weekdays = {
 function parseCourse(course) {
   let events = [];
   let noLessonTest = /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
-  let noScheduleTest = /\s*Nessun orario definito/; //TODO find english version
+  let noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
   if (noLessonTest.test(course) || noScheduleTest.test(course)) {
     return [];
   }
@@ -27,9 +27,10 @@ function parseCourse(course) {
   let courseName = titleMatch[2];
   let datesRegex = /(1|2|A|Annual(?:e*))\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4}) (?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
   let datesGroups = [...course.matchAll(datesRegex)];
-  // Some annual courses consist of two courses, but the main course heading does not have any relevant event data and should be removed from the parsing.
+  // Some annual courses consist of two courses, but the main course heading does not have any relevant event data. On the other hand, some courses also have information in the first section and it should't be removed
   if (datesGroups.length > 1) {
-    return parseCourse(course.split("\n\n").slice(1).join("\n\n")); //
+    let subCourses = course.split("\n\n");
+    return [...parseCourse(subCourses[0]), ...parseCourse(subCourses.slice(1).join("\n\n"))];
   }
   else if (datesGroups.length === 1) {
     let datesMatch = datesGroups[0];
@@ -40,6 +41,10 @@ function parseCourse(course) {
       let rows = courseDays[1].trim().split("\n\n")[0].split("\n");
       for (let j of rows) {
         let timeMatch = /([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2})/i.exec(j);
+        if (timeMatch === null) {
+          //Row may be empty or "Aula virtuale per didattica a distanza" and should be ignored
+          continue;
+        }
         let noRoomTest = /.*? Aula al momento non disponibile.*/; //TODO find english version
         let weekDay = weekdays[timeMatch[1]];
         let firstDay = new Date(start);
