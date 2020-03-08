@@ -37,7 +37,7 @@ function parseCourse(course) {
     let end = new Date(datesMatch[3].replace(/(\d{2})\/(\d{2})\/(\d{4})/,"$3-$2-$1"));
     let courseDays = /[^\n]+\n[^\n]+\n?([\s\S]*)/.exec(course);
     if (courseDays[1] !== "") {
-      let rows = courseDays[1].trim().split("\n");
+      let rows = courseDays[1].trim().split("\n\n")[0].split("\n");
       for (let j of rows) {
         let timeMatch = /([^\s]*) dalle (\d{2}):(\d{2}) alle (\d{2}):(\d{2})/i.exec(j);
         let noRoomTest = /.*? Aula al momento non disponibile.*/; //TODO find english version
