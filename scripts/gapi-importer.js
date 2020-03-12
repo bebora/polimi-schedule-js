@@ -98,16 +98,22 @@ function importMultipleEvents(genericEvents, calendarId) {
     }
     events.push(resource);
   });
-  for (let e of events) {
-    gapi.client.calendar.events.insert({
-      "calendarId": calendarId,
-      "resource": e
-    })
-      .then(function (response) {
-        console.log("Response", response.result);
-      },
-        function (err) { console.error("Execute error", err); });
-  }
+  document.getElementById("importProgress").style.display = "block";
+  const promises = events.map(e => gapi.client.calendar.events.insert({"calendarId": calendarId, resource: e}));
+  Promise.all(promises).then(
+    function(values) {
+      console.log("Imported "+values.length+" events");
+      document.getElementById("importProgress").style.display = "none";
+      document.getElementById("importOk").style.display = "block";
+      setTimeout(function () { document.getElementById("importOk").style.display = "none"; }, 5000);
+    },
+    function (err) {
+      document.getElementById("importProgress").style.display = "none";
+      document.getElementById("importFail").style.display = "block";
+      setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 3000);
+      console.log("Unable to import some events to Calendar", err);
+    }
+  )
 }
 
 function getCalendars() {
@@ -142,12 +148,15 @@ function handleGcalendarImport(genericEvents) {
         document.getElementById("creationProgress").style.display = "none";
         document.getElementById("creationOk").style.display = "block";
         setTimeout(function () { document.getElementById("creationOk").style.display = "none"; }, 3000);
-        console.log(response.result);
         calendarId = response.result.id;
-        console.log(calendarId);
         importMultipleEvents(genericEvents, calendarId);
       },
-        function (err) { console.error("Execute error", err); });
+        function (err) {
+          document.getElementById("creationProgress").style.display = "none";
+          document.getElementById("creationFail").style.display = "block";
+          setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 5000);
+          console.error("Execute error", err);
+        });
   }
   else {
     const calendarIdOptions = document.getElementById("calendarId");

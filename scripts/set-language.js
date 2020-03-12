@@ -12,6 +12,7 @@ const strings = {
             "importButtonText": "Import",
             "creationProgress": "Creating calendar...",
             "creationOk": "Calendar created",
+            "creationFail": "Unable to create calendar",
             "homeOverview": "Convert the timetable of the Politecnico di Milano courses into an iCalendar file or import it into Google Calendar",
             "homeInfo": "PoliMi doesn't have any way to import the courses schedule into external calendars. With this converter you can transform the text timetable into a standard calendar format, iCalendar. Events in this format can be imported easily into most of calendar services and applications. In the following links you can see how to import them on some popular services:",
             "homeImportGoogle": "Import to Google Calendar",
@@ -25,7 +26,10 @@ const strings = {
             "gcalendarHead": "Google Calendar integration",
             "gcalendarText": "The app can directly insert events Google Calendar to simplify the import, without having to download any file.<br>In order to do so, it explicitly requests user consent to connect to their Google account. Specifically, the app needs to read the names of existing calendars to list them when the user chooses where to import the events. The user may want to create a new calendar for the events, so the app also needs write access on Google Calendar. Full access permissions(read+write) are then needed for the correct app operations, but it doesn't and will never use them for purposes other than those described here.<br>You can read the complete privacy policy by clicking on the link at the bottom of the page.",
             "homepageFooter": "Home + How to use",
-            "howToLink": "How to use"
+            "howToLink": "How to use",
+            "importProgress": "Importing events...",
+            "importOk": "Events imported",
+            "importFail": "Unable to import the events"
         },
         "placeholder": {
             "input": "Paste lessons copied from the text timetable"
@@ -39,11 +43,12 @@ const strings = {
             "error": "Errore! Non riesco a generare il calendario",
             "selectCalText": "Seleziona il calendario dove importare gli eventi",
             "orSelect": "oppure",
-            "newCalendarLabel": " Create nuovo calendario",
+            "newCalendarLabel": " Crea nuovo calendario",
             "newNameLabel": "Nome:",
             "importButtonText": "Importa",
             "creationProgress": "Creando il calendario...",
             "creationOk": "Calendario creato",
+            "creationFail": "Creazione calendario fallita",
             "homeOverview": "Converti le lezioni del Politecnico di Milano in un file iCalendar o importale su Google Calendar",
             "homeInfo": "Il PoliMi non consente normalmente di importare gli orari delle lezioni su calendari esterni. Con questo convertitore è possibile trasformare l'orario testuale dei Servizi Online in un calendario in formato standard, ovvero iCalendar. Gli orari in formato iCalendar possono essere importati facilmente nella maggior parte delle applicazioni o servizi di calendario. Per esempio, nelle seguenti pagine è descritto come importare file iCalendar su alcuni servizi popolari:",
             "homeImportGoogle": "Importazione su Google Calendar",
@@ -57,7 +62,10 @@ const strings = {
             "gcalendarHead": "Integrazione con Google Calendar",
             "gcalendarText": "L'app può inserire gli eventi su Google Calendar direttamente per semplificare il più possibile l'importazione, senza dover scaricare nessun file.<br>Per fare ciò, richiede esplicitamente il consenso dell'utente per collegarsi all'account Google. In particolare, l'app ha bisogno di leggere i nomi dei calendari esistenti per poi proporli se l'utente vuole importare gli eventi in un calendario esistente. L'utente può voler creare un nuovo calendario per gli eventi, quindi l'app ha bisogno anche dei permessi in scrittura sul calendario Google. Sono necessari quindi permessi completi sul calendario, ma l'app non usa ora né userà mai i permessi per scopi differenti da quelli qui descritti.<br>È possibile vedere la privacy policy completa cliccando sul link a fondo pagina.",
             "homepageFooter": "Home + Istruzioni d'uso",
-            "howToLink": "Istruzioni"
+            "howToLink": "Istruzioni",
+            "importProgress": "Importando gli eventi...",
+            "importOk": "Eventi importati",
+            "importFail": "Impossibile importare gli eventi"
         },
         "placeholder": {
             "input": "Incolla le lezioni copiate dall'orario testuale"
