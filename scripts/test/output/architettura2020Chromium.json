@@ -1,0 +1,65 @@
+[
+    {
+        "summary": "CI MATEMATICA",
+        "start": "2019-10-08T13:15:00.000Z",
+        "end": "2019-10-08T16:15:00.000Z",
+        "duration": 3,
+        "dtstamp": "2020-03-13T14:32:08.129Z",
+        "location": "B.5.5 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quinto)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200114T235959Z"
+    },
+    {
+        "summary": "CI MATEMATICA",
+        "start": "2019-10-10T12:15:00.000Z",
+        "end": "2019-10-10T15:15:00.000Z",
+        "duration": 3,
+        "dtstamp": "2020-03-13T14:32:08.130Z",
+        "location": "25.S.3 (EX D.0.4) (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200116T235959Z"
+    },
+    {
+        "summary": "FONDAMENTI DELLA RAPPRESENTAZIONE",
+        "start": "2019-10-07T11:15:00.000Z",
+        "end": "2019-10-07T17:15:00.000Z",
+        "duration": 6,
+        "dtstamp": "2020-03-13T14:32:08.132Z",
+        "location": "Q.1 (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200113T235959Z"
+    },
+    {
+        "summary": "STORIA DELL'ARCHITETTURA 1",
+        "start": "2019-10-08T08:15:00.000Z",
+        "end": "2019-10-08T11:15:00.000Z",
+        "duration": 3,
+        "dtstamp": "2020-03-13T14:32:08.133Z",
+        "location": "A - ALDO ROSSI (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200114T235959Z"
+    },
+    {
+        "summary": "STORIA DELL'ARCHITETTURA 1",
+        "start": "2019-10-10T06:15:00.000Z",
+        "end": "2019-10-10T09:15:00.000Z",
+        "duration": 3,
+        "dtstamp": "2020-03-13T14:32:08.134Z",
+        "location": "B.2.1 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200116T235959Z"
+    },
+    {
+        "summary": "LABORATORIO DI PROGETTAZIONE ARCHITETTONICA 1",
+        "start": "2019-10-09T12:15:00.000Z",
+        "end": "2019-10-09T17:15:00.000Z",
+        "duration": 5,
+        "dtstamp": "2020-03-13T14:32:08.135Z",
+        "location": "B.3.2 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Secondo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200603T235959Z"
+    },
+    {
+        "summary": "LABORATORIO DI PROGETTAZIONE ARCHITETTONICA 1",
+        "start": "2019-10-09T07:15:00.000Z",
+        "end": "2019-10-09T11:15:00.000Z",
+        "duration": 4,
+        "dtstamp": "2020-03-13T14:32:08.135Z",
+        "location": "B.3.2 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Secondo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200603T235959Z"
+    }
+]

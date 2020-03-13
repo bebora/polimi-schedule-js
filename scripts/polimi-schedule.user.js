@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     polimi-schedule-js
-// @version  1.3
+// @version  1.0.3
 // @require  https://raw.githubusercontent.com/eligrey/FileSaver.js/master/dist/FileSaver.js
 // @require  https://raw.githubusercontent.com/angeloashmore/ics-js/master/dist/ics-js.js
 // @require  schedule-to-ical.js

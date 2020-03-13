@@ -1,0 +1,28 @@
+{
+  "name": "polimi-schedule-js",
+  "version": "1.0.0",
+  "description": "Convert PoliMi timetables to ICS files",
+  "main": "schedule-to-ical.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bebora/polimi-schedule-js.git"
+  },
+  "keywords": [
+    "PoliMi",
+    "orari",
+    "ics",
+    "calendar"
+  ],
+  "author": "bebora@github",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bebora/polimi-schedule-js/issues"
+  },
+  "homepage": "https://github.com/bebora/polimi-schedule-js#readme",
+  "devDependencies": {
+    "mocha": "^7.1.0"
+  }
+}

@@ -1,0 +1,92 @@
+[
+    {
+        "summary": "ANALISI MATEMATICA 1",
+        "start": "2019-09-16T13:15:00.000Z",
+        "end": "2019-09-16T15:15:00.000Z",
+        "duration": 2,
+        "dtstamp": "2020-03-13T13:36:31.015Z",
+        "location": "25.S.1 (EX D.0.1) (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20191216T235959Z"
+    },
+    {
+        "summary": "ANALISI MATEMATICA 1",
+        "start": "2019-09-17T07:15:00.000Z",
+        "end": "2019-09-17T09:15:00.000Z",
+        "duration": 2,
+        "dtstamp": "2020-03-13T13:36:31.015Z",
+        "location": "26.12 (EX L.26.12) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20191217T235959Z"
+    },
+    {
+        "summary": "ANALISI MATEMATICA 1",
+        "start": "2019-09-20T08:15:00.000Z",
+        "end": "2019-09-20T11:15:00.000Z",
+        "duration": 3,
+        "dtstamp": "2020-03-13T13:36:31.015Z",
+        "location": "5.02 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20191220T235959Z"
+    },
+    {
+        "summary": "DISEGNO EDILE",
+        "start": "2019-09-18T06:15:00.000Z",
+        "end": "2019-09-18T11:15:00.000Z",
+        "duration": 5,
+        "dtstamp": "2020-03-13T13:36:31.016Z",
+        "location": "26.13 (EX L.26.13) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20191218T235959Z"
+    },
+    {
+        "summary": "DISEGNO EDILE",
+        "start": "2019-09-19T12:15:00.000Z",
+        "end": "2019-09-19T16:15:00.000Z",
+        "duration": 4,
+        "dtstamp": "2020-03-13T13:36:31.016Z",
+        "location": "26.13 (EX L.26.13) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20191219T235959Z"
+    },
+    {
+        "summary": "FONDAMENTI DI INFORMATICA",
+        "start": "2019-09-19T06:15:00.000Z",
+        "end": "2019-09-19T11:15:00.000Z",
+        "duration": 5,
+        "dtstamp": "2020-03-13T13:36:31.017Z",
+        "location": "26.13 (EX L.26.13) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20191219T235959Z"
+    },
+    {
+        "summary": "STORIA DELL'ARCHITETTURA E DELLE TECNICHE COSTRUTTIVE",
+        "start": "2019-09-18T12:15:00.000Z",
+        "end": "2019-09-18T16:15:00.000Z",
+        "duration": 4,
+        "dtstamp": "2020-03-13T13:36:31.017Z",
+        "location": "B.2.1 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20191218T235959Z"
+    },
+    {
+        "summary": "STRUTTURA, PROPRIETA' E APPLICAZIONI DEI MATERIALI",
+        "start": "2020-02-24T13:15:00.000Z",
+        "end": "2020-02-24T15:15:00.000Z",
+        "duration": 2,
+        "dtstamp": "2020-03-13T13:36:31.017Z",
+        "location": "B.2.4 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200601T235959Z"
+    },
+    {
+        "summary": "STRUTTURA, PROPRIETA' E APPLICAZIONI DEI MATERIALI",
+        "start": "2020-02-26T08:15:00.000Z",
+        "end": "2020-02-26T10:15:00.000Z",
+        "duration": 2,
+        "dtstamp": "2020-03-13T13:36:31.017Z",
+        "location": "25.S.1 (EX D.0.1) (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200603T235959Z"
+    },
+    {
+        "summary": "STRUTTURA, PROPRIETA' E APPLICAZIONI DEI MATERIALI",
+        "start": "2020-02-28T13:15:00.000Z",
+        "end": "2020-02-28T16:15:00.000Z",
+        "duration": 3,
+        "dtstamp": "2020-03-13T13:36:31.017Z",
+        "location": "B.2.4 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+        "rrule": "FREQ=WEEKLY;UNTIL=20200605T235959Z"
+    }
+]
