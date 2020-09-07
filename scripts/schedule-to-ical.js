@@ -30,7 +30,7 @@
       return [];
     }
     let courseName = titleMatch[2];
-    let datesRegex = /(1|2|A|Annual(?:e*))\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4}) (?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
+    let datesRegex = /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
     let datesGroups = [...course.matchAll(datesRegex)];
     // Some annual courses consist of two courses, but the main course heading does not have any relevant event data. On the other hand, some courses also have information in the first section and it should't be removed
     if (datesGroups.length > 1) {
@@ -162,3 +162,4 @@
   exports.parseText = parseText;
   exports.getIcalendar = getIcalendar;
 })(typeof exports === 'undefined'? this : exports);
+
