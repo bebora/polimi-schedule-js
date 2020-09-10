@@ -94,7 +94,7 @@ function importMultipleEvents(genericEvents, calendarId) {
     if (item.location !== undefined) {
       resource.location = item.location;
     }
-    if (item.lossontype !== undefined) {
+    if (item.lessontype !== undefined) {
       resource.description = item.lessontype;
     }
     if (item.rrule !== undefined) {
