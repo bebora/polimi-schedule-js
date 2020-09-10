@@ -89,12 +89,19 @@ function importMultipleEvents(genericEvents, calendarId) {
         "dateTime": item.end.toISOString(),
         "timeZone": "Europe/Rome"
       },
-      "recurrence": [
-        "RRULE:" + item.rrule
-      ]
+      "recurrence": []
     };
-    if (item.location !== null) {
+    if (item.location !== undefined) {
       resource.location = item.location;
+    }
+    if (item.lossontype !== undefined) {
+      resource.description = item.lessontype;
+    }
+    if (item.rrule !== undefined) {
+      resource.recurrence.push("RRULE:" + item.rrule);
+    }
+    if (item.rdate !== undefined) {
+      resource.recurrence.push("RDATE:" + item.rdate);
     }
     events.push(resource);
   });
