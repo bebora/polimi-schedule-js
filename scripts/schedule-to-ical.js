@@ -91,18 +91,19 @@
         firstEnd.setHours(endHour);
         firstEnd.setMinutes(endMinute);
         let textualTime = ("0" + (firstDay.getHours())).slice(-2) + ("0" + firstDay.getMinutes()).slice(-2) + "00Z";
-        events.push(
-          {
+        let event = {
             "summary": courseName,
             "start": firstDay,
             "end": firstEnd,
             "duration": endHour - startHour, //TODO duration is redundant, check ical validity using only dtstart and dtend
             "dtstamp": new Date(),
             "location": location,
-            "lessontype": lessonType[0].toUpperCase()+lessonType.substring(1),
-            "rdate": dates.map(createDateFromText).map(dateToRuleText).map(onlydate => onlydate.concat("T"+textualTime)).join(',')
-          }
-        );
+            "lessontype": lessonType[0].toUpperCase()+lessonType.substring(1)
+        }
+        if (dates.length > 0) {
+          event.rdate = dates.map(createDateFromText).map(dateToRuleText).map(onlydate => onlydate.concat("T"+textualTime)).join(',');
+        }
+        events.push(event);
       }
     }
     else {
