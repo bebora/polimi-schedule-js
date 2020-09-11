@@ -143,7 +143,7 @@ function getCalendars() {
 function handleGcalendarImport(genericEvents) {
   const checkBox = document.getElementById("newCalendar");
   let calendarId = null;
-  if (checkBox.checked == true) {
+  if (checkBox.checked === true) {
     document.getElementById("creationProgress").style.display = "block";
     const newName = document.getElementById("newName").value;
     gapi.client.calendar.calendars.insert({

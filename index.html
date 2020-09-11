@@ -84,8 +84,8 @@
   <script>
     document.getElementById("download").addEventListener("click", function () {
       let icsContent = getIcalendar(document.getElementById("input").value);
-      if (icsContent == "") {
-        document.getElementById("error").style.display = "inline-block"
+      if (icsContent === "") {
+        document.getElementById("error").style.display = "inline-block";
         setTimeout(function () {
           document.getElementById("error").style.display = "none";
         }, 3000);
@@ -98,7 +98,7 @@
     document.getElementById("import_button").addEventListener("click", function () {
       const events = parseText(document.getElementById("input").value);
       if (events === null || events.length === 0) {
-        document.getElementById("error").style.display = "inline-block"
+        document.getElementById("error").style.display = "inline-block";
         setTimeout(function () {
           document.getElementById("error").style.display = "none";
         }, 3000);
@@ -111,7 +111,7 @@
     document.getElementById("import-gcal").addEventListener("click", function () {
       showOverlay();
     });
-    document.getElementById("pop-window").addEventListener("click", function (e) { e.stopPropagation(); })
+    document.getElementById("pop-window").addEventListener("click", function (e) { e.stopPropagation(); });
     function hideOverlay() {
       document.getElementById("pop-bg").style.display = "none";
     }
@@ -121,7 +121,7 @@
     function displayNewName() {
       const checkBox = document.getElementById("newCalendar");
       const inputElem = document.getElementById("inputElem");
-      if (checkBox.checked == true) {
+      if (checkBox.checked === true) {
         inputElem.style.display = "block";
       } else {
         inputElem.style.display = "none";

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     polimi-schedule-js
-// @version  1.0.3
+// @version  1.0.4
 // @require  https://raw.githubusercontent.com/eligrey/FileSaver.js/master/dist/FileSaver.js
 // @require  https://raw.githubusercontent.com/angeloashmore/ics-js/master/dist/ics-js.js
 // @require  schedule-to-ical.js
@@ -10,7 +10,6 @@
 // ==/UserScript==
 
 
-//TODO add EXDATE for holidays
 
 
 function sleep(ms) {
@@ -27,7 +26,7 @@ async function addDownloadButton() {
         showButton = true;
       let ulOrarioTestuale = document.getElementsByClassName("ui-tabs-nav ui-helper-reset ui-helper-clearfix")[0];
       let sectionButton = ulOrarioTestuale.children[0].children[0];
-      if (sectionButton.innerText.indexOf("iCalendar") == -1) {
+      if (sectionButton.innerText.indexOf("iCalendar") === -1) {
         sectionButton.innerText += " + file iCalendar";
       }
       let tdOrarioTestuale = document.getElementsByClassName("ElementInfoCard2 ui-corner-bottom")[0]; //Better not to use getElementById because target id is duplicated (#orarioTestuale)
@@ -76,4 +75,4 @@ async function addDownloadButton() {
 }
 
 
-addDownloadButton()
+addDownloadButton();
