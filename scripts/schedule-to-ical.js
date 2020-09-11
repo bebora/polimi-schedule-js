@@ -30,16 +30,12 @@
     "nov": 10,
     "dec": 11,
     "gen": 0,
-    "feb": 1,
-    "mar": 2,
-    "apr": 3,
     "mag": 4,
     "giu": 5,
     "lug": 6,
     "ago": 7,
     "set": 8,
     "ott": 9,
-    "nov": 10,
     "dic": 11
   };
 
@@ -50,7 +46,7 @@
   function createDateFromText(text) { //text is something like 01-ott-2020
     let date = new Date();
     let pieces = text.split("-");
-    date.setFullYear(parseInt(pieces[2]), months[pieces[1].toLowerCase()], parseInt(pieces[0]))
+    date.setFullYear(parseInt(pieces[2]), months[pieces[1].toLowerCase()], parseInt(pieces[0]));
     date.setSeconds(0, 0);
     return date;
   }
@@ -62,17 +58,17 @@
     if (noLessonTest.test(course) || noScheduleTest.test(course)) {
       return [];
     }
-    const titleRegex = /(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):.*\)|$)/m;
-    let titleMatch = titleRegex.exec(course);
-    if (titleMatch === null) {
+    const titleRegex = /^\s*(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):.*\)|$)/gm;
+    let titles = [...course.matchAll(titleRegex)];
+    if (titles.length === 0) {
       return [];
     }
-    let courseName = titleMatch[2];
-    const eventsWithoutDateIntervalTest =  /^\s*(?:Semestre|Semester):\s*(1|2|Annual(?:e?))\s*$/gm;
-    if (eventsWithoutDateIntervalTest.test(course)) { //New calendar format
+    let courseName = titles[titles.length - 1][2];
+    const datesRegex = /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
+    if (!datesRegex.test(course)) { //New calendar format
       let timeLocationRegex = /^\s*([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2}), (.+?(?=\sin\s)) in (?:the)?\s*(?:aula|classroom|lecture theatre)\s*(.*)$/gmi;
       let timesLocations = [...course.split(timeLocationRegex)];
-      timesLocations.splice(0,1); //Remove the first match as it is the course intestation, which has already been parsed
+      timesLocations.splice(0,1); //Remove the first match as it is the course heading, which has already been parsed
       let regexCapturingGroups = 8;
       let numberTimesLocations = timesLocations.length / regexCapturingGroups; //The array contains (n * number of captured groups each time) elements
       for (let i=0; i < numberTimesLocations; i++) {
@@ -99,7 +95,7 @@
             "dtstamp": new Date(),
             "location": location,
             "lessontype": lessonType[0].toUpperCase()+lessonType.substring(1)
-        }
+        };
         if (dates.length > 0) {
           event.rdate = dates.map(createDateFromText).map(dateToRuleText).map(onlydate => onlydate.concat("T"+textualTime)).join(',');
         }
@@ -107,7 +103,7 @@
       }
     }
     else {
-      let datesRegex = /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
+      datesRegex.lastIndex = 0;
       let datesGroups = [...course.matchAll(datesRegex)];
       // Some annual courses consist of two courses, but the main course heading does not have any relevant event data. On the other hand, some courses also have information in the first section and it should't be removed
       if (datesGroups.length > 1) {
