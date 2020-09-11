@@ -207,9 +207,9 @@
 
   function getIcalendar(allCourses, logError = true) {
     let events = parseText(allCourses);
-    if (events === null) {
+    if (events === null || events.length === 0) {
       if (logError) {
-        alert("Unable to parse courses data! Text may be invalid or empty.");
+        alert("Unable to create iCalendar file! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer.");
       }
       return "";
     }

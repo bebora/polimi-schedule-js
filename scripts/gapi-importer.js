@@ -119,6 +119,7 @@ function importMultipleEvents(genericEvents, calendarId) {
       document.getElementById("importFail").style.display = "block";
       setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 3000);
       console.log("Unable to import some events to Calendar", err);
+      alert("Something went wrong while importing to Google Calendar! If you think your text is correct, retry and/or contact the website maintainer.");
     }
   )
 }

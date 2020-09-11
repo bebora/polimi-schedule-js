@@ -102,6 +102,7 @@
         setTimeout(function () {
           document.getElementById("error").style.display = "none";
         }, 3000);
+        alert("Unable to parse courses data! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer.");
       }
       else {
         handleGcalendarImport(events);
