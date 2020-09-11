@@ -33,6 +33,7 @@
       </span>
     </div>
     <textarea id="input" placeholder="Incolla le lezioni copiate dall'orario testuale"></textarea>
+    <label id="inputLabel" for="input" class="hideLabel">Incolla le lezioni copiate dall'orario testuale</label>
     <button id="download" class="btn"><i class="fa fa-download" aria-hidden="true"></i><span id="saveFile"> Salva su file</span></button>
     <button id="import-gcal" class="btn btn-blue"><i class="fab fa-google"></i><span id="importToGcal"> Importa su Google Calendar</span></button>
     <p id="error">Errore! Non riesco a generare il calendario</p>
@@ -57,6 +58,7 @@
           <div id="select-cal">
             <p id="selectCalText">Seleziona il calendario dove importare gli eventi</p>
             <select id="calendarId" style="font-size: 20px; max-width: 100%;"></select>
+            <label id="calendarIdLabel" for="calendarId" class="hideLabel">Selezione calendario esistente</label>
           </div>
           <p id="orSelect">oppure</p>
           <div>

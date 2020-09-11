@@ -2,10 +2,12 @@ const strings = {
     "en": {
         "text": {
             "title": "PoliMi schedule converter",
+            "inputLabel": "Paste lessons copied from the text timetable",
             "saveFile": " Save to file",
             "importToGcal": " Import to Google Calendar",
             "error": "Error! Unable to generate the calendar",
             "selectCalText": "Choose which calendar to add the events to",
+            "calendarIdLabel": "Choose an existing calendar",
             "orSelect": "or",
             "newCalendarLabel": " Create new calendar",
             "newNameLabel": "Name:",
@@ -38,10 +40,12 @@ const strings = {
     "it": {
         "text": {
             "title": "Convertitore orario PoliMi",
+            "inputLabel": "Incolla le lezioni copiate dall'orario testuale",
             "saveFile": " Salva su file",
             "importToGcal": " Importa su Google Calendar",
             "error": "Errore! Non riesco a generare il calendario",
             "selectCalText": "Seleziona il calendario dove importare gli eventi",
+          "calendarIdLabel": "Scegli un calendario esistente",
             "orSelect": "oppure",
             "newCalendarLabel": " Crea nuovo calendario",
             "newNameLabel": "Nome:",
@@ -71,10 +75,10 @@ const strings = {
             "input": "Incolla le lezioni copiate dall'orario testuale"
         }
     }
-}
+};
 
 function setLanguage(lang) {
-    let tempLang = "en"
+    let tempLang = "en";
     if (lang in strings) {
         tempLang = lang;
     }
