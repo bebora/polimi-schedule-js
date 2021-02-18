@@ -13,8 +13,10 @@ function eventsMatch(input, expected) {
         for (let b of expected) {
             let aProps = Object.getOwnPropertyNames(a);
             let bProps = Object.getOwnPropertyNames(b);
+            // aProps and bProps could be of different length in the same file e.g. when some events do have an rdate and some doesn't. The events would not match, so we can skip.
             if (aProps.length !== bProps.length) {
-                throw Error("Expected and actual does not have the same number of properties.\n"+aProps+"\n"+bProps);
+              // throw Error("Expected and actual does not have the same number of properties.\n"+aProps+"\n"+bProps);
+              continue;
             }
             let innerMatch = true;
             for (let i = 0; i < aProps.length; i++) {
@@ -44,4 +46,4 @@ describe("Timetable conversion", function(){
             assert.equal(match, true);
         })
     }
-})
+});
