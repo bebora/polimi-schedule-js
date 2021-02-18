@@ -108,31 +108,22 @@
       // Some annual courses consist of two courses, but the main course heading does not have any relevant event data. On the other hand, some courses also have information in the first section and it should't be removed
       if (datesGroups.length > 1) {
         let subCourses = [];
-        if (course.includes("\n\n")) { //For Firefox
-          subCourses = course.split("\n\n");
-        }
-        else { //For Chromium based browsers
-          let aggregate = false;
-          let tempCourse = "";
-          for (let row of course.split("\n")) {
-            if (titleRegex.test(row)) {
-              if (aggregate === false) {
-                aggregate = true;
-                tempCourse = row;
-              }
-              else {
-                aggregate = false;
-                subCourses.push(tempCourse);
-                tempCourse = row;
-              }
-            }
-            else {
-              tempCourse += "\n" + row;
-            }
+        let tempCourse = "";
+        for (let row of course.split("\n")) {
+          if (titleRegex.test(row)) {
+            tempCourse = tempCourse.trim();
+            if (tempCourse !== "")
+              subCourses.push(tempCourse);
+            tempCourse = row;
           }
-          subCourses.push(tempCourse);
+          else {
+            tempCourse += "\n" + row;
+          }
         }
-        return [...parseCourse(subCourses[0]), ...parseCourse(subCourses.slice(1).join("\n\n"))];
+        tempCourse = tempCourse.trim();
+        if (tempCourse !== "")
+          subCourses.push(tempCourse);
+        return [...parseCourse(subCourses[0]), ...parseCourse(subCourses.slice(1).join("\n"))];
       }
       else if (datesGroups.length === 1) {
         let datesMatch = datesGroups[0];
