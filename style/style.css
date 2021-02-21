@@ -168,6 +168,20 @@ body {
   padding-right: 10px;
 }
 
+.title-container {
+  background: url("../images/logo.png") no-repeat;
+  display: inline-block;
+  background-size: 48px 48px;
+  height: 48px;
+  padding-left: 58px;
+}
+
+.title-container h1 {
+  height: 48px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
 #title {
   display: table-cell;
   vertical-align:middle;
