@@ -38,6 +38,21 @@
     "ott": 9,
     "dic": 11
   };
+  const languageLookup = {
+    "Lezione": "it",
+    "Esercitazione": "it",
+    "Laboratorio informatico": "it",
+    "Laboratorio": "it",
+    "Lesson": "en",
+    "Training": "en",
+    "Laboratory": "en",
+    "Computer laboratory": "en"
+  };
+
+  const professorsLookup = {
+    "it": {"one": "Docente:", "many": "Docenti:"},
+    "en": {"one": "Professor:", "many": "Professors:"}
+  };
 
   function dateToRuleText(date) {
     return date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2);
@@ -51,18 +66,63 @@
     return date;
   }
 
-  function parseCourse(course) {
+  function buildProfessorsList(course, alreadyMatchedTitles) {
+    let professorNames = [];
+
+    for (let title of alreadyMatchedTitles) {
+      if (title[3] !== undefined) //Some courses composed of multiple subcourses does not have the professor name at the start
+        professorNames.push(title[3].trim());
+    }
+    const virtualClassroomRegex = /^\s*(?:Aula virtuale|Virtual classroom)\s*-\s*(.*)$/gm;
+    let virtualClassrooms = [...course.matchAll(virtualClassroomRegex)];
+
+    for (let virtualClassroom of virtualClassrooms) {
+      professorNames.push(virtualClassroom[1].trim());
+    }
+    professorNames = [...new Set(professorNames)];
+
+    return professorNames;
+  }
+
+  function getProfessorString(lessonType, professorNames) {
+    let pluralSelector = null;
+    let languageTable = professorsLookup[languageLookup[lessonType] || "en"];
+
+    if (professorNames.length === 1) {
+      pluralSelector = "one";
+    }
+    else if (professorNames.length > 1) {
+      pluralSelector = "many";
+    }
+
+    let professorString = "";
+    if (pluralSelector != null) {
+      professorString = languageTable[pluralSelector];
+    }
+
+    return professorString;
+  }
+
+  /**
+   * @param {String[]} professorNames - list of professor names to use. If null, create them from scratch
+   * **/
+  function parseCourse(course, professorNames=null) {
     let events = [];
     let noLessonTest = /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
     let noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
     if (noLessonTest.test(course) || noScheduleTest.test(course)) {
       return [];
     }
-    const titleRegex = /^\s*(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):.*\)|$)/gm;
+    const titleRegex = /^\s*(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):(.*)\)|$)/gm;
     let titles = [...course.matchAll(titleRegex)];
     if (titles.length === 0) {
       return [];
     }
+
+    if (professorNames === null) {
+      professorNames = buildProfessorsList(course, titles);
+    }
+
     let courseName = titles[titles.length - 1][2];
     const datesRegex = /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
     if (!datesRegex.test(course)) { //New calendar format
@@ -78,6 +138,7 @@
         let endHour = timesLocations[i*regexCapturingGroups+3];
         let endMinute = timesLocations[i*regexCapturingGroups+4];
         let lessonType = timesLocations[i*regexCapturingGroups+5];
+        lessonType = lessonType[0].toUpperCase()+lessonType.substring(1);
         let location = timesLocations[i*regexCapturingGroups+6];
         let dates = timesLocations[i*regexCapturingGroups+7].split("\n\n")[0].trim().split("\n");
         let firstDay = createDateFromText(dates.splice(0, 1)[0]);
@@ -87,6 +148,8 @@
         firstEnd.setHours(endHour);
         firstEnd.setMinutes(endMinute);
         let textualTime = ("0" + (firstDay.getHours())).slice(-2) + ("0" + firstDay.getMinutes()).slice(-2) + "00Z";
+
+        let professorString = getProfessorString(lessonType, professorNames);
         let event = {
             "summary": courseName,
             "start": firstDay,
@@ -94,7 +157,7 @@
             "duration": endHour - startHour, //TODO duration is redundant, check ical validity using only dtstart and dtend
             "dtstamp": new Date(),
             "location": location,
-            "lessontype": lessonType[0].toUpperCase()+lessonType.substring(1)
+            "description": lessonType + "\n" + professorString + "\n" + professorNames.join("\n")
         };
         if (dates.length > 0) {
           event.rdate = dates.map(createDateFromText).map(dateToRuleText).map(onlydate => onlydate.concat("T"+textualTime)).join(',');
@@ -123,7 +186,7 @@
         tempCourse = tempCourse.trim();
         if (tempCourse !== "")
           subCourses.push(tempCourse);
-        return [...parseCourse(subCourses[0]), ...parseCourse(subCourses.slice(1).join("\n"))];
+        return [...parseCourse(subCourses[0], professorNames), ...parseCourse(subCourses.slice(1).join("\n"), professorNames)];
       }
       else if (datesGroups.length === 1) {
         let datesMatch = datesGroups[0];
@@ -158,10 +221,14 @@
             let firstEnd = new Date(firstDay);
             firstEnd.setHours(timeMatch[4], timeMatch[5], 0);
             let location = null;
+            let lessonType = null;
             if (!noRoomTest.test(j)) {
-              let roomMatch = /(?:aula|classroom|lecture theatre) (.*)/.exec(j);
-              location = roomMatch[1];
+              let roomMatch = /,\s*(.+)\s+in\s+(?:.*)(?:aula|classroom|lecture theatre) (.*)/.exec(j);
+              lessonType = roomMatch[1][0].toUpperCase() + roomMatch[1].substring(1);
+              location = roomMatch[2];
             }
+            let professorString = getProfessorString(lessonType, professorNames);
+
             events.push(
               {
                 "summary": courseName,
@@ -170,7 +237,8 @@
                 "duration": timeMatch[4] - timeMatch[2],
                 "dtstamp": new Date(),
                 "location": location,
-                "rrule": "FREQ=WEEKLY;UNTIL=" + lastDay.getFullYear() + ("0" + (lastDay.getMonth() + 1)).slice(-2) + ("0" + lastDay.getDate()).slice(-2) + "T235959Z"
+                "rrule": "FREQ=WEEKLY;UNTIL=" + lastDay.getFullYear() + ("0" + (lastDay.getMonth() + 1)).slice(-2) + ("0" + lastDay.getDate()).slice(-2) + "T235959Z",
+                "description": lessonType + "\n" + professorString + "\n" + professorNames.join("\n")
               }
             );
           }
@@ -182,7 +250,11 @@
 
   function parseText(allCourses) {
     try {
-      const separator = "\n\n\n";
+      let separator = "\n\n\n";
+
+      if (allCourses.trim().includes("\n\n\n\n")) {
+        separator = "\n\n\n\n"; //FIXME workaround fails if there is a single course that is formatted as the MIDA course contained in test/input/computerScienceDoppioCorso2020Firefox.txt
+      }
       let coursesList = allCourses.trim().split(separator);
       let events = [];
       for (let wholeCourse of coursesList) {
@@ -218,8 +290,8 @@
         if (e.location !== undefined) {
           icalEvent.addProp("LOCATION", e.location);
         }
-        if (e.lessontype !== undefined) {
-          icalEvent.addProp("DESCRIPTION", e.lessontype);
+        if (e.description !== undefined) {
+          icalEvent.addProp("DESCRIPTION", e.description.replace(/(?:\n)/g, '\\n'));
         }
         if (e.rrule !== undefined) {
           icalEvent.addProp("RRULE", e.rrule);
