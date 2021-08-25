@@ -107,6 +107,14 @@
    * @param {String[]} professorNames - list of professor names to use. If null, create them from scratch
    * **/
   function parseCourse(course, professorNames=null) {
+    // Workaround for courses that actually contain other courses, such as the MIDA course contained in test/input/computerScienceDoppioCorso2020Firefox.txt
+    if (course.includes("\n\n\n")) {
+      let innerEvents = [];
+      for (let wholeCourse of course.split(/\n\n\n/)) {
+        innerEvents = [...innerEvents, ...parseCourse(wholeCourse.trim())];
+      }
+      return innerEvents;
+    }
     let events = [];
     let noLessonTest = /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
     let noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
@@ -253,7 +261,7 @@
       let separator = "\n\n\n";
 
       if (allCourses.trim().includes("\n\n\n\n")) {
-        separator = "\n\n\n\n"; //FIXME workaround fails if there is a single course that is formatted as the MIDA course contained in test/input/computerScienceDoppioCorso2020Firefox.txt
+        separator = "\n\n\n\n";
       }
       let coursesList = allCourses.trim().split(separator);
       let events = [];
