@@ -4,9 +4,9 @@
     "start": "2020-09-28T08:15:00.000Z",
     "end": "2020-09-28T11:15:00.000Z",
     "duration": 3,
-    "dtstamp": "2021-02-18T15:38:50.401Z",
+    "dtstamp": "2021-08-25T22:12:10.183Z",
     "location": "AULA VIRTUALE 1 (-)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nChizzoniti Domenico Giuseppe",
     "rdate": "20201005T101500Z,20201012T101500Z,20201019T101500Z,20201026T101500Z,20201102T101500Z,20201109T101500Z,20201116T101500Z,20201123T101500Z,20201130T101500Z,20201214T101500Z,20201221T101500Z,20210111T101500Z"
   },
   {
@@ -14,9 +14,9 @@
     "start": "2020-10-08T12:15:00.000Z",
     "end": "2020-10-08T16:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.402Z",
+    "dtstamp": "2021-08-25T22:12:10.183Z",
     "location": "16B.0.1 (-)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nChizzoniti Domenico Giuseppe",
     "rdate": "20201105T141500Z,20201119T141500Z,20201203T141500Z,20201217T141500Z,20210114T141500Z"
   },
   {
@@ -24,18 +24,18 @@
     "start": "2020-10-22T12:15:00.000Z",
     "end": "2020-10-22T16:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.402Z",
+    "dtstamp": "2021-08-25T22:12:10.183Z",
     "location": "IV (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Terra)",
-    "lessontype": "Lezione"
+    "description": "Lezione\nDocente:\nChizzoniti Domenico Giuseppe"
   },
   {
     "summary": "CARATTERI TIPOLOGICI DELL'ARCHITETTURA",
     "start": "2020-10-08T12:15:00.000Z",
     "end": "2020-10-08T16:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.402Z",
+    "dtstamp": "2021-08-25T22:12:10.183Z",
     "location": "III.B (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nChizzoniti Domenico Giuseppe",
     "rdate": "20201022T141500Z,20201105T141500Z,20201119T141500Z,20201203T141500Z,20201217T141500Z,20210114T141500Z"
   },
   {
@@ -43,9 +43,9 @@
     "start": "2020-09-29T15:15:00.000Z",
     "end": "2020-09-29T18:15:00.000Z",
     "duration": 3,
-    "dtstamp": "2021-02-18T15:38:50.403Z",
+    "dtstamp": "2021-08-25T22:12:10.184Z",
     "location": "2.0.1 (EX N.0.1) (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Terra)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nBrunetto Domenico Savio",
     "rdate": "20201006T171500Z,20201013T171500Z,20201020T171500Z,20201027T171500Z,20201103T171500Z,20201110T171500Z,20201117T171500Z,20201124T171500Z,20201201T171500Z,20201215T171500Z,20201222T171500Z,20210112T171500Z"
   },
   {
@@ -53,9 +53,9 @@
     "start": "2020-10-02T08:15:00.000Z",
     "end": "2020-10-02T11:15:00.000Z",
     "duration": 3,
-    "dtstamp": "2021-02-18T15:38:50.403Z",
+    "dtstamp": "2021-08-25T22:12:10.184Z",
     "location": "AULA VIRTUALE 1 (-)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nBrunetto Domenico Savio",
     "rdate": "20201009T101500Z,20201016T101500Z,20201023T101500Z,20201030T101500Z,20201106T101500Z,20201113T101500Z,20201120T101500Z,20201127T101500Z,20201204T101500Z,20201211T101500Z,20201218T101500Z,20210108T101500Z,20210115T101500Z"
   },
   {
@@ -63,9 +63,9 @@
     "start": "2020-09-28T12:15:00.000Z",
     "end": "2020-09-28T14:15:00.000Z",
     "duration": 2,
-    "dtstamp": "2021-02-18T15:38:50.404Z",
+    "dtstamp": "2021-08-25T22:12:10.184Z",
     "location": "AULA VIRTUALE 1 (-)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nBolognesi Cecilia Maria",
     "rdate": "20201005T141500Z,20201012T141500Z,20201019T141500Z,20201026T141500Z,20201102T141500Z,20201109T141500Z,20201116T141500Z,20201123T141500Z,20201130T141500Z,20201214T141500Z,20201221T141500Z,20210111T141500Z"
   },
   {
@@ -73,9 +73,9 @@
     "start": "2020-09-29T08:15:00.000Z",
     "end": "2020-09-29T12:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.404Z",
+    "dtstamp": "2021-08-25T22:12:10.185Z",
     "location": "B.4.1 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quarto)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nBolognesi Cecilia Maria",
     "rdate": "20201006T101500Z,20201013T101500Z,20201020T101500Z,20201027T101500Z,20201103T101500Z,20201110T101500Z,20201117T101500Z,20201124T101500Z,20201201T101500Z,20201215T101500Z,20201222T101500Z,20210112T101500Z"
   },
   {
@@ -83,9 +83,9 @@
     "start": "2020-09-29T08:15:00.000Z",
     "end": "2020-09-29T12:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.404Z",
+    "dtstamp": "2021-08-25T22:12:10.185Z",
     "location": "B.4.4 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quarto)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nBolognesi Cecilia Maria",
     "rdate": "20201006T101500Z,20201013T101500Z,20201020T101500Z,20201027T101500Z,20201103T101500Z,20201110T101500Z,20201117T101500Z,20201124T101500Z,20201201T101500Z,20201215T101500Z,20201222T101500Z,20210112T101500Z"
   },
   {
@@ -93,9 +93,9 @@
     "start": "2020-10-01T12:15:00.000Z",
     "end": "2020-10-01T16:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.405Z",
+    "dtstamp": "2021-08-25T22:12:10.185Z",
     "location": "16B.0.1 (-)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nForni Maria Enrica Marica",
     "rdate": "20201015T141500Z,20201112T141500Z,20201126T141500Z,20201210T141500Z,20210107T141500Z"
   },
   {
@@ -103,18 +103,18 @@
     "start": "2020-10-29T13:15:00.000Z",
     "end": "2020-10-29T17:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.405Z",
+    "dtstamp": "2021-08-25T22:12:10.185Z",
     "location": "16B.1.1 (-)",
-    "lessontype": "Lezione"
+    "description": "Lezione\nDocente:\nForni Maria Enrica Marica"
   },
   {
     "summary": "STORIA DELL'ARCHITETTURA 1",
     "start": "2020-10-01T12:15:00.000Z",
     "end": "2020-10-01T16:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.405Z",
+    "dtstamp": "2021-08-25T22:12:10.186Z",
     "location": "III.B (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nForni Maria Enrica Marica",
     "rdate": "20201015T141500Z,20201029T141500Z,20201112T141500Z,20201126T141500Z,20201210T141500Z,20210107T141500Z"
   },
   {
@@ -122,9 +122,9 @@
     "start": "2020-10-02T12:15:00.000Z",
     "end": "2020-10-02T16:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.405Z",
+    "dtstamp": "2021-08-25T22:12:10.186Z",
     "location": "AULA VIRTUALE 1 (-)",
-    "lessontype": "Lezione",
+    "description": "Lezione\nDocente:\nForni Maria Enrica Marica",
     "rdate": "20201009T141500Z,20201016T141500Z,20201023T141500Z,20201030T141500Z,20201106T141500Z,20201113T141500Z,20201120T141500Z,20201127T141500Z,20201204T141500Z,20201211T141500Z,20201218T141500Z,20210108T141500Z,20210115T141500Z"
   },
   {
@@ -132,9 +132,9 @@
     "start": "2020-09-28T14:15:00.000Z",
     "end": "2020-09-28T16:15:00.000Z",
     "duration": 2,
-    "dtstamp": "2021-02-18T15:38:50.406Z",
+    "dtstamp": "2021-08-25T22:12:10.186Z",
     "location": "AULA VIRTUALE 1 (-)",
-    "lessontype": "Lezione",
+    "description": "Lezione\n\n",
     "rdate": "20201005T161500Z,20201012T161500Z,20201019T161500Z,20201026T161500Z,20201102T161500Z,20201109T161500Z,20201116T161500Z,20201123T161500Z,20201130T161500Z,20201214T161500Z,20201221T161500Z,20210111T161500Z,20210222T161500Z,20210301T161500Z,20210308T161500Z,20210315T161500Z,20210322T161500Z,20210329T161500Z,20210412T161500Z,20210419T161500Z,20210426T161500Z,20210503T161500Z,20210510T161500Z,20210517T161500Z,20210524T161500Z,20210531T161500Z"
   },
   {
@@ -142,9 +142,9 @@
     "start": "2020-09-30T12:15:00.000Z",
     "end": "2020-09-30T16:15:00.000Z",
     "duration": 4,
-    "dtstamp": "2021-02-18T15:38:50.406Z",
+    "dtstamp": "2021-08-25T22:12:10.186Z",
     "location": "B.3.4 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Secondo)",
-    "lessontype": "Lezione",
+    "description": "Lezione\n\n",
     "rdate": "20201007T141500Z,20201014T141500Z,20201021T141500Z,20201028T141500Z,20201104T141500Z,20201111T141500Z,20201118T141500Z,20201125T141500Z,20201202T141500Z,20201209T141500Z,20201216T141500Z,20201223T141500Z,20210113T141500Z,20210224T141500Z,20210303T141500Z,20210310T141500Z,20210317T141500Z,20210324T141500Z,20210331T141500Z,20210407T141500Z,20210414T141500Z,20210421T141500Z,20210428T141500Z,20210505T141500Z,20210512T141500Z,20210519T141500Z,20210526T141500Z"
   }
 ]
