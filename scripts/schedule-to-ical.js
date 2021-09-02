@@ -104,37 +104,44 @@
   }
 
   /**
-   * @param {String[]} professorNames - list of professor names to use. If null, create them from scratch
+   * @param {String[]|null} upperLevelProfessorNames - list of professor names to use. If null, create them from scratch
+   * @param {string|null} subcourseSeparator Separator that is supposed to divide the possible subcourses (usually \n\n for Chromium and \n\n\n for Firefox)
    * **/
-  function parseCourse(course, professorNames=null) {
-    // Workaround for courses that actually contain other courses, such as the MIDA course contained in test/input/computerScienceDoppioCorso2020Firefox.txt
-    if (course.includes("\n\n\n")) {
-      let innerEvents = [];
-      for (let wholeCourse of course.split(/\n\n\n/)) {
-        innerEvents = [...innerEvents, ...parseCourse(wholeCourse.trim())];
-      }
-      return innerEvents;
-    }
-    let events = [];
-    let noLessonTest = /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
-    let noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
-    if (noLessonTest.test(course) || noScheduleTest.test(course)) {
-      return [];
-    }
+  function parseCourse(course, upperLevelProfessorNames= null, subcourseSeparator = null) {
     const titleRegex = /^\s*(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):(.*)\)|$)/gm;
     let titles = [...course.matchAll(titleRegex)];
     if (titles.length === 0) {
       return [];
     }
 
-    if (professorNames === null) {
-      professorNames = buildProfessorsList(course, titles);
+    let professorNames = buildProfessorsList(course, titles);
+
+    if (professorNames.length === 0 && upperLevelProfessorNames !== null) {
+      professorNames = upperLevelProfessorNames;
+    }
+
+    // Workaround for courses that actually contain other courses, such as the MIDA course contained in test/input/computerScienceDoppioCorso2020Firefox.txt
+    if (subcourseSeparator !== null) {
+      if (course.includes(subcourseSeparator)) {
+        let innerEvents = [];
+        for (let wholeCourse of course.split(subcourseSeparator)) {
+          innerEvents = [...innerEvents, ...parseCourse(wholeCourse.trim(), professorNames)];
+        }
+        return innerEvents;
+      }
+    }
+
+    let events = [];
+    let noLessonTest = /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
+    let noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
+    if (noLessonTest.test(course) || noScheduleTest.test(course)) {
+      return [];
     }
 
     let courseName = titles[titles.length - 1][2];
     const datesRegex = /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lesson(?:s*)|Lectures end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
     if (!datesRegex.test(course)) { //New calendar format
-      let timeLocationRegex = /^\s*([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2}), (.+?(?=\sin\s)) in (?:the)?\s*(?:aula|classroom|lecture theatre)\s*(.*)$/gmi;
+      let timeLocationRegex = /^\s*([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2}), (.+?(?=\sin\s|\sClassroom\s|\sAula\s))(?: in (?:the)?\s*(?:aula|classroom|lecture theatre))*\s*(.*)$/gmi;
       let timesLocations = [...course.split(timeLocationRegex)];
       timesLocations.splice(0,1); //Remove the first match as it is the course heading, which has already been parsed
       let regexCapturingGroups = 8;
@@ -266,7 +273,7 @@
       let coursesList = allCourses.trim().split(separator);
       let events = [];
       for (let wholeCourse of coursesList) {
-        events = [...events, ...parseCourse(wholeCourse.trim())];
+        events = [...events, ...parseCourse(wholeCourse.trim(), null, separator.slice(0, -1))];
       }
       return events;
     }
