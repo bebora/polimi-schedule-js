@@ -209,7 +209,7 @@
               //Row may be empty or "Aula virtuale per didattica a distanza" and should be ignored
               continue;
             }
-            let noRoomTest = /.*? Aula al momento non disponibile.*/; //TODO find english version
+            let noRoomTest = /.*? (?:Aula al momento non disponibile|Classroom not available yet).*/;
             let weekDay = weekdays[timeMatch[1]];
             let firstDay = new Date(start);
             if (weekDay < start.getDay()) {
