@@ -104,6 +104,7 @@
   }
 
   /**
+   * @param {string} course textual representation of the course
    * @param {String[]|null} upperLevelProfessorNames - list of professor names to use. If null, create them from scratch
    * @param {string|null} subcourseSeparator Separator that is supposed to divide the possible subcourses (usually \n\n for Chromium and \n\n\n for Firefox)
    * **/
@@ -121,7 +122,7 @@
     }
 
     // Workaround for courses that actually contain other courses, such as the MIDA course contained in test/input/computerScienceDoppioCorso2020Firefox.txt
-    if (subcourseSeparator !== null) {
+    if (subcourseSeparator !== null && titles.length > 1) {
       if (course.includes(subcourseSeparator)) {
         let innerEvents = [];
         for (let wholeCourse of course.split(subcourseSeparator)) {
@@ -292,6 +293,7 @@
       return "";
     }
     else {
+      console.log(JSON.stringify(events, null, 2))
       let cal = new ICS.VCALENDAR();
       cal.addProp("VERSION", 2);
       cal.addProp("PRODID", "bebora@github");

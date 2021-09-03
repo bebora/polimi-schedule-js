@@ -1,0 +1,58 @@
+095943 - PRINCIPLES OF PROGRAMMING LANGUAGES  (Docente: Pradella Matteo )
+Inizio lezioni: 13/09/2021  Fine lezioni: 23/12/2021
+Lunedì dalle 11:15 alle 14:15, lezione in aula AULA VIRTUALE LEO (-)
+Martedì dalle 17:15 alle 19:15, esercitazione in aula 2.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)
+Giovedì dalle 17:15 alle 19:15, esercitazione in aula 21.S.3 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)
+Aula virtuale - Pradella Matteo
+
+
+088983 - FOUNDATIONS OF OPERATIONS RESEARCH  (Docente: Amaldi Edoardo )
+Inizio lezioni: 14/09/2021  Fine lezioni: 23/12/2021
+Martedì dalle 12:15 alle 14:15, esercitazione in aula 20.S.1 (Milano Città Studi - Via Bassini - Edificio 20 - Piano Seminterrato)
+Mercoledì dalle 11:15 alle 14:15, lezione in aula AULA VIRTUALE LEO (-)
+Giovedì dalle 10:15 alle 12:15, esercitazione in aula 8.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 8 - Piano Terra)
+Sabato dalle 08:15 alle 11:15, laboratorio informatico in aula AULA VIRTUALE LEO (-)
+Sabato dalle 11:15 alle 13:15, lezione in aula AULA VIRTUALE LEO (-)
+Aula virtuale - Amaldi Edoardo
+
+
+089182 - FORMAL LANGUAGES AND COMPILERS  (Docente: Agosta Giovanni )
+Inizio lezioni: 13/09/2021  Fine lezioni: 23/12/2021
+Lunedì dalle 11:15 alle 14:15, lezione in aula AULA VIRTUALE LEO (-)
+Martedì dalle 10:15 alle 12:15, esercitazione in aula T.1.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Terra)
+Giovedì dalle 12:15 alle 14:15, esercitazione in aula 8.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 8 - Piano Terra)
+Aula virtuale - Agosta Giovanni
+
+
+089183 - DATA BASES 2  (Docente: Martinenghi Davide )
+Inizio lezioni: 13/09/2021  Fine lezioni: 20/12/2021
+Lunedì dalle 08:15 alle 11:15, lezione in aula AULA VIRTUALE LEO (-)
+Venerdì dalle 13:15 alle 17:15, esercitazione in aula 5.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)
+Sabato dalle 11:15 alle 13:15, lezione in aula AULA VIRTUALE LEO (-)
+Aula virtuale - Martinenghi Davide
+
+
+054308 - ADVANCED CYBERSECURITY TOPICS  (Docente: Polino Mario )
+Inizio lezioni: 13/09/2021  Fine lezioni: 20/12/2021
+Lunedì dalle 16:15 alle 18:15, lezione in aula 21.0.3 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Terra)
+Venerdì dalle 16:15 alle 18:15, lezione in aula 21.S.1 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)
+Aula virtuale - Polino Mario
+
+
+052533 - MIDDLEWARE TECHNOLOGIES FOR DISTRIBUTED SYSTEMS  (Docente: Mottola Luca )
+Inizio lezioni: 13/09/2021  Fine lezioni: 22/12/2021
+Lunedì dalle 13:15 alle 16:15, lezione in aula SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)
+Mercoledì dalle 10:15 alle 13:15, lezione in aula 9.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Primo)
+Venerdì dalle 10:15 alle 12:15, lezione in aula 5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)
+Aula virtuale - Mottola Luca
+
+
+090950 - DISTRIBUTED SYSTEMS  (Docente: Cugola Gianpaolo )
+Inizio lezioni: 13/09/2021  Fine lezioni: 22/12/2021
+Lunedì dalle 13:15 alle 16:15, lezione in aula SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)
+Mercoledì dalle 10:15 alle 13:15, lezione in aula 9.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Primo)
+Venerdì dalle 10:15 alle 12:15, lezione in aula 5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)
+Aula virtuale - Cugola Gianpaolo
+
+
+
