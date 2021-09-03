@@ -28,5 +28,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: scripts/package-lock.json
-    - run: npm install
-    - run: npm test
+    - run: |
+        sudo ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
+        npm install
+        npm test
