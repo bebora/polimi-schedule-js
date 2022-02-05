@@ -31,7 +31,14 @@ const strings = {
             "howToLink": "How to use",
             "importProgress": "Importing events...",
             "importOk": "Events imported",
-            "importFail": "Unable to import the events"
+            "importFail": "Unable to import the events",
+            "errorTitle": "Oops! Something went wrong",
+            "genericError": "The text you pasted isn't valid or it is in a new unsupported format.",
+            "googleErrorSuggestion": "If you are using Google Calendar, check that your connection works and that you gave the required permissions to the application.",
+            "errorContact": "The problem may happen to other users! You can report it on Telegram or GitHub.",
+            "telegramGroup": "Telegram group",
+            "githubIssue": "Open Issue",
+            "manualErrorPopup": "Not working?"
         },
         "placeholder": {
             "input": "Paste lessons copied from the text timetable"
@@ -69,7 +76,14 @@ const strings = {
             "howToLink": "Istruzioni",
             "importProgress": "Importando gli eventi...",
             "importOk": "Eventi importati",
-            "importFail": "Impossibile importare gli eventi"
+            "importFail": "Impossibile importare gli eventi",
+            "errorTitle": "Ops! Qualcosa è andato storto",
+            "genericError": "Il testo che hai incollato non è valido oppure è in un nuovo formato non supportato.",
+            "googleErrorSuggestion": "Se stai usando Google Calendar, controlla di avere una connessione funzionante e di aver dato i permessi all'applicazione.",
+            "errorContact": "Il problema potrebbe capitare anche ad altri utenti! Puoi segnalarlo su Telegram o GitHub.",
+            "telegramGroup": "Gruppo Telegram",
+            "githubIssue": "Apri Issue",
+            "manualErrorPopup": "Qualcosa non va?"
         },
         "placeholder": {
             "input": "Incolla le lezioni copiate dall'orario testuale"

@@ -276,11 +276,23 @@
       for (let wholeCourse of coursesList) {
         events = [...events, ...parseCourse(wholeCourse.trim(), null, separator.slice(0, -1))];
       }
+
+      // Prevent the error popup from appearing if the input is empty
+      if (events.length === 0 && allCourses.trim().length !== 0) {
+        if (displayErrorPopup !== undefined) {
+          displayErrorPopup();
+        }
+      }
+
       return events;
     }
     catch (err) {
       console.log("The website is no longer compatible with polimi-schedule-js. Please report the error message and the calendar text you are trying to convert. (" + err.message + ")");
+      if (displayErrorPopup !== undefined) {
+        displayErrorPopup();
+      }
     }
+
     return null;
   }
 
@@ -288,12 +300,12 @@
     let events = parseText(allCourses);
     if (events === null || events.length === 0) {
       if (logError) {
-        alert("Unable to create iCalendar file! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer.");
+        console.log("Unable to create iCalendar file! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer.");
       }
       return "";
     }
     else {
-      console.log(JSON.stringify(events, null, 2))
+      // console.log(JSON.stringify(events, null, 2))
       let cal = new ICS.VCALENDAR();
       cal.addProp("VERSION", 2);
       cal.addProp("PRODID", "bebora@github");

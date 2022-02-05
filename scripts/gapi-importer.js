@@ -109,7 +109,7 @@ function importMultipleEvents(genericEvents, calendarId) {
   const promises = events.map(e => gapi.client.calendar.events.insert({"calendarId": calendarId, resource: e}));
   Promise.all(promises).then(
     function(values) {
-      console.log("Imported "+values.length+" events");
+      console.log(`Imported ${values.length} events`);
       document.getElementById("importProgress").style.display = "none";
       document.getElementById("importOk").style.display = "block";
       setTimeout(function () { document.getElementById("importOk").style.display = "none"; }, 5000);
@@ -119,7 +119,9 @@ function importMultipleEvents(genericEvents, calendarId) {
       document.getElementById("importFail").style.display = "block";
       setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 3000);
       console.log("Unable to import some events to Calendar", err);
-      alert("Something went wrong while importing to Google Calendar! If you think your text is correct, retry and/or contact the website maintainer.");
+      if (displayErrorPopup !== undefined) {
+        displayErrorPopup(err);
+      }
     }
   )
 }

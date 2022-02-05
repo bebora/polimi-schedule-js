@@ -41,16 +41,17 @@
     <button id="download" class="btn"><i class="fa fa-download" aria-hidden="true"></i><span id="saveFile"> Salva su file</span></button>
     <button id="import-gcal" class="btn btn-blue"><i class="fab fa-google"></i><span id="importToGcal"> Importa su Google Calendar</span></button>
     <p id="error">Errore! Non riesco a generare il calendario</p>
+    <div id="manualErrorPopup">Qualcosa non va?</div>
   </div>
   <div class="footer">
     <a href="https://github.com/bebora/polimi-schedule-js">Github repo <i class="fab fa-github"></i></a>
     <a href="home.html" style="margin-left: 10px;"><span id="homepageFooter">Home + Istruzioni d'uso</span> <i class="fas fa-home"></i></a>
     <a href="privacy_policy.html" style="margin-left: 10px;">Privacy policy</a>
   </div>
-  <div id="pop-bg" onclick="hideOverlay()" style="display: none;">
-    <div id="pop-window">
-      <span id="pop-close" onclick="hideOverlay()"><i class="fas fa-times"></i> </span>
-      <div id="pop-content">
+  <div id="google-pop" class="pop-bg" onclick="hideOverlay('google-pop')" style="display: none;">
+    <div id="google-pop-window" class="pop-window">
+      <span class="pop-close" onclick="hideOverlay('google-pop')"><i class="fas fa-times"></i> </span>
+      <div class="pop-content">
         <div id="logged_out_section">
           <button id="authorize_button" class="btn btn-ggl">
             <span class="google-icon" style="display: table-cell;"></span>
@@ -85,53 +86,22 @@
       </div>
     </div>
   </div>
-  <script>
-    document.getElementById("download").addEventListener("click", function () {
-      let icsContent = getIcalendar(document.getElementById("input").value);
-      if (icsContent === "") {
-        document.getElementById("error").style.display = "inline-block";
-        setTimeout(function () {
-          document.getElementById("error").style.display = "none";
-        }, 3000);
-      }
-      else {
-        let blob = new Blob([icsContent], { type: "text/plain;charset=utf-8" });
-        saveAs(blob, "orarioPolimi.ics");
-      }
-    });
-    document.getElementById("import_button").addEventListener("click", function () {
-      const events = parseText(document.getElementById("input").value);
-      if (events === null || events.length === 0) {
-        document.getElementById("error").style.display = "inline-block";
-        setTimeout(function () {
-          document.getElementById("error").style.display = "none";
-        }, 3000);
-        alert("Unable to parse courses data! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer.");
-      }
-      else {
-        handleGcalendarImport(events);
-      }
-    });
-    document.getElementById("import-gcal").addEventListener("click", function () {
-      showOverlay();
-    });
-    document.getElementById("pop-window").addEventListener("click", function (e) { e.stopPropagation(); });
-    function hideOverlay() {
-      document.getElementById("pop-bg").style.display = "none";
-    }
-    function showOverlay() {
-      document.getElementById("pop-bg").style.display = "block";
-    }
-    function displayNewName() {
-      const checkBox = document.getElementById("newCalendar");
-      const inputElem = document.getElementById("inputElem");
-      if (checkBox.checked === true) {
-        inputElem.style.display = "block";
-      } else {
-        inputElem.style.display = "none";
-      }
-    }
-  </script>
+  <div id="error-pop" class="pop-bg" onclick="hideOverlay('error-pop')" style="display: none;">
+    <div id="error-pop-window" class="pop-window">
+      <span class="pop-close" onclick="hideOverlay('error-pop')"><i class="fas fa-times"></i> </span>
+      <div class="pop-content">
+        <h2 id="errorTitle">Ops! Qualcosa è andato storto</h2>
+        <div id="genericError">Il testo che hai incollato non è valido oppure è in un nuovo formato non supportato.</div>
+        <div id="googleErrorSuggestion">Se stai usando Google Calendar, controlla di avere una connessione funzionante e di aver dato i permessi all'applicazione.</div>
+        <div id="errorContact">Il problema potrebbe capitare anche ad altri utenti! Puoi segnalarlo su Telegram o GitHub.</div>
+        <div style="margin-top: 20px">
+          <a id="telegram-link" class="btn btn-tg" target="_blank"><i class="fab fa-telegram"></i> <span id="telegramGroup">Gruppo Telegram</span></a>
+          <a id="github-link" class="btn btn-gh" href="https://github.com/bebora/polimi-schedule-js/issues/new" target="_blank"><i class="fab fa-github"></i> <span id="githubIssue">Apri Issue</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script defer src="scripts/ui.js">  </script>
   <script defer src="scripts/set-language.js" onload="setLanguage((navigator.language || navigator.userLanguage).slice(0, 2))"></script>
   <script defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()">
