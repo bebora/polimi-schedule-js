@@ -1,0 +1,152 @@
+[
+  {
+    "summary": "ADVANCED MEASUREMENT SYSTEMS FOR CONTROL APPLICATIONS",
+    "start": "2022-02-22T07:15:00.000Z",
+    "end": "2022-02-22T09:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.619Z",
+    "location": "BL.27.17 (Milano Bovisa - Via La Masa - Building BL27 - First Floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220531T235959Z",
+    "description": "Lesson\nProfessors:\nTarabini Marco\nBrambilla Paolo"
+  },
+  {
+    "summary": "ADVANCED MEASUREMENT SYSTEMS FOR CONTROL APPLICATIONS",
+    "start": "2022-02-25T14:15:00.000Z",
+    "end": "2022-02-25T17:15:00.000Z",
+    "duration": 3,
+    "dtstamp": "2022-03-01T02:42:20.619Z",
+    "location": "CLASD classroom - BUILDING B.13 (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220527T235959Z",
+    "description": "Experimental laboratory\nProfessors:\nTarabini Marco\nBrambilla Paolo"
+  },
+  {
+    "summary": "SOFTWARE ENGINEERING (FOR AUTOMATION)",
+    "start": "2022-02-23T07:15:00.000Z",
+    "end": "2022-02-23T09:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.621Z",
+    "location": "20.S.1 (Milano Città Studi - Via Bassini - Building 20 - Basement floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220601T235959Z",
+    "description": "Lesson\nProfessors:\nRossi Matteo Giovanni\nConti Gian Enrico"
+  },
+  {
+    "summary": "SOFTWARE ENGINEERING (FOR AUTOMATION)",
+    "start": "2022-02-24T07:15:00.000Z",
+    "end": "2022-02-24T09:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.621Z",
+    "location": "6.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Building 6 - First floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220526T235959Z",
+    "description": "Lecture\nProfessors:\nRossi Matteo Giovanni\nConti Gian Enrico"
+  },
+  {
+    "summary": "POWER ELECTRONICS AND SUPPLIES",
+    "start": "2022-02-22T09:15:00.000Z",
+    "end": "2022-02-22T11:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.621Z",
+    "location": "BL.27.17 (Milano Bovisa - Via La Masa - Building BL27 - First Floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220531T235959Z",
+    "description": "Lesson\nProfessors:\nMauri Marco\nMossina Stefano"
+  },
+  {
+    "summary": "POWER ELECTRONICS AND SUPPLIES",
+    "start": "2022-02-25T12:15:00.000Z",
+    "end": "2022-02-25T14:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.622Z",
+    "location": "BL.27.16 (Milano Bovisa - Via La Masa - Building BL27 - First Floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220527T235959Z",
+    "description": "Lesson\nProfessors:\nMauri Marco\nMossina Stefano"
+  },
+  {
+    "summary": "AUTOMATION AND CONTROL LABORATORY",
+    "start": "2022-02-21T13:15:00.000Z",
+    "end": "2022-02-21T18:15:00.000Z",
+    "duration": 5,
+    "dtstamp": "2022-03-01T02:42:20.623Z",
+    "location": "DIP classroom (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220530T235959Z",
+    "description": "Experimental laboratory\nProfessors:\nCazzulani Gabriele\nToscani Nicola\nCholakkal Hafeez Husain"
+  },
+  {
+    "summary": "AUTOMATION AND CONTROL LABORATORY",
+    "start": "2022-02-25T08:15:00.000Z",
+    "end": "2022-02-25T12:15:00.000Z",
+    "duration": 4,
+    "dtstamp": "2022-03-01T02:42:20.623Z",
+    "location": "DIP classroom (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220527T235959Z",
+    "description": "Experimental laboratory\nProfessors:\nCazzulani Gabriele\nToscani Nicola\nCholakkal Hafeez Husain"
+  },
+  {
+    "summary": "HIGH-TECH ENTREPRENEURSHIP",
+    "start": "2022-02-23T15:15:00.000Z",
+    "end": "2022-02-23T17:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.623Z",
+    "location": "3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Building 3 - First floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220601T235959Z",
+    "description": "Lesson\nProfessors:\nColombo Massimo Gaetano\nD'Agostino Cecilia\nCavallo Angelo\nAmbrois Matteo"
+  },
+  {
+    "summary": "HIGH-TECH ENTREPRENEURSHIP",
+    "start": "2022-02-24T15:15:00.000Z",
+    "end": "2022-02-24T17:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.623Z",
+    "location": "B.2.2 (Milano Città Studi - Via Bonardi - Building 14 - First Floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220526T235959Z",
+    "description": "Lesson\nProfessors:\nColombo Massimo Gaetano\nD'Agostino Cecilia\nCavallo Angelo\nAmbrois Matteo"
+  },
+  {
+    "summary": "PERCEPTION, LOCALIZATION AND MAPPING FOR MOBILE ROBOTS",
+    "start": "2022-02-23T11:15:00.000Z",
+    "end": "2022-02-23T13:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.624Z",
+    "location": "26.11 (Milano Città Studi - Via Golgi 20 - Building 26 - First floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220601T235959Z",
+    "description": "Lesson\nProfessor:\nMatteucci Matteo"
+  },
+  {
+    "summary": "PERCEPTION, LOCALIZATION AND MAPPING FOR MOBILE ROBOTS",
+    "start": "2022-02-24T13:15:00.000Z",
+    "end": "2022-02-24T15:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.624Z",
+    "location": "26.11 (Milano Città Studi - Via Golgi 20 - Building 26 - First Floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220526T235959Z",
+    "description": "Lesson\nProfessor:\nMatteucci Matteo"
+  },
+  {
+    "summary": "HISTORY OF INDUSTRIAL TECHNOLOGICAL INNOVATION",
+    "start": "2022-02-24T14:15:00.000Z",
+    "end": "2022-02-24T18:15:00.000Z",
+    "duration": 4,
+    "dtstamp": "2022-03-01T02:42:20.624Z",
+    "location": "3.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Building 3 - First floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220526T235959Z",
+    "description": "Lesson\nProfessor:\nLavista Fabio Dario"
+  },
+  {
+    "summary": "ENGINEERING METHODS SUPPORTING JUSTICE",
+    "start": "2022-02-22T14:15:00.000Z",
+    "end": "2022-02-22T16:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.624Z",
+    "location": "7.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Building 7 - Ground floor Mezzanine)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220531T235959Z",
+    "description": "Lesson\nProfessor:\nFerrero Alessandro"
+  },
+  {
+    "summary": "ENGINEERING METHODS SUPPORTING JUSTICE",
+    "start": "2022-02-23T14:15:00.000Z",
+    "end": "2022-02-23T16:15:00.000Z",
+    "duration": 2,
+    "dtstamp": "2022-03-01T02:42:20.624Z",
+    "location": "19.0.1 (EX NU.1) (Milano Città Studi - Via Bassini - Building 19 - Ground floor)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20220601T235959Z",
+    "description": "Lesson\nProfessor:\nFerrero Alessandro"
+  }
+]

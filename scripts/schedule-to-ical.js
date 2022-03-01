@@ -38,6 +38,10 @@
     "ott": 9,
     "dic": 11
   };
+  // From existing examples, lessons always start in sep-oct or feb-mar and respectively end in dec-jan or may-jun
+  // This definitely breaks if some actual course starts or ends on unexpected months
+  const acceptableStartingMonths = [2, 3, 9, 10];
+  const acceptableEndingMonths = [5, 6, 12, 1]
   const languageLookup = {
     "Lezione": "it",
     "Esercitazione": "it",
@@ -109,7 +113,7 @@
    * @param {string|null} subcourseSeparator Separator that is supposed to divide the possible subcourses (usually \n\n for Chromium and \n\n\n for Firefox)
    * **/
   function parseCourse(course, upperLevelProfessorNames= null, subcourseSeparator = null) {
-    const titleRegex = /^\s*(\d{6}) - (.*?)(?:\s*\((?:Docente|Professor):(.*)\)|$)/gm;
+    const titleRegex = /^\s*(\d{6}) - (.*?)(?:\s*\(\s*(?:Docente|Professor|Lecturer|Teacher):(.*)\)|$)/gm;
     let titles = [...course.matchAll(titleRegex)];
     if (titles.length === 0) {
       return [];
@@ -206,13 +210,31 @@
       }
       else if (datesGroups.length === 1) {
         let datesMatch = datesGroups[0];
-        let start = new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/, "$3-$2-$1"));
-        let end = new Date(datesMatch[3].replace(/(\d{2})\/(\d{2})\/(\d{4})/, "$3-$2-$1"));
+
+        const dateComponentsRegex = /(\d{2})\/(\d{2})\/(\d{4})/;
+
+        const startComponents = dateComponentsRegex.exec(datesMatch[2]);
+        const endComponents = dateComponentsRegex.exec(datesMatch[3]);
+
+        // Default dates convention is dd/mm/yyyy
+        let isDdMmYyyy = true;
+        // If the second component can't be a month, the format will be mm/dd/yyyy
+        if (acceptableStartingMonths.indexOf(parseInt(startComponents[2])) === -1 ||
+          acceptableEndingMonths.indexOf(parseInt(endComponents[2])) === -1 ||
+          parseInt(startComponents[2]) > 12 ||
+          parseInt(endComponents[2]) > 12) {
+          isDdMmYyyy = false;
+        }
+        const dateFormatter = isDdMmYyyy ? "$3-$2-$1" : "$3-$1-$2";
+
+        let start = new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
+        let end = new Date(datesMatch[3].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
+
         let courseDays = /[^\n]+\n[^\n]+\n?([\s\S]*)/.exec(course);
         if (courseDays !== null && courseDays[1] !== "") {
           let rows = courseDays[1].trim().split("\n\n")[0].split("\n");
           for (let j of rows) {
-            let timeMatch = /([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2})/i.exec(j);
+            let timeMatch = /([^\s]*) (?:dalle|from) (\d+)[:.](\d+)\s?(?<startMidday>(?:[ap])\.?m\.?)? (?:alle|to) (\d+)[:.](\d+)\s?(?<endMidday>(?:[ap])\.?m\.?)?/i.exec(j);
             if (timeMatch === null) {
               //Row may be empty or "Aula virtuale per didattica a distanza" and should be ignored
               continue;
@@ -226,7 +248,9 @@
             else {
               firstDay.setDate(firstDay.getDate() - firstDay.getDay() + weekDay);
             }
-            firstDay.setHours(timeMatch[2], timeMatch[3], 0);
+            const startMiddayOffset = (timeMatch.groups.startMidday !== undefined && timeMatch.groups.startMidday[0] === "p") ? 12 : 0; // Add hour offset for p.m.
+            firstDay.setHours(parseInt(timeMatch[2])+startMiddayOffset, parseInt(timeMatch[3]), 0);
+
             let lastDay = new Date(end);
             if (weekDay <= end.getDay()) {
               lastDay.setDate(lastDay.getDate() - lastDay.getDay() + weekDay);
@@ -235,13 +259,25 @@
               lastDay.setDate(lastDay.getDate() - lastDay.getDay() - 7 + weekDay);
             }
             let firstEnd = new Date(firstDay);
-            firstEnd.setHours(timeMatch[4], timeMatch[5], 0);
+            const endMiddayOffset = (timeMatch.groups.endMidday !== undefined && timeMatch.groups.endMidday[0] === "p") ? 12 : 0; // Add hour offset for p.m.
+            firstEnd.setHours(parseInt(timeMatch[5])+endMiddayOffset, parseInt(timeMatch[6]), 0);
             let location = null;
             let lessonType = null;
             if (!noRoomTest.test(j)) {
-              let roomMatch = /,\s*(.+)\s+in\s+(?:.*)(?:aula|classroom|lecture theatre) (.*)/.exec(j);
-              lessonType = roomMatch[1][0].toUpperCase() + roomMatch[1].substring(1);
-              location = roomMatch[2];
+              let roomMatch = /,\s*(.+)\s+in\s+(?:.*?)(?:aula|classroom|lecture theatre|the classroom|the|room) (.*)/.exec(j); // "the" is for "the CLASD classroom" ad example
+              if (roomMatch === null) {
+                // Some room descriptions do not contain "in" and/or have a weird text order. It seems to happen only in English.
+                // The lessonType is assumed to be a regular lesson and "classroom lesson" will be stripped
+                let inaccurateRoomMatch = /,\s*(?:classroom lesson)?\s*(.*)/.exec(j);
+                if (inaccurateRoomMatch !== null) {
+                  lessonType = "Lesson";
+                  location = inaccurateRoomMatch[1];
+                }
+              }
+              else {
+                lessonType = roomMatch[1][0].toUpperCase() + roomMatch[1].substring(1);
+                location = roomMatch[2];
+              }
             }
             let professorString = getProfessorString(lessonType, professorNames);
 
@@ -250,7 +286,7 @@
                 "summary": courseName,
                 "start": firstDay,
                 "end": firstEnd,
-                "duration": timeMatch[4] - timeMatch[2],
+                "duration": timeMatch[5] - timeMatch[2],
                 "dtstamp": new Date(),
                 "location": location,
                 "rrule": "FREQ=WEEKLY;UNTIL=" + lastDay.getFullYear() + ("0" + (lastDay.getMonth() + 1)).slice(-2) + ("0" + lastDay.getDate()).slice(-2) + "T235959Z",
