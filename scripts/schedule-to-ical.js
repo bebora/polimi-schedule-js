@@ -58,8 +58,25 @@
     "en": {"one": "Professor:", "many": "Professors:"}
   };
 
+  /**
+   * Transform a date into an acceptable rdate time format
+   * @param {Date} date
+   * @return {string}
+   */
   function dateToRuleText(date) {
-    return date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2);
+    return date.toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/m, "Z");
+  }
+
+  /**
+   * Generate a function that copies the hours and minutes from a datetime into other dates
+   * @param {Date} firstDatetime object that contains the right hours and minutes
+   * @return {function}
+   */
+  function setHourGenerator(firstDatetime) {
+    return (otherDate) => {
+      otherDate.setHours(firstDatetime.getHours(), firstDatetime.getMinutes());
+      return otherDate;
+    }
   }
 
   /**
@@ -190,7 +207,7 @@
             "description": lessonType + "\n" + professorString + "\n" + professorNames.join("\n")
         };
         if (dates.length > 0) {
-          event.rdate = dates.map(createDateFromText).map(dateToRuleText).map(onlydate => onlydate.concat("T"+textualTime)).join(',');
+          event.rdate = dates.map(createDateFromText).map(setHourGenerator(firstDay)).map(dateToRuleText).join(',');
         }
         events.push(event);
       }
@@ -382,4 +399,3 @@
   exports.parseText = parseText;
   exports.getIcalendar = getIcalendar;
 })(typeof exports === 'undefined'? this : exports);
-
