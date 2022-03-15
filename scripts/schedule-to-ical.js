@@ -62,6 +62,15 @@
     return date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2);
   }
 
+  /**
+   * Check if input line is a date or a virtual classroom
+   * @param {string} line
+   * @return {boolean}
+   */
+  function isValidDate(line) {
+    return /\d{2}-[a-z]{3}-\d{4}/gm.test(line);
+  }
+
   function createDateFromText(text) { //text is something like 01-ott-2020
     let date = new Date();
     let pieces = text.split("-");
@@ -161,6 +170,7 @@
         lessonType = lessonType[0].toUpperCase()+lessonType.substring(1);
         let location = timesLocations[i*regexCapturingGroups+6];
         let dates = timesLocations[i*regexCapturingGroups+7].split("\n\n")[0].trim().split("\n");
+        dates = dates.filter(isValidDate);
         let firstDay = createDateFromText(dates.splice(0, 1)[0]);
         let firstEnd = new Date(firstDay);
         firstDay.setHours(startHour);
