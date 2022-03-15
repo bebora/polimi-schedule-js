@@ -71,9 +71,7 @@ function handleSignoutClick(event) {
 
 
 /**
- * Print the summary and start datetime/date of the next ten events in
- * the authorized user"s calendar. If no events are found an
- * appropriate message is printed.
+ * Import events produced from the schedule parsing into a given calendar
  */
 
 function importMultipleEvents(genericEvents, calendarId) {
