@@ -327,21 +327,32 @@
     return events;
   }
 
+  /**
+   * Apply minor transformation to the user input to allow for easier parsing
+   * @param {string} userInput
+   * @return {string}
+   */
+  function preprocessText(userInput) {
+    return userInput.replace(/\n\)/g, ")"); // Remove newline before the closing parenthesis of the professor section, if present
+  }
+
   function parseText(allCourses) {
     try {
+      const preprocessedInput = preprocessText(allCourses);
+
       let separator = "\n\n\n";
 
-      if (allCourses.trim().includes("\n\n\n\n")) {
+      if (preprocessedInput.trim().includes("\n\n\n\n")) {
         separator = "\n\n\n\n";
       }
-      let coursesList = allCourses.trim().split(separator);
+      let coursesList = preprocessedInput.trim().split(separator);
       let events = [];
       for (let wholeCourse of coursesList) {
         events = [...events, ...parseCourse(wholeCourse.trim(), null, separator.slice(0, -1))];
       }
 
       // Prevent the error popup from appearing if the input is empty
-      if (events.length === 0 && allCourses.trim().length !== 0) {
+      if (events.length === 0 && preprocessedInput.trim().length !== 0) {
         if (displayErrorPopup !== undefined) {
           displayErrorPopup();
         }
