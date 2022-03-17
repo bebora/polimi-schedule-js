@@ -38,10 +38,10 @@
     "ott": 9,
     "dic": 11
   };
-  // From existing examples, lessons always start in sep-oct or feb-mar and respectively end in dec-jan or may-jun
+  // From existing examples, lessons always start in sep-oct or feb-mar-apr and respectively end in dec-jan or apr-may-jun
   // This definitely breaks if some actual course starts or ends on unexpected months
-  const acceptableStartingMonths = [2, 3, 9, 10];
-  const acceptableEndingMonths = [5, 6, 12, 1]
+  const acceptableStartingMonths = [2, 3, 4, 9, 10];
+  const acceptableEndingMonths = [4, 5, 6, 12, 1]
   const languageLookup = {
     "Lezione": "it",
     "Esercitazione": "it",
@@ -86,6 +86,35 @@
    */
   function isValidDate(line) {
     return /\d{2}-[a-z]{3}-\d{4}/gm.test(line);
+  }
+
+  /**
+   * Detect whether course dates are in dd/mm/yyyy or mm/dd/yyyy format
+   * @param {RegExpExecArray} startComponents
+   * @param {RegExpExecArray} endComponents
+   * @return {boolean}
+   */
+  function isCourseDdMmYyyy(startComponents, endComponents) {
+    // Default dates convention is dd/mm/yyyy
+    let ret = true;
+
+    const startMonth = parseInt(startComponents[2]);
+    const endMonth = parseInt(endComponents[2]);
+
+    const startAsNumber = parseInt(startComponents[3] + startComponents[2] + startComponents[1]);
+    const endAsNumber = parseInt(endComponents[3] + endComponents[2] + endComponents[1]);
+
+    // If the second component can't be a month, the format will be mm/dd/yyyy
+    if (
+      acceptableStartingMonths.indexOf(startMonth) === -1 ||
+      acceptableEndingMonths.indexOf(endMonth) === -1 ||
+      startMonth > 12 ||
+      endMonth > 12 ||
+      startAsNumber > endAsNumber
+    ) {
+      ret = false;
+    }
+    return ret;
   }
 
   function createDateFromText(text) { //text is something like 01-ott-2020
@@ -243,15 +272,7 @@
         const startComponents = dateComponentsRegex.exec(datesMatch[2]);
         const endComponents = dateComponentsRegex.exec(datesMatch[3]);
 
-        // Default dates convention is dd/mm/yyyy
-        let isDdMmYyyy = true;
-        // If the second component can't be a month, the format will be mm/dd/yyyy
-        if (acceptableStartingMonths.indexOf(parseInt(startComponents[2])) === -1 ||
-          acceptableEndingMonths.indexOf(parseInt(endComponents[2])) === -1 ||
-          parseInt(startComponents[2]) > 12 ||
-          parseInt(endComponents[2]) > 12) {
-          isDdMmYyyy = false;
-        }
+        const isDdMmYyyy = isCourseDdMmYyyy(startComponents, endComponents);
         const dateFormatter = isDdMmYyyy ? "$3-$2-$1" : "$3-$1-$2";
 
         let start = new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
