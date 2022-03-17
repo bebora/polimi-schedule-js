@@ -230,7 +230,6 @@
             "summary": courseName,
             "start": firstDay,
             "end": firstEnd,
-            "duration": endHour - startHour, //TODO duration is redundant, check ical validity using only dtstart and dtend
             "dtstamp": new Date(),
             "location": location,
             "description": lessonType + "\n" + professorString + "\n" + professorNames.join("\n")
@@ -334,7 +333,6 @@
                 "summary": courseName,
                 "start": firstDay,
                 "end": firstEnd,
-                "duration": timeMatch[5] - timeMatch[2],
                 "dtstamp": new Date(),
                 "location": location,
                 "rrule": "FREQ=WEEKLY;UNTIL=" + lastDay.getFullYear() + ("0" + (lastDay.getMonth() + 1)).slice(-2) + ("0" + lastDay.getDate()).slice(-2) + "T235959Z",
@@ -408,7 +406,7 @@
         let icalEvent = new ICS.VEVENT();
         icalEvent.addProp("SUMMARY", e.summary);
         icalEvent.addProp("DTSTART", e.start, { VALUE: "DATE-TIME" });
-        icalEvent.addProp("DURATION", "PT" + e.duration + "H"); //Assuming that the duration of the lessons is a multiple of one hour
+        icalEvent.addProp("DTEND", e.end, { VALUE: "DATE-TIME" });
         icalEvent.addProp("DTSTAMP", e.dtstamp, { VALUE: "DATE-TIME" });
         icalEvent.addProp("UID");
         if (e.location !== undefined) {
