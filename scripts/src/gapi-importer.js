@@ -14,7 +14,7 @@ const loggedOutSection = document.getElementById("logged_out_section");
 /**
  *  On load, called to load the auth2 library and API client library.
  */
-function handleClientLoad() {
+export function handleClientLoad() {
   gapi.load("client:auth2", initClient);
 }
 
@@ -36,7 +36,7 @@ function initClient() {
     authorizeButton.onclick = handleAuthClick;
     signoutButton.onclick = handleSignoutClick;
   }, function (error) {
-    console.log(JSON.stringify(error, null, 2));
+    console.error(JSON.stringify(error, null, 2));
   });
 }
 
@@ -74,17 +74,17 @@ function handleSignoutClick(event) {
  * Import events produced from the schedule parsing into a given calendar
  */
 
-function importMultipleEvents(genericEvents, calendarId) {
+function importMultipleEvents(genericEvents, calendarId, errorHandler) {
   let events = [];
   genericEvents.forEach(function (item, key) {
     let resource = {
       "summary": item.summary,
       "start": {
-        "dateTime": item.start.toISOString(),
+        "dateTime": item.start.setZone("Europe/Rome").toISO(),
         "timeZone": "Europe/Rome"
       },
       "end": {
-        "dateTime": item.end.toISOString(),
+        "dateTime": item.end.setZone("Europe/Rome").toISO(),
         "timeZone": "Europe/Rome"
       },
       "recurrence": []
@@ -116,10 +116,8 @@ function importMultipleEvents(genericEvents, calendarId) {
       document.getElementById("importProgress").style.display = "none";
       document.getElementById("importFail").style.display = "block";
       setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 3000);
-      console.log("Unable to import some events to Calendar", err);
-      if (displayErrorPopup !== undefined) {
-        displayErrorPopup(err);
-      }
+      console.error("Unable to import some events to Calendar", err);
+      errorHandler(err.body);
     }
   )
 }
@@ -140,7 +138,12 @@ function getCalendars() {
       function (err) { console.error("Execute error", err); });
 }
 
-function handleGcalendarImport(genericEvents) {
+/**
+ * Insert the events in the appropriate calendar
+ * @param genericEvents
+ * @param {function} errorHandler
+ */
+export function handleGcalendarImport(genericEvents, errorHandler) {
   const checkBox = document.getElementById("newCalendar");
   let calendarId = null;
   if (checkBox.checked === true) {
@@ -157,18 +160,19 @@ function handleGcalendarImport(genericEvents) {
         document.getElementById("creationOk").style.display = "block";
         setTimeout(function () { document.getElementById("creationOk").style.display = "none"; }, 3000);
         calendarId = response.result.id;
-        importMultipleEvents(genericEvents, calendarId);
+        importMultipleEvents(genericEvents, calendarId, errorHandler);
       },
         function (err) {
           document.getElementById("creationProgress").style.display = "none";
           document.getElementById("creationFail").style.display = "block";
           setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 5000);
           console.error("Execute error", err);
+          errorHandler(err.body)
         });
   }
   else {
     const calendarIdOptions = document.getElementById("calendarId");
     calendarId = calendarIdOptions.options[calendarIdOptions.selectedIndex].value;
-    importMultipleEvents(genericEvents, calendarId);
+    importMultipleEvents(genericEvents, calendarId, errorHandler);
   }
 }

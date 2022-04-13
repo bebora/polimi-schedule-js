@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: scripts
+        working-directory: scripts/src
 
     strategy:
       matrix:
@@ -29,6 +29,5 @@ jobs:
         cache: 'npm'
         cache-dependency-path: scripts/package-lock.json
     - run: |
-        sudo ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
         npm install
         npm test

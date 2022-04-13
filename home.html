@@ -23,9 +23,9 @@
             </div>
             <span id="flags" style="float: right;">
                 <img id="itFlag" class="middleImage" src="images/italy-flag-icon-64.png" alt="Italian Flag"
-                    onclick="setLanguage('it')" title="Imposta italiano">
+                    title="Imposta italiano">
                 <img id="enFlag" class="middleImage" src="images/united-kingdom-flag-icon-64.png" alt="UK Flag"
-                    onclick="setLanguage('en')" title="Set language to English">
+                    title="Set language to English">
             </span>
         </div>
         <div>
@@ -94,8 +94,14 @@
         <a href="https://github.com/bebora/polimi-schedule-js">Github repo</a>
         <a href="privacy_policy.html" style="margin-left: 10px;">Privacy policy</a>
     </div>
-    <script async defer src="scripts/set-language.js"
-        onload="setLanguage((navigator.language || navigator.userLanguage).slice(0, 2))"></script>
+    <script type="module">
+      import {setLanguage} from "./scripts/src/set-language.js";
+
+      document.getElementById("itFlag").addEventListener("click", () => {setLanguage("it")});
+      document.getElementById("enFlag").addEventListener("click", () => {setLanguage("en")});
+
+      setLanguage((navigator.language || navigator.userLanguage).slice(0, 2));
+    </script>
 </body>
 
 </html>

@@ -1,14 +1,49 @@
-(function(exports){
-  let ICS = this["ics-js"];
+import {DateTime} from "luxon";
+import {Component, Property} from "immutable-ics";
+import {v4 as uuidv4} from "uuid";
+
+/**
+ * @typedef {Object} ParsedData
+ * @property {Object[]} data
+ * @property {?string} error
+ */
+
+/**
+ * @typedef {Object} IcalendarData
+ * @property {string} data
+ * @property {?string} error
+ */
+
+const europeRomeIcalTimezone = `X-WR-TIMEZONE:Europe/Rome
+BEGIN:VTIMEZONE
+TZID:Europe/Rome
+X-LIC-LOCATION:Europe/Rome
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+`.replace(/(?<=[^\r])\n/g, "\r\n"); // Assuming that the timezone will not change
+
   const weekdays = {
-    "Domenica": 0,
+    "Domenica": 7,
     "Lunedì": 1,
     "Martedì": 2,
     "Mercoledì": 3,
     "Giovedì": 4,
     "Venerdì": 5,
     "Sabato": 6,
-    "Sunday": 0,
+    "Sunday": 7,
     "Monday": 1,
     "Tuesday": 2,
     "Wednesday": 3,
@@ -16,27 +51,27 @@
     "Friday": 5,
     "Saturday": 6,
   };
-  const months = {
-    "jan": 0,
-    "feb": 1,
-    "mar": 2,
-    "apr": 3,
-    "may": 4,
-    "jun": 5,
-    "jul": 6,
-    "aug": 7,
-    "sep": 8,
-    "oct": 9,
-    "nov": 10,
-    "dec": 11,
-    "gen": 0,
-    "mag": 4,
-    "giu": 5,
-    "lug": 6,
-    "ago": 7,
-    "set": 8,
-    "ott": 9,
-    "dic": 11
+const months = {
+    "jan": 1,
+    "feb": 2,
+    "mar": 3,
+    "apr": 4,
+    "may": 5,
+    "jun": 6,
+    "jul": 7,
+    "aug": 8,
+    "sep": 9,
+    "oct": 10,
+    "nov": 11,
+    "dec": 12,
+    "gen": 1,
+    "mag": 5,
+    "giu": 6,
+    "lug": 7,
+    "ago": 8,
+    "set": 9,
+    "ott": 10,
+    "dic": 12
   };
   // From existing examples, lessons always start in sep-oct or feb-mar-apr and respectively end in dec-jan or apr-may-jun
   // This definitely breaks if some actual course starts or ends on unexpected months
@@ -58,29 +93,46 @@
     "en": {"one": "Professor:", "many": "Professors:"}
   };
 
+/**
+ * Insert the required Europe/Rome VTIMEZONE component inside the iCalendar output
+ * @param {string} rawCalendar
+ * @return {string}
+ */
+function insertVTimezone(rawCalendar) {
+  return rawCalendar.replace(/(?<=\r\n)(?=BEGIN:VEVENT)/, europeRomeIcalTimezone);
+}
+
   /**
-   * Transform a date into an acceptable rdate time format
-   * @param {Date} date
+   * Transform a date into a rdate local time format
+   * @param {DateTime} date with the correct timezone already specified (e.g. Europe/Rome)
    * @return {string}
    */
-  function dateToRuleText(date) {
-    return date.toISOString().replace(/[-:]/g, "").replace(/\.\d+Z$/m, "Z");
+  function dateToLocalRuleText(date) {
+    return date.toFormat("yyyyMMdd'T'HHmmss");
   }
+
+/**
+ * Transform a date into a rdate UTC time format (Z suffix)
+ * @param {DateTime} date with any timezone already specified
+ * @return {string}
+ */
+function dateToUTCRuleText(date) {
+  return date.toUTC().toFormat("yyyyMMdd'T'HHmmss'Z'");
+}
 
   /**
    * Generate a function that copies the hours and minutes from a datetime into other dates
-   * @param {Date} firstDatetime object that contains the right hours and minutes
+   * @param {DateTime} firstDatetime object that contains the right hours and minutes
    * @return {function}
    */
   function setHourGenerator(firstDatetime) {
     return (otherDate) => {
-      otherDate.setHours(firstDatetime.getHours(), firstDatetime.getMinutes());
-      return otherDate;
+      return  otherDate.set({hour: firstDatetime.hour, minute: firstDatetime.minute});
     }
   }
 
   /**
-   * Check if input line is a date or a virtual classroom
+   * Check if input line is a date or a virtual classroom. Not a proper date validator.
    * @param {string} line
    * @return {boolean}
    */
@@ -117,12 +169,24 @@
     return ret;
   }
 
-  function createDateFromText(text) { //text is something like 01-ott-2020
-    let date = new Date();
+  /**
+   * Create an appropriate DateTime object from a textual representation
+   * @param text
+   * @return {DateTime}
+   */
+  function createDateFromText(text) {
+    //text is something like 01-ott-2020
     let pieces = text.split("-");
-    date.setFullYear(parseInt(pieces[2]), months[pieces[1].toLowerCase()], parseInt(pieces[0]));
-    date.setSeconds(0, 0);
-    return date;
+    const year = parseInt(pieces[2]);
+    const month = months[pieces[1].toLowerCase()];
+    if (month === undefined) {
+      throw new Error(`Invalid month in: ${text}`);
+    }
+    const day = parseInt(pieces[0]);
+    return DateTime.fromObject(
+      { year: year, month: month, day: day, hour: 12, minute: 0 },
+      { zone: "Europe/Rome" }
+    );
   }
 
   function buildProfessorsList(course, alreadyMatchedTitles) {
@@ -165,13 +229,14 @@
   /**
    * @param {string} course textual representation of the course
    * @param {String[]|null} upperLevelProfessorNames - list of professor names to use. If null, create them from scratch
-   * @param {string|null} subcourseSeparator Separator that is supposed to divide the possible subcourses (usually \n\n for Chromium and \n\n\n for Firefox)
+   * @param {string|null} subcourseSeparator - Separator that is supposed to divide the possible subcourses (usually \n\n for Chromium and \n\n\n for Firefox)
+   * @return {ParsedData} Parsing result
    * **/
   function parseCourse(course, upperLevelProfessorNames= null, subcourseSeparator = null) {
     const titleRegex = /^\s*(\d{6}) - (.*?)(?:\s*\(\s*(?:Docente|Professor|Lecturer|Teacher):(.*)\)|$)/gm;
     let titles = [...course.matchAll(titleRegex)];
     if (titles.length === 0) {
-      return [];
+      return {data: [], error: null};
     }
 
     let professorNames = buildProfessorsList(course, titles);
@@ -185,9 +250,13 @@
       if (course.includes(subcourseSeparator)) {
         let innerEvents = [];
         for (let wholeCourse of course.split(subcourseSeparator)) {
-          innerEvents = [...innerEvents, ...parseCourse(wholeCourse.trim(), professorNames)];
+          const newSubcourse = parseCourse(wholeCourse.trim(), professorNames);
+          innerEvents = [...innerEvents, ...newSubcourse.data];
+          if (newSubcourse.error !== null) {
+            return {data: innerEvents, error: newSubcourse.error}
+          }
         }
-        return innerEvents;
+        return {data: innerEvents, error: null};
       }
     }
 
@@ -195,7 +264,7 @@
     let noLessonTest = /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
     let noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
     if (noLessonTest.test(course) || noScheduleTest.test(course)) {
-      return [];
+      return {data: [], error: null};
     }
 
     let courseName = titles[titles.length - 1][2];
@@ -217,25 +286,21 @@
         let location = timesLocations[i*regexCapturingGroups+6];
         let dates = timesLocations[i*regexCapturingGroups+7].split("\n\n")[0].trim().split("\n");
         dates = dates.filter(isValidDate);
-        let firstDay = createDateFromText(dates.splice(0, 1)[0]);
-        let firstEnd = new Date(firstDay);
-        firstDay.setHours(startHour);
-        firstDay.setMinutes(startMinute);
-        firstEnd.setHours(endHour);
-        firstEnd.setMinutes(endMinute);
-        let textualTime = ("0" + (firstDay.getHours())).slice(-2) + ("0" + firstDay.getMinutes()).slice(-2) + "00Z";
+        const partialFirstDay = createDateFromText(dates.splice(0, 1)[0]);
+        const firstDay = partialFirstDay.set({hour: startHour, minute: startMinute});
+        const firstEnd = partialFirstDay.set({hour: endHour, minute: endMinute});
 
         let professorString = getProfessorString(lessonType, professorNames);
         let event = {
             "summary": courseName,
             "start": firstDay,
             "end": firstEnd,
-            "dtstamp": new Date(),
+            "dtstamp": DateTime.now(),
             "location": location,
             "description": lessonType + "\n" + professorString + "\n" + professorNames.join("\n")
         };
         if (dates.length > 0) {
-          event.rdate = dates.map(createDateFromText).map(setHourGenerator(firstDay)).map(dateToRuleText).join(',');
+          event.rdate = dates.map(createDateFromText).map(setHourGenerator(firstDay)).map(dateToUTCRuleText).join(',');
         }
         events.push(event);
       }
@@ -261,7 +326,9 @@
         tempCourse = tempCourse.trim();
         if (tempCourse !== "")
           subCourses.push(tempCourse);
-        return [...parseCourse(subCourses[0], professorNames), ...parseCourse(subCourses.slice(1).join("\n"), professorNames)];
+        const headingData = parseCourse(subCourses[0], professorNames);
+        const followingData = parseCourse(subCourses.slice(1).join("\n"), professorNames);
+        return {data: [...headingData.data, ...followingData.data], error: headingData.error || followingData.error};
       }
       else if (datesGroups.length === 1) {
         let datesMatch = datesGroups[0];
@@ -272,10 +339,14 @@
         const endComponents = dateComponentsRegex.exec(datesMatch[3]);
 
         const isDdMmYyyy = isCourseDdMmYyyy(startComponents, endComponents);
-        const dateFormatter = isDdMmYyyy ? "$3-$2-$1" : "$3-$1-$2";
+        const dateFormat = isDdMmYyyy ? "dd/MM/yyyy" : "MM/dd/yyyy";
 
-        let start = new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
-        let end = new Date(datesMatch[3].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
+        let start = DateTime.fromFormat(datesMatch[2], dateFormat, {zone: "Europe/Rome"});//new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
+        let end = DateTime.fromFormat(datesMatch[3], dateFormat, {zone: "Europe/Rome"});
+        if (start.valueOf() > end.valueOf()) {
+          return {data: events, error: `Start is unexpectedly greater than End (${start} > ${end})`};
+        }
+        //let end = new Date(datesMatch[3].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
 
         let courseDays = /[^\n]+\n[^\n]+\n?([\s\S]*)/.exec(course);
         if (courseDays !== null && courseDays[1] !== "") {
@@ -288,26 +359,32 @@
             }
             let noRoomTest = /.*? (?:Aula al momento non disponibile|Classroom not available yet).*/;
             let weekDay = weekdays[timeMatch[1]];
-            let firstDay = new Date(start);
-            if (weekDay < start.getDay()) {
-              firstDay.setDate(firstDay.getDate() - firstDay.getDay() + 7 + weekDay);
+            let firstDay = start;
+            if (weekDay < start.weekday) {
+              firstDay = start.set({day: start.day - start.weekday + 7 + weekDay});
             }
             else {
-              firstDay.setDate(firstDay.getDate() - firstDay.getDay() + weekDay);
+              firstDay = start.set({day: start.day - start.weekday + weekDay});
             }
             const startMiddayOffset = (timeMatch.groups.startMidday !== undefined && timeMatch.groups.startMidday[0] === "p") ? 12 : 0; // Add hour offset for p.m.
-            firstDay.setHours(parseInt(timeMatch[2])+startMiddayOffset, parseInt(timeMatch[3]), 0);
+            firstDay = firstDay.set({hour: parseInt(timeMatch[2])+startMiddayOffset, minute: parseInt(timeMatch[3])});
 
-            let lastDay = new Date(end);
-            if (weekDay <= end.getDay()) {
-              lastDay.setDate(lastDay.getDate() - lastDay.getDay() + weekDay);
+            let lastDay = end;
+            if (weekDay <= end.weekday) {
+              lastDay = end.set({day: end.day - end.weekday + weekDay});
             }
             else {
-              lastDay.setDate(lastDay.getDate() - lastDay.getDay() - 7 + weekDay);
+              lastDay = end.set({day: end.day - end.weekday - 7 + weekDay});
             }
-            let firstEnd = new Date(firstDay);
+            lastDay = lastDay.set({hour: firstDay.hour, minute: firstDay.minute});
+            if (firstDay.valueOf() > lastDay.valueOf()) {
+              return {data: events, error: `First day is unexpectedly greater than Last day (${firstDay} > ${lastDay})`};
+            }
+
+            let firstEnd = firstDay;
             const endMiddayOffset = (timeMatch.groups.endMidday !== undefined && timeMatch.groups.endMidday[0] === "p") ? 12 : 0; // Add hour offset for p.m.
-            firstEnd.setHours(parseInt(timeMatch[5])+endMiddayOffset, parseInt(timeMatch[6]), 0);
+            firstEnd = firstEnd.set({hour: parseInt(timeMatch[5])+endMiddayOffset, minute: parseInt(timeMatch[6])});
+
             let location = null;
             let lessonType = null;
             if (!noRoomTest.test(j)) {
@@ -333,9 +410,9 @@
                 "summary": courseName,
                 "start": firstDay,
                 "end": firstEnd,
-                "dtstamp": new Date(),
+                "dtstamp": DateTime.now(),
                 "location": location,
-                "rrule": "FREQ=WEEKLY;UNTIL=" + lastDay.getFullYear() + ("0" + (lastDay.getMonth() + 1)).slice(-2) + ("0" + lastDay.getDate()).slice(-2) + "T235959Z",
+                "rrule": "FREQ=WEEKLY;UNTIL=" + dateToUTCRuleText(lastDay),
                 "description": lessonType + "\n" + professorString + "\n" + professorNames.join("\n")
               }
             );
@@ -343,7 +420,7 @@
         }
       }
     }
-    return events;
+    return {data: events, error: null};
   }
 
   /**
@@ -355,7 +432,12 @@
     return userInput.replace(/\n\)/g, ")"); // Remove newline before the closing parenthesis of the professor section, if present
   }
 
-  function parseText(allCourses) {
+/**
+ * Parse the whole timetable input
+ * @param {string} allCourses - User timetable
+ * @return {ParsedData}
+ */
+function parseText(allCourses) {
     try {
       const preprocessedInput = preprocessText(allCourses);
 
@@ -367,65 +449,107 @@
       let coursesList = preprocessedInput.trim().split(separator);
       let events = [];
       for (let wholeCourse of coursesList) {
-        events = [...events, ...parseCourse(wholeCourse.trim(), null, separator.slice(0, -1))];
+
+        const newCourse = parseCourse(wholeCourse.trim(), null, separator.slice(0, -1));
+        events = [...events, ...newCourse.data];
+        if (newCourse.error !== null) {
+          return {data: events, error: newCourse.error};
+        }
       }
 
       // Prevent the error popup from appearing if the input is empty
       if (events.length === 0 && preprocessedInput.trim().length !== 0) {
-        if (displayErrorPopup !== undefined) {
-          displayErrorPopup();
-        }
+        return {data: [], error: "No courses detected"}
       }
 
-      return events;
+      return {data: events, error: null};
     }
     catch (err) {
-      console.log("The website is no longer compatible with polimi-schedule-js. Please report the error message and the calendar text you are trying to convert. (" + err.message + ")");
-      if (displayErrorPopup !== undefined) {
-        displayErrorPopup();
-      }
+      console.error("The website is no longer compatible with polimi-schedule-js. Please report the error message and the calendar text you are trying to convert. (" + err.message + ")");
+      return {data: [], error: err.message};
     }
-
-    return null;
   }
 
-  function getIcalendar(allCourses, logError = true) {
+/**
+ *
+ * @param {string} allCourses
+ * @param {boolean} logError
+ * @return {IcalendarData}
+ */
+function getIcalendar(allCourses, logError = true) {
     let events = parseText(allCourses);
-    if (events === null || events.length === 0) {
+    if (events.error !== null) {
       if (logError) {
-        console.log("Unable to create iCalendar file! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer.");
+        console.error("Unable to create iCalendar file! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer.");
       }
-      return "";
+      return {data: "", error: events.error};
     }
     else {
-      // console.log(JSON.stringify(events, null, 2))
-      let cal = new ICS.VCALENDAR();
-      cal.addProp("VERSION", 2);
-      cal.addProp("PRODID", "bebora@github");
-      for (let e of events) {
-        let icalEvent = new ICS.VEVENT();
-        icalEvent.addProp("SUMMARY", e.summary);
-        icalEvent.addProp("DTSTART", e.start, { VALUE: "DATE-TIME" });
-        icalEvent.addProp("DTEND", e.end, { VALUE: "DATE-TIME" });
-        icalEvent.addProp("DTSTAMP", e.dtstamp, { VALUE: "DATE-TIME" });
-        icalEvent.addProp("UID");
+      // console.log(JSON.stringify(events.data, null, 2))
+      const versionProperty = new Property({ name: 'VERSION', value: 2 });
+      const prodId = new Property({name: "PRODID", value: "bebora@github"});
+
+      let calendar = new Component({ name: "VCALENDAR", properties: [versionProperty, prodId]});
+
+      for (let e of events.data) {
+        let newEvent = new Component({
+          name: "VEVENT",
+          properties: [
+            new Property({
+              name: "SUMMARY",
+              value: e.summary
+            }),
+            new Property({
+              name: "DTSTART",
+              parameters: {TZID: "Europe/Rome"},
+              value: dateToLocalRuleText(e.start)
+            }),
+            new Property({
+              name: "DTEND",
+              parameters: {TZID: "Europe/Rome"},
+              value: dateToLocalRuleText(e.end)
+            }),
+            new Property({
+              name: "DTSTAMP",
+              value: dateToUTCRuleText(e.dtstamp)
+            }),
+            new Property({
+              name: "UID",
+              value: uuidv4()
+            })
+          ]
+        });
+
         if (e.location !== undefined) {
-          icalEvent.addProp("LOCATION", e.location);
+          newEvent = newEvent.pushProperty(new Property({
+            name: "LOCATION",
+            value: e.location
+          }));
         }
         if (e.description !== undefined) {
-          icalEvent.addProp("DESCRIPTION", e.description.replace(/(?:\n)/g, '\\n'));
+          newEvent = newEvent.pushProperty(new Property({
+            name: "DESCRIPTION",
+            value: e.description
+          }));
         }
         if (e.rrule !== undefined) {
-          icalEvent.addProp("RRULE", e.rrule);
+          newEvent = newEvent.pushProperty(new Property({
+            name: "RRULE",
+            value: e.rrule
+          }));
         }
         if (e.rdate !== undefined) {
-          icalEvent.addProp("RDATE", e.rdate);
+          newEvent = newEvent.pushProperty(new Property({
+            name: "RDATE",
+            value: e.rdate
+          }));
         }
-        cal.addComponent(icalEvent);
+
+        calendar = calendar.pushComponent(newEvent);
       }
-      return cal.toString();
+      const rawCalendar = calendar.toString();
+      return {data: insertVTimezone(rawCalendar), error: null};
     }
   }
-  exports.parseText = parseText;
-  exports.getIcalendar = getIcalendar;
-})(typeof exports === 'undefined'? this : exports);
+
+  export {parseText, getIcalendar};

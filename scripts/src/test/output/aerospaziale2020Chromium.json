@@ -1,0 +1,173 @@
+[
+  {
+    "summary": "FONDAMENTI DI CHIMICA",
+    "start": "2020-09-14T18:15:00.000+02:00",
+    "end": "2020-09-14T20:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.387Z",
+    "location": "L.15 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201221T171500Z",
+    "description": "Esercitazione\nDocente:\nGambarotti Cristian"
+  },
+  {
+    "summary": "FONDAMENTI DI CHIMICA",
+    "start": "2020-09-14T16:15:00.000+02:00",
+    "end": "2020-09-14T18:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.390Z",
+    "location": "L.15 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201221T151500Z",
+    "description": "Esercitazione\nDocente:\nGambarotti Cristian"
+  },
+  {
+    "summary": "FONDAMENTI DI CHIMICA",
+    "start": "2020-09-16T10:15:00.000+02:00",
+    "end": "2020-09-16T12:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.392Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201223T091500Z",
+    "description": "Lezione\nDocente:\nGambarotti Cristian"
+  },
+  {
+    "summary": "FONDAMENTI DI CHIMICA",
+    "start": "2020-09-18T13:15:00.000+02:00",
+    "end": "2020-09-18T15:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.392Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201218T121500Z",
+    "description": "Lezione\nDocente:\nGambarotti Cristian"
+  },
+  {
+    "summary": "METODI DI RAPPRESENTAZIONE TECNICA",
+    "start": "2020-09-14T11:15:00.000+02:00",
+    "end": "2020-09-14T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.394Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201221T101500Z",
+    "description": "Lezione\nDocente:\nCaruso Giandomenico"
+  },
+  {
+    "summary": "METODI DI RAPPRESENTAZIONE TECNICA",
+    "start": "2020-09-16T14:15:00.000+02:00",
+    "end": "2020-09-16T17:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.394Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201223T131500Z",
+    "description": "Laboratorio informatico\nDocente:\nCaruso Giandomenico"
+  },
+  {
+    "summary": "METODI DI RAPPRESENTAZIONE TECNICA",
+    "start": "2020-09-17T10:15:00.000+02:00",
+    "end": "2020-09-17T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.395Z",
+    "location": "B6.2.5 (Milano Bovisa - Via Candiani - Edificio B6 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201217T091500Z",
+    "description": "Esercitazione\nDocente:\nCaruso Giandomenico"
+  },
+  {
+    "summary": "METODI DI RAPPRESENTAZIONE TECNICA",
+    "start": "2020-09-17T10:15:00.000+02:00",
+    "end": "2020-09-17T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.395Z",
+    "location": "B6.2.6 (Milano Bovisa - Via Candiani - Edificio B6 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201217T091500Z",
+    "description": "Esercitazione\nDocente:\nCaruso Giandomenico"
+  },
+  {
+    "summary": "ANALISI E GEOMETRIA 1",
+    "start": "2020-09-15T17:15:00.000+02:00",
+    "end": "2020-09-15T20:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.397Z",
+    "location": "L.04 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201222T161500Z",
+    "description": "Esercitazione\nDocente:\nMuratori Matteo"
+  },
+  {
+    "summary": "ANALISI E GEOMETRIA 1",
+    "start": "2020-09-15T17:15:00.000+02:00",
+    "end": "2020-09-15T20:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.397Z",
+    "location": "BL.28.1.1 (Milano Bovisa - Via La Masa - Edificio BL28 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201222T161500Z",
+    "description": "Esercitazione\nDocente:\nMuratori Matteo"
+  },
+  {
+    "summary": "ANALISI E GEOMETRIA 1",
+    "start": "2020-09-16T08:15:00.000+02:00",
+    "end": "2020-09-16T10:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.398Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201223T071500Z",
+    "description": "Lezione\nDocente:\nMuratori Matteo"
+  },
+  {
+    "summary": "ANALISI E GEOMETRIA 1",
+    "start": "2020-09-18T15:15:00.000+02:00",
+    "end": "2020-09-18T18:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.398Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201218T141500Z",
+    "description": "Lezione\nDocente:\nMuratori Matteo"
+  },
+  {
+    "summary": "INFORMATICA B",
+    "start": "2020-09-14T08:15:00.000+02:00",
+    "end": "2020-09-14T11:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.399Z",
+    "location": "L.15 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201221T071500Z",
+    "description": "Lezione\nDocente:\nDi Nitto Elisabetta"
+  },
+  {
+    "summary": "INFORMATICA B",
+    "start": "2020-09-15T11:15:00.000+02:00",
+    "end": "2020-09-15T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.400Z",
+    "location": "L.03 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201222T101500Z",
+    "description": "Esercitazione\nDocente:\nDi Nitto Elisabetta"
+  },
+  {
+    "summary": "INFORMATICA B",
+    "start": "2020-09-15T14:15:00.000+02:00",
+    "end": "2020-09-15T16:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.400Z",
+    "location": "BL.27.01 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201222T131500Z",
+    "description": "Esercitazione\nDocente:\nDi Nitto Elisabetta"
+  },
+  {
+    "summary": "INFORMATICA B",
+    "start": "2020-09-18T08:15:00.000+02:00",
+    "end": "2020-09-18T11:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.401Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201218T071500Z",
+    "description": "Laboratorio informatico\nDocente:\nDi Nitto Elisabetta"
+  },
+  {
+    "summary": "ISTITUZIONI DI INGEGNERIA AEROSPAZIALE",
+    "start": "2020-09-15T08:15:00.000+02:00",
+    "end": "2020-09-15T10:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.402Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201222T071500Z",
+    "description": "Lezione\nDocente:\nJanszen Gerardus"
+  },
+  {
+    "summary": "ISTITUZIONI DI INGEGNERIA AEROSPAZIALE",
+    "start": "2020-09-17T17:15:00.000+02:00",
+    "end": "2020-09-17T19:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.403Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201217T161500Z",
+    "description": "Lezione\nDocente:\nJanszen Gerardus"
+  },
+  {
+    "summary": "ISTITUZIONI DI INGEGNERIA AEROSPAZIALE",
+    "start": "2020-09-18T08:15:00.000+02:00",
+    "end": "2020-09-18T11:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.403Z",
+    "location": "AULA VIRTUALE (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20201218T071500Z",
+    "description": "Lezione\nDocente:\nJanszen Gerardus"
+  }
+]

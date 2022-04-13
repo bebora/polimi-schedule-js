@@ -1,7 +1,11 @@
-var fs = require("fs");
-var path = require("path");
-var assert = require("assert");
-var polimiConverter = require("../schedule-to-ical");
+import * as fs from "fs";
+import * as path from "path";
+import * as assert from "assert";
+import * as polimiConverter from "../schedule-to-ical.js";
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function eventsMatch(input, expected) {
   if (input.length !== expected.length) {
@@ -74,7 +78,7 @@ describe("Timetable conversion", function () {
           JSON.stringify(
             polimiConverter.parseText(
               fs.readFileSync(__dirname + "/input/" + i).toString()
-            )
+            ).data
           )
         ),
         obj

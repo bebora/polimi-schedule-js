@@ -1,0 +1,92 @@
+[
+  {
+    "summary": "ALGORITMI E PRINCIPI DELL'INFORMATICA",
+    "start": "2020-02-25T10:15:00.000+01:00",
+    "end": "2020-02-25T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.641Z",
+    "location": "III.B (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200602T081500Z",
+    "description": "Lezione\nDocente:\nPradella Matteo"
+  },
+  {
+    "summary": "ALGORITMI E PRINCIPI DELL'INFORMATICA",
+    "start": "2020-02-26T14:15:00.000+01:00",
+    "end": "2020-02-26T17:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.642Z",
+    "location": "6.0.1 (EX C.I.1) (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 6 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T121500Z",
+    "description": "Esercitazione\nDocente:\nPradella Matteo"
+  },
+  {
+    "summary": "ALGORITMI E PRINCIPI DELL'INFORMATICA",
+    "start": "2020-02-28T08:15:00.000+01:00",
+    "end": "2020-02-28T11:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.642Z",
+    "location": "4.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 4 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200605T061500Z",
+    "description": "Lezione\nDocente:\nPradella Matteo"
+  },
+  {
+    "summary": "FONDAMENTI DI AUTOMATICA",
+    "start": "2020-02-24T09:15:00.000+01:00",
+    "end": "2020-02-24T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.643Z",
+    "location": "26.16 (EX L.26.16) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200601T071500Z",
+    "description": "Lezione\nDocente:\nLeva Alberto"
+  },
+  {
+    "summary": "FONDAMENTI DI AUTOMATICA",
+    "start": "2020-02-25T14:15:00.000+01:00",
+    "end": "2020-02-25T18:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.643Z",
+    "location": "LB7 (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200602T121500Z",
+    "description": "Laboratorio\nDocente:\nLeva Alberto"
+  },
+  {
+    "summary": "FONDAMENTI DI AUTOMATICA",
+    "start": "2020-02-26T09:15:00.000+01:00",
+    "end": "2020-02-26T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.644Z",
+    "location": "5.02 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T071500Z",
+    "description": "Lezione\nDocente:\nLeva Alberto"
+  },
+  {
+    "summary": "FONDAMENTI DI AUTOMATICA",
+    "start": "2020-02-27T09:15:00.000+01:00",
+    "end": "2020-02-27T11:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.644Z",
+    "location": "B.2.1 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200604T071500Z",
+    "description": "Lezione\nDocente:\nLeva Alberto"
+  },
+  {
+    "summary": "PROBABILITÀ E STATISTICA PER L'INFORMATICA",
+    "start": "2020-02-24T13:15:00.000+01:00",
+    "end": "2020-02-24T16:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.644Z",
+    "location": "B.4.2 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quarto)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200601T111500Z",
+    "description": "Lezione\nDocente:\nEpifani Ilenia"
+  },
+  {
+    "summary": "PROBABILITÀ E STATISTICA PER L'INFORMATICA",
+    "start": "2020-02-25T08:15:00.000+01:00",
+    "end": "2020-02-25T10:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.645Z",
+    "location": "III.B (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200602T061500Z",
+    "description": "Lezione\nDocente:\nEpifani Ilenia"
+  },
+  {
+    "summary": "PROBABILITÀ E STATISTICA PER L'INFORMATICA",
+    "start": "2020-02-28T11:15:00.000+01:00",
+    "end": "2020-02-28T14:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.645Z",
+    "location": "9.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200605T091500Z",
+    "description": "Esercitazione\nDocente:\nEpifani Ilenia"
+  }
+]

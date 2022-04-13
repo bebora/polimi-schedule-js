@@ -1,0 +1,92 @@
+[
+  {
+    "summary": "ANALISI MATEMATICA 1",
+    "start": "2019-09-16T15:15:00.000+02:00",
+    "end": "2019-09-16T17:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.501Z",
+    "location": "25.S.1 (EX D.0.1) (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20191216T141500Z",
+    "description": "Lezione\nDocente:\nDi Cristo Michele"
+  },
+  {
+    "summary": "ANALISI MATEMATICA 1",
+    "start": "2019-09-17T09:15:00.000+02:00",
+    "end": "2019-09-17T11:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.501Z",
+    "location": "26.12 (EX L.26.12) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20191217T081500Z",
+    "description": "Lezione\nDocente:\nDi Cristo Michele"
+  },
+  {
+    "summary": "ANALISI MATEMATICA 1",
+    "start": "2019-09-20T10:15:00.000+02:00",
+    "end": "2019-09-20T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.501Z",
+    "location": "5.02 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20191220T091500Z",
+    "description": "Lezione\nDocente:\nDi Cristo Michele"
+  },
+  {
+    "summary": "DISEGNO EDILE",
+    "start": "2019-09-18T08:15:00.000+02:00",
+    "end": "2019-09-18T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.502Z",
+    "location": "26.13 (EX L.26.13) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20191218T071500Z",
+    "description": "Lezione\nDocente:\nPignataro Maria Annunziata"
+  },
+  {
+    "summary": "DISEGNO EDILE",
+    "start": "2019-09-19T14:15:00.000+02:00",
+    "end": "2019-09-19T18:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.503Z",
+    "location": "26.13 (EX L.26.13) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20191219T131500Z",
+    "description": "Esercitazione\nDocente:\nPignataro Maria Annunziata"
+  },
+  {
+    "summary": "FONDAMENTI DI INFORMATICA",
+    "start": "2019-09-19T08:15:00.000+02:00",
+    "end": "2019-09-19T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.503Z",
+    "location": "26.13 (EX L.26.13) (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20191219T071500Z",
+    "description": "Lezione\nDocente:\nBarenghi Alessandro"
+  },
+  {
+    "summary": "STORIA DELL'ARCHITETTURA E DELLE TECNICHE COSTRUTTIVE",
+    "start": "2019-09-18T14:15:00.000+02:00",
+    "end": "2019-09-18T18:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.504Z",
+    "location": "B.2.1 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20191218T131500Z",
+    "description": "Lezione\nDocente:\nForni Maria Enrica Marica"
+  },
+  {
+    "summary": "STRUTTURA, PROPRIETA' E APPLICAZIONI DEI MATERIALI",
+    "start": "2020-02-24T14:15:00.000+01:00",
+    "end": "2020-02-24T16:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.505Z",
+    "location": "B.2.4 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200601T121500Z",
+    "description": "Lezione\nDocente:\nRedaelli Elena"
+  },
+  {
+    "summary": "STRUTTURA, PROPRIETA' E APPLICAZIONI DEI MATERIALI",
+    "start": "2020-02-26T09:15:00.000+01:00",
+    "end": "2020-02-26T11:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.505Z",
+    "location": "25.S.1 (EX D.0.1) (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T071500Z",
+    "description": "Lezione\nDocente:\nRedaelli Elena"
+  },
+  {
+    "summary": "STRUTTURA, PROPRIETA' E APPLICAZIONI DEI MATERIALI",
+    "start": "2020-02-28T14:15:00.000+01:00",
+    "end": "2020-02-28T17:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.506Z",
+    "location": "B.2.4 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200605T121500Z",
+    "description": "Esercitazione\nDocente:\nRedaelli Elena"
+  }
+]

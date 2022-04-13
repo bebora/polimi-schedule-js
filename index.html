@@ -17,11 +17,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style/style.css" />
-  <script src="https://cdn.jsdelivr.net/gh/angeloashmore/ics-js/dist/ics-js.js"></script>
-  <script src="scripts/schedule-to-ical.js"></script>
-  <script src="scripts/gapi-importer.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"
-    integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -33,8 +28,8 @@
       </div>
       <span id="flags" style="float: right; display: table;">
         <a class="middleImage faqLinkText" href="home.html#howToUseHead"><span id="howToLink">Istruzioni</span> <i class="far fa-question-circle"></i></a>
-        <img id="itFlag" class="middleImage" src="images/italy-flag-icon-64.png" alt="Italian Flag" onclick="setLanguage('it')" title="Imposta italiano">
-        <img id="enFlag" class="middleImage" src="images/united-kingdom-flag-icon-64.png" alt="UK Flag" onclick="setLanguage('en')" title="Set language to English">
+        <img id="itFlag" class="middleImage" src="images/italy-flag-icon-64.png" alt="Italian Flag" title="Imposta italiano">
+        <img id="enFlag" class="middleImage" src="images/united-kingdom-flag-icon-64.png" alt="UK Flag" title="Set language to English">
       </span>
     </div>
     <textarea id="input" placeholder="Incolla le lezioni copiate dall'orario testuale"></textarea>
@@ -49,9 +44,9 @@
     <a href="home.html" style="margin-left: 10px;"><span id="homepageFooter">Home + Istruzioni d'uso</span> <i class="fas fa-home"></i></a>
     <a href="privacy_policy.html" style="margin-left: 10px;">Privacy policy</a>
   </div>
-  <div id="google-pop" class="pop-bg" onclick="hideOverlay('google-pop')" style="display: none;">
+  <div id="google-pop" class="pop-bg" style="display: none;">
     <div id="google-pop-window" class="pop-window">
-      <span class="pop-close" onclick="hideOverlay('google-pop')"><i class="fas fa-times"></i> </span>
+      <span id="google-close-button" class="pop-close"><i class="fas fa-times"></i> </span>
       <div class="pop-content">
         <div id="logged_out_section">
           <button id="authorize_button" class="btn btn-ggl">
@@ -68,7 +63,7 @@
           </div>
           <p id="orSelect">oppure</p>
           <div>
-            <input type="checkbox" id="newCalendar" name="newCalendar" value="newCalendar" onclick="displayNewName();">
+            <input type="checkbox" id="newCalendar" name="newCalendar" value="newCalendar">
             <label id="newCalendarLabel" for="newCalendar"> Crea nuovo calendario</label>
           </div>
           <div id="inputElem" style="display: none; padding: 12px 0;">
@@ -87,9 +82,9 @@
       </div>
     </div>
   </div>
-  <div id="error-pop" class="pop-bg" onclick="hideOverlay('error-pop')" style="display: none;">
+  <div id="error-pop" class="pop-bg" style="display: none;">
     <div id="error-pop-window" class="pop-window">
-      <span class="pop-close" onclick="hideOverlay('error-pop')"><i class="fas fa-times"></i> </span>
+      <span id="error-close-button" class="pop-close"><i class="fas fa-times"></i> </span>
       <div class="pop-content">
         <h2 id="errorTitle">Ops! Qualcosa è andato storto</h2>
         <div id="genericError">Il testo che hai incollato non è valido oppure è in un nuovo formato non supportato.</div>
@@ -102,9 +97,8 @@
       </div>
     </div>
   </div>
-  <script defer src="scripts/ui.js">  </script>
-  <script defer src="scripts/set-language.js" onload="setLanguage((navigator.language || navigator.userLanguage).slice(0, 2))"></script>
-  <script defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+  <script defer src="scripts/dist/web-core-bundle.js"></script>
+  <script defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};bundle.handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
 </body>

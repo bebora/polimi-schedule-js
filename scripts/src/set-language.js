@@ -91,7 +91,7 @@ const strings = {
     }
 };
 
-function setLanguage(lang) {
+export function setLanguage(lang) {
     let tempLang = "en";
     if (lang in strings) {
         tempLang = lang;

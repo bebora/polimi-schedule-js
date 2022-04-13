@@ -1,0 +1,146 @@
+[
+  {
+    "summary": "ELETTROTECNICA",
+    "start": "2021-02-23T08:15:00.000+01:00",
+    "end": "2021-02-23T11:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.647Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210601T061500Z",
+    "description": "Lezione\nDocenti:\nLinaro Daniele\nGuzzetti Sergio"
+  },
+  {
+    "summary": "ELETTROTECNICA",
+    "start": "2021-02-24T14:15:00.000+01:00",
+    "end": "2021-02-24T17:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.647Z",
+    "location": "2.1.4 (EX N.1.6) (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210602T121500Z",
+    "description": "Esercitazione\nDocenti:\nLinaro Daniele\nGuzzetti Sergio"
+  },
+  {
+    "summary": "ELETTROTECNICA",
+    "start": "2021-02-25T11:15:00.000+01:00",
+    "end": "2021-02-25T14:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.647Z",
+    "location": "2.1.1 (EX N.1.1) (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210603T091500Z",
+    "description": "Esercitazione\nDocenti:\nLinaro Daniele\nGuzzetti Sergio"
+  },
+  {
+    "summary": "ELETTROTECNICA",
+    "start": "2021-02-26T14:15:00.000+01:00",
+    "end": "2021-02-26T17:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.648Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210604T121500Z",
+    "description": "Lezione\nDocenti:\nLinaro Daniele\nGuzzetti Sergio"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2021-02-22T08:15:00.000+01:00",
+    "end": "2021-02-22T10:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.648Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210531T061500Z",
+    "description": "Lezione\nDocenti:\nD'Andrea Cosimo\nCiappetta Giacinto\nGatto Lorenzo\nCiriolo Anna Gabriella"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2021-02-22T15:15:00.000+01:00",
+    "end": "2021-02-22T17:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.649Z",
+    "location": "21.0.3 (EX E.G.6) (Milano Città Studi - Via Bassini - Edificio 21 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210531T131500Z",
+    "description": "Esercitazione\nDocenti:\nD'Andrea Cosimo\nCiappetta Giacinto\nGatto Lorenzo\nCiriolo Anna Gabriella"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2021-02-23T11:15:00.000+01:00",
+    "end": "2021-02-23T13:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.649Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210601T091500Z",
+    "description": "Lezione\nDocenti:\nD'Andrea Cosimo\nCiappetta Giacinto\nGatto Lorenzo\nCiriolo Anna Gabriella"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2021-02-24T17:15:00.000+01:00",
+    "end": "2021-02-24T19:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.649Z",
+    "location": "3.1.2 (EX S.1.2) (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210602T151500Z",
+    "description": "Esercitazione\nDocenti:\nD'Andrea Cosimo\nCiappetta Giacinto\nGatto Lorenzo\nCiriolo Anna Gabriella"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2021-02-24T17:15:00.000+01:00",
+    "end": "2021-02-24T19:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.649Z",
+    "location": "25.S.2 (EX D.0.3) (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210602T151500Z",
+    "description": "Esercitazione\nDocenti:\nD'Andrea Cosimo\nCiappetta Giacinto\nGatto Lorenzo\nCiriolo Anna Gabriella"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2021-02-25T15:15:00.000+01:00",
+    "end": "2021-02-25T17:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.649Z",
+    "location": "2.1.5 (EX N.1.5) (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210603T131500Z",
+    "description": "Esercitazione\nDocenti:\nD'Andrea Cosimo\nCiappetta Giacinto\nGatto Lorenzo\nCiriolo Anna Gabriella"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2021-02-26T10:15:00.000+01:00",
+    "end": "2021-02-26T13:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.650Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210604T081500Z",
+    "description": "Lezione\nDocenti:\nD'Andrea Cosimo\nCiappetta Giacinto\nGatto Lorenzo\nCiriolo Anna Gabriella"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2021-02-22T11:15:00.000+01:00",
+    "end": "2021-02-22T14:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.651Z",
+    "location": "OSVALDO DE DONATO (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210531T091500Z",
+    "description": "Esercitazione\nDocenti:\nCapone Antonio\nMoro Daniele"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2021-02-23T14:15:00.000+01:00",
+    "end": "2021-02-23T17:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.651Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210601T121500Z",
+    "description": "Lezione\nDocenti:\nCapone Antonio\nMoro Daniele"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2021-02-24T10:15:00.000+01:00",
+    "end": "2021-02-24T13:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.651Z",
+    "location": "2.1.1 (EX N.1.1) (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210602T081500Z",
+    "description": "Esercitazione\nDocenti:\nCapone Antonio\nMoro Daniele"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2021-02-25T08:15:00.000+01:00",
+    "end": "2021-02-25T10:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.651Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210603T061500Z",
+    "description": "Lezione\nDocenti:\nCapone Antonio\nMoro Daniele"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2021-02-26T08:15:00.000+01:00",
+    "end": "2021-02-26T10:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.652Z",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20210604T061500Z",
+    "description": "Lezione\nDocenti:\nCapone Antonio\nMoro Daniele"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "summary": "CI MATEMATICA",
+    "start": "2019-10-08T15:15:00.000+02:00",
+    "end": "2019-10-08T18:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.408Z",
+    "location": "B.5.5 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quinto)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200114T141500Z",
+    "description": "Lesson\nProfessor:\nPierotti Dario Giancarlo"
+  },
+  {
+    "summary": "CI MATEMATICA",
+    "start": "2019-10-10T14:15:00.000+02:00",
+    "end": "2019-10-10T17:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.409Z",
+    "location": "25.S.3 (EX D.0.4) (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200116T131500Z",
+    "description": "Lesson\nProfessor:\nPierotti Dario Giancarlo"
+  },
+  {
+    "summary": "FONDAMENTI DELLA RAPPRESENTAZIONE",
+    "start": "2019-10-07T13:15:00.000+02:00",
+    "end": "2019-10-07T19:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.411Z",
+    "location": "Q.1 (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200113T121500Z",
+    "description": "Lesson\nProfessor:\nBianchi Alessandro"
+  },
+  {
+    "summary": "STORIA DELL'ARCHITETTURA 1",
+    "start": "2019-10-08T10:15:00.000+02:00",
+    "end": "2019-10-08T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.411Z",
+    "location": "A - ALDO ROSSI (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200114T091500Z",
+    "description": "Lesson\nProfessor:\nBalestreri Isabella Carla Rachele"
+  },
+  {
+    "summary": "STORIA DELL'ARCHITETTURA 1",
+    "start": "2019-10-10T08:15:00.000+02:00",
+    "end": "2019-10-10T11:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.412Z",
+    "location": "B.2.1 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200116T071500Z",
+    "description": "Lesson\nProfessor:\nBalestreri Isabella Carla Rachele"
+  },
+  {
+    "summary": "LABORATORIO DI PROGETTAZIONE ARCHITETTONICA 1",
+    "start": "2019-10-09T14:15:00.000+02:00",
+    "end": "2019-10-09T19:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.413Z",
+    "location": "B.3.2 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T121500Z",
+    "description": "Lesson\nProfessors:\nDalzero Silvia\nOrsini Filippo\nCuca Branka"
+  },
+  {
+    "summary": "LABORATORIO DI PROGETTAZIONE ARCHITETTONICA 1",
+    "start": "2019-10-09T09:15:00.000+02:00",
+    "end": "2019-10-09T13:15:00.000+02:00",
+    "dtstamp": "2022-04-11T23:23:45.413Z",
+    "location": "B.3.2 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T071500Z",
+    "description": "Lesson\nProfessors:\nDalzero Silvia\nOrsini Filippo\nCuca Branka"
+  }
+]

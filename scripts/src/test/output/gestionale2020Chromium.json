@@ -1,0 +1,128 @@
+[
+  {
+    "summary": "FONDAMENTI DI ELETTROTECNICA",
+    "start": "2020-02-25T10:15:00.000+01:00",
+    "end": "2020-02-25T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.608Z",
+    "location": "BL.27.01 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200602T081500Z",
+    "description": "Lezione\nDocente:\nGrimaccia Francesco"
+  },
+  {
+    "summary": "FONDAMENTI DI ELETTROTECNICA",
+    "start": "2020-02-27T14:15:00.000+01:00",
+    "end": "2020-02-27T16:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.608Z",
+    "location": "LM.3 (Milano Bovisa - Via La Masa - Edificio B15 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200604T121500Z",
+    "description": "Esercitazione\nDocente:\nGrimaccia Francesco"
+  },
+  {
+    "summary": "FONDAMENTI DI ELETTROTECNICA",
+    "start": "2020-02-27T14:15:00.000+01:00",
+    "end": "2020-02-27T16:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.609Z",
+    "location": "BL.28.2.2 (Milano Bovisa - Via La Masa - Edificio BL28 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200604T121500Z",
+    "description": "Esercitazione\nDocente:\nGrimaccia Francesco"
+  },
+  {
+    "summary": "FISICA TECNICA",
+    "start": "2020-02-24T09:15:00.000+01:00",
+    "end": "2020-02-24T11:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.609Z",
+    "location": "B2.2.9 (Milano Bovisa - Via Candiani - Edificio B2 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200601T071500Z",
+    "description": "Lezione\nDocente:\nRocco Matteo Vincenzo"
+  },
+  {
+    "summary": "FISICA TECNICA",
+    "start": "2020-02-26T08:15:00.000+01:00",
+    "end": "2020-02-26T10:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.609Z",
+    "location": "BL.27.04 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T061500Z",
+    "description": "Esercitazione\nDocente:\nRocco Matteo Vincenzo"
+  },
+  {
+    "summary": "TECNOLOGIA MECCANICA E QUALITA'",
+    "start": "2020-02-26T13:15:00.000+01:00",
+    "end": "2020-02-26T16:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.610Z",
+    "location": "L.12 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T111500Z",
+    "description": "Lezione\nDocente:\nColledani Marcello"
+  },
+  {
+    "summary": "TECNOLOGIA MECCANICA E QUALITA'",
+    "start": "2020-02-27T08:15:00.000+01:00",
+    "end": "2020-02-27T10:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.610Z",
+    "location": "BL.27.17 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200604T061500Z",
+    "description": "Lezione\nDocente:\nColledani Marcello"
+  },
+  {
+    "summary": "TECNOLOGIA MECCANICA E QUALITA'",
+    "start": "2020-02-28T09:15:00.000+01:00",
+    "end": "2020-02-28T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.611Z",
+    "location": "B6.3.2 (Milano Bovisa - Via Candiani - Edificio B6 - Piano Terzo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200605T071500Z",
+    "description": "Lezione\nDocente:\nColledani Marcello"
+  },
+  {
+    "summary": "GESTIONE DEI SISTEMI LOGISTICI E PRODUTTIVI",
+    "start": "2020-02-24T08:15:00.000+01:00",
+    "end": "2020-02-24T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.611Z",
+    "location": "BL.27.04 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200601T061500Z",
+    "description": "Lezione\nDocente:\nCigolini Roberto"
+  },
+  {
+    "summary": "GESTIONE DEI SISTEMI LOGISTICI E PRODUTTIVI",
+    "start": "2020-02-26T08:15:00.000+01:00",
+    "end": "2020-02-26T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.612Z",
+    "location": "L.03 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200603T061500Z",
+    "description": "Lezione\nDocente:\nCigolini Roberto"
+  },
+  {
+    "summary": "TECNOLOGIE DIGITALI [2]",
+    "start": "2020-02-24T14:15:00.000+01:00",
+    "end": "2020-02-24T16:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.613Z",
+    "location": "B8 0.2 (Milano Bovisa - Via Candiani - Edificio B8 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200601T121500Z",
+    "description": "Lezione\nDocente:\nMusumeci Francesco"
+  },
+  {
+    "summary": "TECNOLOGIE DIGITALI [2]",
+    "start": "2020-02-27T13:15:00.000+01:00",
+    "end": "2020-02-27T15:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.613Z",
+    "location": "BL.27.05 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200604T111500Z",
+    "description": "Lezione\nDocente:\nMusumeci Francesco"
+  },
+  {
+    "summary": "TECNOLOGIE DIGITALI [1]",
+    "start": "2020-02-24T16:15:00.000+01:00",
+    "end": "2020-02-24T18:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.614Z",
+    "location": "B8 0.2 (Milano Bovisa - Via Candiani - Edificio B8 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200601T141500Z",
+    "description": "Lezione\nDocente:\nSalnitri Mattia"
+  },
+  {
+    "summary": "TECNOLOGIE DIGITALI [1]",
+    "start": "2020-02-27T10:15:00.000+01:00",
+    "end": "2020-02-27T12:15:00.000+01:00",
+    "dtstamp": "2022-04-11T23:23:45.614Z",
+    "location": "BL.27.06 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20200604T081500Z",
+    "description": "Lezione\nDocente:\nSalnitri Mattia"
+  }
+]
