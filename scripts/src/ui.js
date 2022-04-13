@@ -1,8 +1,7 @@
-import {handleGcalendarImport, handleClientLoad} from "./gapi-importer.js";
-import {setLanguage} from "./set-language";
-import {getIcalendar, parseText} from "./schedule-to-ical";
-import {saveAs} from "file-saver";
-
+import { handleGcalendarImport, handleClientLoad } from "./gapi-importer.js";
+import { setLanguage } from "./set-language";
+import { getIcalendar, parseText } from "./schedule-to-ical";
+import { saveAs } from "file-saver";
 
 document.getElementById("download").addEventListener("click", function () {
   let icsContent = getIcalendar(document.getElementById("input").value);
@@ -13,7 +12,9 @@ document.getElementById("download").addEventListener("click", function () {
     }, 3000);
     displayErrorPopup(icsContent.error);
   } else {
-    let blob = new Blob([icsContent.data], { type: "text/plain;charset=utf-8" });
+    let blob = new Blob([icsContent.data], {
+      type: "text/plain;charset=utf-8",
+    });
     saveAs(blob, "orarioPolimi.ics");
   }
 });
@@ -113,16 +114,34 @@ document.getElementById("manualErrorPopup").addEventListener("click", () => {
 });
 
 function bindEventListeners() {
-  document.getElementById("google-pop").addEventListener("click", () => {hideOverlay("google-pop")});
-  document.getElementById("google-close-button").addEventListener("click", () => {hideOverlay("google-pop")});
+  document.getElementById("google-pop").addEventListener("click", () => {
+    hideOverlay("google-pop");
+  });
+  document
+    .getElementById("google-close-button")
+    .addEventListener("click", () => {
+      hideOverlay("google-pop");
+    });
 
-  document.getElementById("error-pop").addEventListener("click", () => {hideOverlay("error-pop")});
-  document.getElementById("error-close-button").addEventListener("click", () => {hideOverlay("error-pop")});
+  document.getElementById("error-pop").addEventListener("click", () => {
+    hideOverlay("error-pop");
+  });
+  document
+    .getElementById("error-close-button")
+    .addEventListener("click", () => {
+      hideOverlay("error-pop");
+    });
 
-  document.getElementById("itFlag").addEventListener("click", () => {setLanguage("it")});
-  document.getElementById("enFlag").addEventListener("click", () => {setLanguage("en")});
+  document.getElementById("itFlag").addEventListener("click", () => {
+    setLanguage("it");
+  });
+  document.getElementById("enFlag").addEventListener("click", () => {
+    setLanguage("en");
+  });
 
-  document.getElementById("newCalendar").addEventListener("click", displayNewName);
+  document
+    .getElementById("newCalendar")
+    .addEventListener("click", displayNewName);
 }
 
 function setupUi() {
@@ -130,6 +149,6 @@ function setupUi() {
   setLanguage((navigator.language || navigator.userLanguage).slice(0, 2));
 }
 
-export {handleClientLoad}
+export { handleClientLoad };
 
 setupUi();

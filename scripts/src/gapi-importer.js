@@ -1,8 +1,11 @@
 // Client ID from the Developer Console
-const CLIENT_ID = "845509487647-5786nh91r45rsm485m2mb4cqcfmis94g.apps.googleusercontent.com";
+const CLIENT_ID =
+  "845509487647-5786nh91r45rsm485m2mb4cqcfmis94g.apps.googleusercontent.com";
 
 // Array of API discovery doc URLs for APIs used by the quickstart
-const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+const DISCOVERY_DOCS = [
+  "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
+];
 
 const SCOPES = "https://www.googleapis.com/auth/calendar";
 
@@ -23,21 +26,26 @@ export function handleClientLoad() {
  *  listeners.
  */
 function initClient() {
-  gapi.client.init({
-    clientId: CLIENT_ID,
-    discoveryDocs: DISCOVERY_DOCS,
-    scope: SCOPES
-  }).then(function () {
-    // Listen for sign-in state changes.
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+  gapi.client
+    .init({
+      clientId: CLIENT_ID,
+      discoveryDocs: DISCOVERY_DOCS,
+      scope: SCOPES,
+    })
+    .then(
+      function () {
+        // Listen for sign-in state changes.
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
-    // Handle the initial sign-in state.
-    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    authorizeButton.onclick = handleAuthClick;
-    signoutButton.onclick = handleSignoutClick;
-  }, function (error) {
-    console.error(JSON.stringify(error, null, 2));
-  });
+        // Handle the initial sign-in state.
+        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        authorizeButton.onclick = handleAuthClick;
+        signoutButton.onclick = handleSignoutClick;
+      },
+      function (error) {
+        console.error(JSON.stringify(error, null, 2));
+      }
+    );
 }
 
 /**
@@ -69,7 +77,6 @@ function handleSignoutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
 }
 
-
 /**
  * Import events produced from the schedule parsing into a given calendar
  */
@@ -78,16 +85,16 @@ function importMultipleEvents(genericEvents, calendarId, errorHandler) {
   let events = [];
   genericEvents.forEach(function (item, key) {
     let resource = {
-      "summary": item.summary,
-      "start": {
-        "dateTime": item.start.setZone("Europe/Rome").toISO(),
-        "timeZone": "Europe/Rome"
+      summary: item.summary,
+      start: {
+        dateTime: item.start.setZone("Europe/Rome").toISO(),
+        timeZone: "Europe/Rome",
       },
-      "end": {
-        "dateTime": item.end.setZone("Europe/Rome").toISO(),
-        "timeZone": "Europe/Rome"
+      end: {
+        dateTime: item.end.setZone("Europe/Rome").toISO(),
+        timeZone: "Europe/Rome",
       },
-      "recurrence": []
+      recurrence: [],
     };
     if (item.location !== undefined) {
       resource.location = item.location;
@@ -104,38 +111,46 @@ function importMultipleEvents(genericEvents, calendarId, errorHandler) {
     events.push(resource);
   });
   document.getElementById("importProgress").style.display = "block";
-  const promises = events.map(e => gapi.client.calendar.events.insert({"calendarId": calendarId, resource: e}));
+  const promises = events.map((e) =>
+    gapi.client.calendar.events.insert({ calendarId: calendarId, resource: e })
+  );
   Promise.all(promises).then(
-    function(values) {
+    function (values) {
       console.log(`Imported ${values.length} events`);
       document.getElementById("importProgress").style.display = "none";
       document.getElementById("importOk").style.display = "block";
-      setTimeout(function () { document.getElementById("importOk").style.display = "none"; }, 5000);
+      setTimeout(function () {
+        document.getElementById("importOk").style.display = "none";
+      }, 5000);
     },
     function (err) {
       document.getElementById("importProgress").style.display = "none";
       document.getElementById("importFail").style.display = "block";
-      setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 3000);
+      setTimeout(function () {
+        document.getElementById("creationFail").style.display = "none";
+      }, 3000);
       console.error("Unable to import some events to Calendar", err);
       errorHandler(err.body);
     }
-  )
+  );
 }
 
 function getCalendars() {
-  return gapi.client.calendar.calendarList.list({})
-    .then(function (response) {
+  return gapi.client.calendar.calendarList.list({}).then(
+    function (response) {
       //console.log(response.result.items);
       let s = document.getElementById("calendarId");
       let options = response.result.items;
       options.forEach(function (item, key) {
         if (/Polimi|Universit/i.test(item.summary))
           s[key] = new Option(item.summary, item.id, true, true);
-        else
-          s[key] = new Option(item.summary, item.id);
+        else s[key] = new Option(item.summary, item.id);
       });
     },
-      function (err) { console.error("Execute error", err); });
+    function (err) {
+      console.error("Execute error", err);
+    }
+  );
 }
 
 /**
@@ -149,30 +164,37 @@ export function handleGcalendarImport(genericEvents, errorHandler) {
   if (checkBox.checked === true) {
     document.getElementById("creationProgress").style.display = "block";
     const newName = document.getElementById("newName").value;
-    gapi.client.calendar.calendars.insert({
-      "resource": {
-        "summary": newName,
-        "timeZone": "Europe/Rome"
-      }
-    })
-      .then(function (response) {
-        document.getElementById("creationProgress").style.display = "none";
-        document.getElementById("creationOk").style.display = "block";
-        setTimeout(function () { document.getElementById("creationOk").style.display = "none"; }, 3000);
-        calendarId = response.result.id;
-        importMultipleEvents(genericEvents, calendarId, errorHandler);
-      },
+    gapi.client.calendar.calendars
+      .insert({
+        resource: {
+          summary: newName,
+          timeZone: "Europe/Rome",
+        },
+      })
+      .then(
+        function (response) {
+          document.getElementById("creationProgress").style.display = "none";
+          document.getElementById("creationOk").style.display = "block";
+          setTimeout(function () {
+            document.getElementById("creationOk").style.display = "none";
+          }, 3000);
+          calendarId = response.result.id;
+          importMultipleEvents(genericEvents, calendarId, errorHandler);
+        },
         function (err) {
           document.getElementById("creationProgress").style.display = "none";
           document.getElementById("creationFail").style.display = "block";
-          setTimeout(function () { document.getElementById("creationFail").style.display = "none"; }, 5000);
+          setTimeout(function () {
+            document.getElementById("creationFail").style.display = "none";
+          }, 5000);
           console.error("Execute error", err);
-          errorHandler(err.body)
-        });
-  }
-  else {
+          errorHandler(err.body);
+        }
+      );
+  } else {
     const calendarIdOptions = document.getElementById("calendarId");
-    calendarId = calendarIdOptions.options[calendarIdOptions.selectedIndex].value;
+    calendarId =
+      calendarIdOptions.options[calendarIdOptions.selectedIndex].value;
     importMultipleEvents(genericEvents, calendarId, errorHandler);
   }
 }

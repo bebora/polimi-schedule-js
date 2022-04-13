@@ -7,7 +7,9 @@
     "test": "node_modules/.bin/mocha",
     "build": "npm run webpage && npm run userscript",
     "webpage": "node_modules/.bin/esbuild ui.js --bundle --minify --sourcemap --format=iife --global-name=bundle --outfile=../dist/web-core-bundle.js",
-    "userscript": "node build/userscriptBundler.js"
+    "userscript": "node build/userscriptBundler.js",
+    "format": "npx prettier --write .",
+    "prepare": "cd ../.. && husky install scripts/src/.husky"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,10 @@
   "homepage": "https://github.com/bebora/polimi-schedule-js#readme",
   "devDependencies": {
     "esbuild": "^0.14.27",
-    "mocha": "^7.1.0"
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
+    "mocha": "^7.1.0",
+    "prettier": "2.6.2"
   },
   "dependencies": {
     "file-saver": "^2.0.5",

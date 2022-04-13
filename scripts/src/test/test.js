@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as path from "path";
 import * as assert from "assert";
 import * as polimiConverter from "../schedule-to-ical.js";
-import {fileURLToPath} from 'url';
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
