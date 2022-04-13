@@ -4,9 +4,9 @@
   "description": "Convert PoliMi timetables to ICS files",
   "main": "schedule-to-ical.js",
   "scripts": {
-    "test": "../node_modules/.bin/mocha",
+    "test": "node_modules/.bin/mocha",
     "build": "npm run webpage && npm run userscript",
-    "webpage": "../node_modules/.bin/esbuild ui.js --bundle --minify --sourcemap --format=iife --global-name=bundle --outfile=../dist/web-core-bundle.js",
+    "webpage": "node_modules/.bin/esbuild ui.js --bundle --minify --sourcemap --format=iife --global-name=bundle --outfile=../dist/web-core-bundle.js",
     "userscript": "node build/userscriptBundler.js"
   },
   "repository": {
