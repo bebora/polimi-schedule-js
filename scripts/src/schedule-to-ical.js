@@ -238,6 +238,240 @@ function getProfessorString(lessonType, professorNames) {
 }
 
 /**
+ * Parse a course in the format typically used by the AIUC School
+ * @param {string} course
+ * @param {string[]} professorNames
+ * @param {string} courseName
+ * @return {ParsedData}
+ */
+function parseAUICCourse(course, professorNames, courseName) {
+  const events = [];
+  let timeLocationRegex =
+    /^\s*([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2}), (.+?(?=\sin\s|\sClassroom\s|\sAula\s))(?: in (?:the)?\s*(?:aula|classroom|lecture theatre))*\s*(.*)$/gim;
+  let timesLocations = [...course.split(timeLocationRegex)];
+  timesLocations.splice(0, 1); //Remove the first match as it is the course heading, which has already been parsed
+  let regexCapturingGroups = 8;
+  let numberTimesLocations = timesLocations.length / regexCapturingGroups; //The array contains (n * number of captured groups each time) elements
+  for (let i = 0; i < numberTimesLocations; i++) {
+    //let weekDay = timesLocations[i*regexCapturingGroups];
+    let startHour = timesLocations[i * regexCapturingGroups + 1];
+    let startMinute = timesLocations[i * regexCapturingGroups + 2];
+    let endHour = timesLocations[i * regexCapturingGroups + 3];
+    let endMinute = timesLocations[i * regexCapturingGroups + 4];
+    let lessonType = timesLocations[i * regexCapturingGroups + 5];
+    lessonType = lessonType[0].toUpperCase() + lessonType.substring(1);
+    let location = timesLocations[i * regexCapturingGroups + 6];
+    let dates = timesLocations[i * regexCapturingGroups + 7]
+      .split("\n\n")[0]
+      .trim()
+      .split("\n");
+    dates = dates.filter(isValidDate);
+    const partialFirstDay = createDateFromText(dates.splice(0, 1)[0]);
+    const firstDay = partialFirstDay.set({
+      hour: startHour,
+      minute: startMinute,
+    });
+    const firstEnd = partialFirstDay.set({
+      hour: endHour,
+      minute: endMinute,
+    });
+
+    let professorString = getProfessorString(lessonType, professorNames);
+    let event = {
+      summary: courseName,
+      start: firstDay,
+      end: firstEnd,
+      dtstamp: DateTime.now(),
+      location: location,
+      description:
+        lessonType + "\n" + professorString + "\n" + professorNames.join("\n"),
+    };
+    if (dates.length > 0) {
+      event.rdate = dates
+        .map(createDateFromText)
+        .map(setHourGenerator(firstDay))
+        .map(dateToUTCRuleText)
+        .join(",");
+    }
+    events.push(event);
+  }
+  return { data: events, error: null };
+}
+
+/**
+ * Parse a course in the format typically used by the III School
+ * @param {string} course
+ * @param {RegExp} datesRegex
+ * @param {RegExp} titleRegex
+ * @param {string[]} professorNames
+ * @param {string} courseName
+ * @return {ParsedData}
+ */
+function parseIIICourse(
+  course,
+  datesRegex,
+  titleRegex,
+  professorNames,
+  courseName
+) {
+  datesRegex.lastIndex = 0;
+  let datesGroups = [...course.matchAll(datesRegex)];
+  // Some annual courses consist of two courses, but the main course heading does not have any relevant event data. On the other hand, some courses also have information in the first section and it should't be removed
+  if (datesGroups.length > 1) {
+    let subCourses = [];
+    let tempCourse = "";
+    for (let row of course.split("\n")) {
+      if (titleRegex.test(row)) {
+        tempCourse = tempCourse.trim();
+        if (tempCourse !== "") subCourses.push(tempCourse);
+        tempCourse = row;
+      } else {
+        tempCourse += "\n" + row;
+      }
+    }
+    tempCourse = tempCourse.trim();
+    if (tempCourse !== "") subCourses.push(tempCourse);
+    const headingData = parseCourse(subCourses[0], professorNames);
+    const followingData = parseCourse(
+      subCourses.slice(1).join("\n"),
+      professorNames
+    );
+    return {
+      data: [...headingData.data, ...followingData.data],
+      error: headingData.error || followingData.error,
+    };
+  } else if (datesGroups.length === 1) {
+    let datesMatch = datesGroups[0];
+
+    const dateComponentsRegex = /(\d{2})\/(\d{2})\/(\d{4})/;
+
+    const startComponents = dateComponentsRegex.exec(datesMatch[2]);
+    const endComponents = dateComponentsRegex.exec(datesMatch[3]);
+
+    const isDdMmYyyy = isCourseDdMmYyyy(startComponents, endComponents);
+    const dateFormat = isDdMmYyyy ? "dd/MM/yyyy" : "MM/dd/yyyy";
+
+    let start = DateTime.fromFormat(datesMatch[2], dateFormat, {
+      zone: "Europe/Rome",
+    }); //new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
+    let end = DateTime.fromFormat(datesMatch[3], dateFormat, {
+      zone: "Europe/Rome",
+    });
+    if (start.valueOf() > end.valueOf()) {
+      return {
+        data: [],
+        error: `Start is unexpectedly greater than End (${start} > ${end})`,
+      };
+    }
+
+    const events = [];
+    let courseDays = /[^\n]+\n[^\n]+\n?([\s\S]*)/.exec(course);
+    if (courseDays !== null && courseDays[1] !== "") {
+      let rows = courseDays[1].trim().split("\n\n")[0].split("\n");
+      for (let j of rows) {
+        let timeMatch =
+          /([^\s]*) (?:dalle|from) (\d+)[:.](\d+)\s?(?<startMidday>(?:[ap])\.?m\.?)? (?:alle|to) (\d+)[:.](\d+)\s?(?<endMidday>(?:[ap])\.?m\.?)?/i.exec(
+            j
+          );
+        if (timeMatch === null) {
+          //Row may be empty or "Aula virtuale per didattica a distanza" and should be ignored
+          continue;
+        }
+        let noRoomTest =
+          /.*? (?:Aula al momento non disponibile|Classroom not available yet).*/;
+        let weekDay = weekdays[timeMatch[1]];
+        let firstDay = start;
+        if (weekDay < start.weekday) {
+          firstDay = start.set({
+            day: start.day - start.weekday + 7 + weekDay,
+          });
+        } else {
+          firstDay = start.set({ day: start.day - start.weekday + weekDay });
+        }
+        const startMiddayOffset =
+          timeMatch.groups.startMidday !== undefined &&
+          timeMatch.groups.startMidday[0] === "p"
+            ? 12
+            : 0; // Add hour offset for p.m.
+        firstDay = firstDay.set({
+          hour: parseInt(timeMatch[2]) + startMiddayOffset,
+          minute: parseInt(timeMatch[3]),
+        });
+
+        let lastDay = end;
+        if (weekDay <= end.weekday) {
+          lastDay = end.set({ day: end.day - end.weekday + weekDay });
+        } else {
+          lastDay = end.set({ day: end.day - end.weekday - 7 + weekDay });
+        }
+        lastDay = lastDay.set({
+          hour: firstDay.hour,
+          minute: firstDay.minute,
+        });
+        if (firstDay.valueOf() > lastDay.valueOf()) {
+          return {
+            data: events,
+            error: `First day is unexpectedly greater than Last day (${firstDay} > ${lastDay})`,
+          };
+        }
+
+        let firstEnd = firstDay;
+        const endMiddayOffset =
+          timeMatch.groups.endMidday !== undefined &&
+          timeMatch.groups.endMidday[0] === "p"
+            ? 12
+            : 0; // Add hour offset for p.m.
+        firstEnd = firstEnd.set({
+          hour: parseInt(timeMatch[5]) + endMiddayOffset,
+          minute: parseInt(timeMatch[6]),
+        });
+
+        let location = null;
+        let lessonType = null;
+        if (!noRoomTest.test(j)) {
+          let roomMatch =
+            /,\s*(.+)\s+in\s+(?:.*?)(?:aula|classroom|lecture theatre|the classroom|the|room) (.*)/.exec(
+              j
+            ); // "the" is for "the CLASD classroom" ad example
+          if (roomMatch === null) {
+            // Some room descriptions do not contain "in" and/or have a weird text order. It seems to happen only in English.
+            // The lessonType is assumed to be a regular lesson and "classroom lesson" will be stripped
+            let inaccurateRoomMatch = /,\s*(?:classroom lesson)?\s*(.*)/.exec(
+              j
+            );
+            if (inaccurateRoomMatch !== null) {
+              lessonType = "Lesson";
+              location = inaccurateRoomMatch[1];
+            }
+          } else {
+            lessonType =
+              roomMatch[1][0].toUpperCase() + roomMatch[1].substring(1);
+            location = roomMatch[2];
+          }
+        }
+        let professorString = getProfessorString(lessonType, professorNames);
+
+        events.push({
+          summary: courseName,
+          start: firstDay,
+          end: firstEnd,
+          dtstamp: DateTime.now(),
+          location: location,
+          rrule: "FREQ=WEEKLY;UNTIL=" + dateToUTCRuleText(lastDay),
+          description:
+            lessonType +
+            "\n" +
+            professorString +
+            "\n" +
+            professorNames.join("\n"),
+        });
+      }
+    }
+    return { data: events, error: null };
+  }
+}
+
+/**
  * @param {string} course textual representation of the course
  * @param {String[]|null} upperLevelProfessorNames - list of professor names to use. If null, create them from scratch
  * @param {string|null} subcourseSeparator - Separator that is supposed to divide the possible subcourses (usually \n\n for Chromium and \n\n\n for Firefox)
@@ -250,7 +484,7 @@ function parseCourse(
 ) {
   const titleRegex =
     /^\s*(\d{6}) - (.*?)(?:\s*\(\s*(?:Docente|Professor|Lecturer|Teacher):(.*)\)|$)/gm;
-  let titles = [...course.matchAll(titleRegex)];
+  const titles = [...course.matchAll(titleRegex)];
   if (titles.length === 0) {
     return { data: [], error: null };
   }
@@ -265,7 +499,7 @@ function parseCourse(
   if (subcourseSeparator !== null && titles.length > 1) {
     if (course.includes(subcourseSeparator)) {
       let innerEvents = [];
-      for (let wholeCourse of course.split(subcourseSeparator)) {
+      for (const wholeCourse of course.split(subcourseSeparator)) {
         const newSubcourse = parseCourse(wholeCourse.trim(), professorNames);
         innerEvents = [...innerEvents, ...newSubcourse.data];
         if (newSubcourse.error !== null) {
@@ -276,229 +510,27 @@ function parseCourse(
     }
   }
 
-  let events = [];
-  let noLessonTest =
+  const noLessonTest =
     /\s*(?:L'orario non è stato definito|The schedule has not been defined)/;
-  let noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
+  const noScheduleTest = /\s*(?:Nessun orario definito|No timetable defined)/;
   if (noLessonTest.test(course) || noScheduleTest.test(course)) {
     return { data: [], error: null };
   }
 
-  let courseName = titles[titles.length - 1][2];
+  const courseName = titles[titles.length - 1][2];
   const datesRegex =
     /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start|Lessons start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lesson(?:s*)|Lectures end|Lessons end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
   if (!datesRegex.test(course)) {
-    //New calendar format
-    let timeLocationRegex =
-      /^\s*([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2}), (.+?(?=\sin\s|\sClassroom\s|\sAula\s))(?: in (?:the)?\s*(?:aula|classroom|lecture theatre))*\s*(.*)$/gim;
-    let timesLocations = [...course.split(timeLocationRegex)];
-    timesLocations.splice(0, 1); //Remove the first match as it is the course heading, which has already been parsed
-    let regexCapturingGroups = 8;
-    let numberTimesLocations = timesLocations.length / regexCapturingGroups; //The array contains (n * number of captured groups each time) elements
-    for (let i = 0; i < numberTimesLocations; i++) {
-      //let weekDay = timesLocations[i*regexCapturingGroups];
-      let startHour = timesLocations[i * regexCapturingGroups + 1];
-      let startMinute = timesLocations[i * regexCapturingGroups + 2];
-      let endHour = timesLocations[i * regexCapturingGroups + 3];
-      let endMinute = timesLocations[i * regexCapturingGroups + 4];
-      let lessonType = timesLocations[i * regexCapturingGroups + 5];
-      lessonType = lessonType[0].toUpperCase() + lessonType.substring(1);
-      let location = timesLocations[i * regexCapturingGroups + 6];
-      let dates = timesLocations[i * regexCapturingGroups + 7]
-        .split("\n\n")[0]
-        .trim()
-        .split("\n");
-      dates = dates.filter(isValidDate);
-      const partialFirstDay = createDateFromText(dates.splice(0, 1)[0]);
-      const firstDay = partialFirstDay.set({
-        hour: startHour,
-        minute: startMinute,
-      });
-      const firstEnd = partialFirstDay.set({
-        hour: endHour,
-        minute: endMinute,
-      });
-
-      let professorString = getProfessorString(lessonType, professorNames);
-      let event = {
-        summary: courseName,
-        start: firstDay,
-        end: firstEnd,
-        dtstamp: DateTime.now(),
-        location: location,
-        description:
-          lessonType +
-          "\n" +
-          professorString +
-          "\n" +
-          professorNames.join("\n"),
-      };
-      if (dates.length > 0) {
-        event.rdate = dates
-          .map(createDateFromText)
-          .map(setHourGenerator(firstDay))
-          .map(dateToUTCRuleText)
-          .join(",");
-      }
-      events.push(event);
-    }
+    return parseAUICCourse(course, professorNames, courseName);
   } else {
-    datesRegex.lastIndex = 0;
-    let datesGroups = [...course.matchAll(datesRegex)];
-    // Some annual courses consist of two courses, but the main course heading does not have any relevant event data. On the other hand, some courses also have information in the first section and it should't be removed
-    if (datesGroups.length > 1) {
-      let subCourses = [];
-      let tempCourse = "";
-      for (let row of course.split("\n")) {
-        if (titleRegex.test(row)) {
-          tempCourse = tempCourse.trim();
-          if (tempCourse !== "") subCourses.push(tempCourse);
-          tempCourse = row;
-        } else {
-          tempCourse += "\n" + row;
-        }
-      }
-      tempCourse = tempCourse.trim();
-      if (tempCourse !== "") subCourses.push(tempCourse);
-      const headingData = parseCourse(subCourses[0], professorNames);
-      const followingData = parseCourse(
-        subCourses.slice(1).join("\n"),
-        professorNames
-      );
-      return {
-        data: [...headingData.data, ...followingData.data],
-        error: headingData.error || followingData.error,
-      };
-    } else if (datesGroups.length === 1) {
-      let datesMatch = datesGroups[0];
-
-      const dateComponentsRegex = /(\d{2})\/(\d{2})\/(\d{4})/;
-
-      const startComponents = dateComponentsRegex.exec(datesMatch[2]);
-      const endComponents = dateComponentsRegex.exec(datesMatch[3]);
-
-      const isDdMmYyyy = isCourseDdMmYyyy(startComponents, endComponents);
-      const dateFormat = isDdMmYyyy ? "dd/MM/yyyy" : "MM/dd/yyyy";
-
-      let start = DateTime.fromFormat(datesMatch[2], dateFormat, {
-        zone: "Europe/Rome",
-      }); //new Date(datesMatch[2].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
-      let end = DateTime.fromFormat(datesMatch[3], dateFormat, {
-        zone: "Europe/Rome",
-      });
-      if (start.valueOf() > end.valueOf()) {
-        return {
-          data: events,
-          error: `Start is unexpectedly greater than End (${start} > ${end})`,
-        };
-      }
-      //let end = new Date(datesMatch[3].replace(/(\d{2})\/(\d{2})\/(\d{4})/, dateFormatter));
-
-      let courseDays = /[^\n]+\n[^\n]+\n?([\s\S]*)/.exec(course);
-      if (courseDays !== null && courseDays[1] !== "") {
-        let rows = courseDays[1].trim().split("\n\n")[0].split("\n");
-        for (let j of rows) {
-          let timeMatch =
-            /([^\s]*) (?:dalle|from) (\d+)[:.](\d+)\s?(?<startMidday>(?:[ap])\.?m\.?)? (?:alle|to) (\d+)[:.](\d+)\s?(?<endMidday>(?:[ap])\.?m\.?)?/i.exec(
-              j
-            );
-          if (timeMatch === null) {
-            //Row may be empty or "Aula virtuale per didattica a distanza" and should be ignored
-            continue;
-          }
-          let noRoomTest =
-            /.*? (?:Aula al momento non disponibile|Classroom not available yet).*/;
-          let weekDay = weekdays[timeMatch[1]];
-          let firstDay = start;
-          if (weekDay < start.weekday) {
-            firstDay = start.set({
-              day: start.day - start.weekday + 7 + weekDay,
-            });
-          } else {
-            firstDay = start.set({ day: start.day - start.weekday + weekDay });
-          }
-          const startMiddayOffset =
-            timeMatch.groups.startMidday !== undefined &&
-            timeMatch.groups.startMidday[0] === "p"
-              ? 12
-              : 0; // Add hour offset for p.m.
-          firstDay = firstDay.set({
-            hour: parseInt(timeMatch[2]) + startMiddayOffset,
-            minute: parseInt(timeMatch[3]),
-          });
-
-          let lastDay = end;
-          if (weekDay <= end.weekday) {
-            lastDay = end.set({ day: end.day - end.weekday + weekDay });
-          } else {
-            lastDay = end.set({ day: end.day - end.weekday - 7 + weekDay });
-          }
-          lastDay = lastDay.set({
-            hour: firstDay.hour,
-            minute: firstDay.minute,
-          });
-          if (firstDay.valueOf() > lastDay.valueOf()) {
-            return {
-              data: events,
-              error: `First day is unexpectedly greater than Last day (${firstDay} > ${lastDay})`,
-            };
-          }
-
-          let firstEnd = firstDay;
-          const endMiddayOffset =
-            timeMatch.groups.endMidday !== undefined &&
-            timeMatch.groups.endMidday[0] === "p"
-              ? 12
-              : 0; // Add hour offset for p.m.
-          firstEnd = firstEnd.set({
-            hour: parseInt(timeMatch[5]) + endMiddayOffset,
-            minute: parseInt(timeMatch[6]),
-          });
-
-          let location = null;
-          let lessonType = null;
-          if (!noRoomTest.test(j)) {
-            let roomMatch =
-              /,\s*(.+)\s+in\s+(?:.*?)(?:aula|classroom|lecture theatre|the classroom|the|room) (.*)/.exec(
-                j
-              ); // "the" is for "the CLASD classroom" ad example
-            if (roomMatch === null) {
-              // Some room descriptions do not contain "in" and/or have a weird text order. It seems to happen only in English.
-              // The lessonType is assumed to be a regular lesson and "classroom lesson" will be stripped
-              let inaccurateRoomMatch = /,\s*(?:classroom lesson)?\s*(.*)/.exec(
-                j
-              );
-              if (inaccurateRoomMatch !== null) {
-                lessonType = "Lesson";
-                location = inaccurateRoomMatch[1];
-              }
-            } else {
-              lessonType =
-                roomMatch[1][0].toUpperCase() + roomMatch[1].substring(1);
-              location = roomMatch[2];
-            }
-          }
-          let professorString = getProfessorString(lessonType, professorNames);
-
-          events.push({
-            summary: courseName,
-            start: firstDay,
-            end: firstEnd,
-            dtstamp: DateTime.now(),
-            location: location,
-            rrule: "FREQ=WEEKLY;UNTIL=" + dateToUTCRuleText(lastDay),
-            description:
-              lessonType +
-              "\n" +
-              professorString +
-              "\n" +
-              professorNames.join("\n"),
-          });
-        }
-      }
-    }
+    return parseIIICourse(
+      course,
+      datesRegex,
+      titleRegex,
+      professorNames,
+      courseName
+    );
   }
-  return { data: events, error: null };
 }
 
 /**

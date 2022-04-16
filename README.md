@@ -1,7 +1,7 @@
 # polimi-schedule-js
 Genera un file iCalendar delle lezioni del Politecnico di Milano direttamente dal browser ed importalo sul tuo calendario.
 
-Il calendario così ottenuto può essere importato facilmente su [Google Calendar](https://support.google.com/calendar/answer/37118), [GNOME Evolution](https://help.gnome.org/users/evolution/stable/import-single-files.html.en) e altri calendari. [Outlook](https://support.office.com/en-us/article/Import-or-subscribe-to-a-calendar-in-Outlook-com-cff1429c-5af6-41ec-a5b4-74f2c278e98c) non è attualmente supportato per il nuovo formato di orari, dato che non sa importare eventi con ricorrenze personalizzate (RDATE, EXDATE).
+Il calendario così ottenuto può essere importato facilmente su [Google Calendar](https://support.google.com/calendar/answer/37118), [GNOME Evolution](https://help.gnome.org/users/evolution/stable/import-single-files.html.en) e altri calendari. [Outlook](https://support.office.com/en-us/article/Import-or-subscribe-to-a-calendar-in-Outlook-com-cff1429c-5af6-41ec-a5b4-74f2c278e98c) non è attualmente supportato per gli orari di AIUC (Architettura Urbanistica e Ingegneria delle Costruzioni), dato che non sa importare eventi con ricorrenze personalizzate (RDATE, EXDATE).
 
 Si può usare in due modi:
 - Userscript, installabile cliccando [qui](https://github.com/bebora/polimi-schedule-js/raw/master/scripts/dist/polimi-schedule.user.js) (Testato con Firefox Desktop/Mobile usando Greasemonkey e con Chrome Desktop usando Tampermonkey.)
