@@ -14,39 +14,9 @@ const signoutButton = document.getElementById("signout_button");
 const loggedInSection = document.getElementById("logged_in_section");
 const loggedOutSection = document.getElementById("logged_out_section");
 
-/**
- *  On load, called to load the auth2 library and API client library.
- */
-export function handleClientLoad() {
-  gapi.load("client:auth2", initClient);
-}
-
-/**
- *  Initializes the API client library and sets up sign-in state
- *  listeners.
- */
-function initClient() {
-  gapi.client
-    .init({
-      clientId: CLIENT_ID,
-      discoveryDocs: DISCOVERY_DOCS,
-      scope: SCOPES,
-    })
-    .then(
-      function () {
-        // Listen for sign-in state changes.
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-        // Handle the initial sign-in state.
-        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        authorizeButton.onclick = handleAuthClick;
-        signoutButton.onclick = handleSignoutClick;
-      },
-      function (error) {
-        console.error(JSON.stringify(error, null, 2));
-      }
-    );
-}
+let tokenClient;
+let gapiInited = false;
+let gisInited = false;
 
 /**
  *  Called when the signed in status changes, to update the UI
@@ -63,18 +33,86 @@ function updateSigninStatus(isSignedIn) {
   }
 }
 
+updateSigninStatus(false);
+
+/**
+ * Callback after api.js is loaded.
+ */
+export function gapiLoaded() {
+  gapi.load("client", initializeGapiClient);
+}
+
+/**
+ * Callback after the API client is loaded. Loads the
+ * discovery doc to initialize the API.
+ */
+async function initializeGapiClient() {
+  await gapi.client.init({
+    discoveryDocs: DISCOVERY_DOCS,
+  });
+  gapiInited = true;
+  maybeEnableButtons();
+}
+
+/**
+ * Callback after Google Identity Services are loaded.
+ */
+export function gisLoaded() {
+  tokenClient = google.accounts.oauth2.initTokenClient({
+    client_id: CLIENT_ID,
+    scope: SCOPES,
+    callback: async (resp) => {
+      console.log(resp);
+      if (resp.error !== undefined) {
+        throw resp;
+      }
+      updateSigninStatus(true);
+    },
+  });
+  gisInited = true;
+  maybeEnableButtons();
+}
+
+/**
+ * Enables user interaction after all libraries are loaded.
+ */
+function maybeEnableButtons() {
+  if (gapiInited && gisInited) {
+    authorizeButton.onclick = handleAuthClick;
+    signoutButton.onclick = handleSignoutClick;
+    console.log("Setting up Google section");
+    if (gapi.client.getToken() !== null) {
+      updateSigninStatus(true);
+    } else {
+      updateSigninStatus(false);
+    }
+  }
+}
+
 /**
  *  Sign in the user upon button click.
  */
-function handleAuthClick(event) {
-  gapi.auth2.getAuthInstance().signIn();
+function handleAuthClick() {
+  if (gapi.client.getToken() === null) {
+    // Prompt the user to select a Google Account and ask for consent to share their data
+    // when establishing a new session.
+    tokenClient.requestAccessToken({ prompt: "consent" });
+  } else {
+    // Skip display of account chooser and consent dialog for an existing session.
+    tokenClient.requestAccessToken({ prompt: "" });
+  }
 }
 
 /**
  *  Sign out the user upon button click.
  */
-function handleSignoutClick(event) {
-  gapi.auth2.getAuthInstance().signOut();
+function handleSignoutClick() {
+  const token = gapi.client.getToken();
+  if (token !== null) {
+    google.accounts.oauth2.revoke(token.access_token);
+    gapi.client.setToken("");
+    updateSigninStatus(false);
+  }
 }
 
 /**
@@ -139,12 +177,12 @@ function getCalendars() {
   return gapi.client.calendar.calendarList.list({}).then(
     function (response) {
       //console.log(response.result.items);
-      let s = document.getElementById("calendarId");
+      let calendarSelect = document.getElementById("calendarId");
       let options = response.result.items;
       options.forEach(function (item, key) {
         if (/Polimi|Universit/i.test(item.summary))
-          s[key] = new Option(item.summary, item.id, true, true);
-        else s[key] = new Option(item.summary, item.id);
+          calendarSelect[key] = new Option(item.summary, item.id, true, true);
+        else calendarSelect[key] = new Option(item.summary, item.id);
       });
     },
     function (err) {

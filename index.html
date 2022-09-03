@@ -98,9 +98,8 @@
     </div>
   </div>
   <script defer src="scripts/dist/web-core-bundle.js"></script>
-  <script defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};bundle.handleClientLoad()"
-    onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+  <script defer src="https://apis.google.com/js/api.js" onload="bundle.gapiLoaded()"></script>
+  <script defer src="https://accounts.google.com/gsi/client" onload="bundle.gisLoaded()"></script>
 </body>
 
 </html>

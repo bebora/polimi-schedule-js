@@ -1,4 +1,8 @@
-import { handleGcalendarImport, handleClientLoad } from "./gapi-importer.js";
+import {
+  handleGcalendarImport,
+  gapiLoaded,
+  gisLoaded,
+} from "./gapi-importer.js";
 import { setLanguage } from "./set-language";
 import { getIcalendar, parseText } from "./schedule-to-ical";
 import { saveAs } from "file-saver";
@@ -149,6 +153,6 @@ function setupUi() {
   setLanguage((navigator.language || navigator.userLanguage).slice(0, 2));
 }
 
-export { handleClientLoad };
+export { gapiLoaded, gisLoaded };
 
 setupUi();
