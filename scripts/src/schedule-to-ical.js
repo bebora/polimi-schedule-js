@@ -14,7 +14,8 @@ import { v4 as uuidv4 } from "uuid";
  * @property {?string} error
  */
 
-const europeRomeIcalTimezone = `X-WR-TIMEZONE:Europe/Rome
+const europeRomeIcalTimezone = `
+X-WR-TIMEZONE:Europe/Rome
 BEGIN:VTIMEZONE
 TZID:Europe/Rome
 X-LIC-LOCATION:Europe/Rome
@@ -33,7 +34,7 @@ DTSTART:19701025T030000
 RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
-`.replace(/(?<=[^\r])\n/g, "\r\n"); // Assuming that the timezone will not change
+`.replace(/\r?\n/g, "\r\n"); // Assuming that the timezone will not change
 
 const weekdays = {
   Domenica: 7,
@@ -99,10 +100,7 @@ const professorsLookup = {
  * @return {string}
  */
 function insertVTimezone(rawCalendar) {
-  return rawCalendar.replace(
-    /(?<=\r\n)(?=BEGIN:VEVENT)/,
-    europeRomeIcalTimezone
-  );
+  return rawCalendar.replace(/\r\n(?=BEGIN:VEVENT)/, europeRomeIcalTimezone);
 }
 
 /**
