@@ -118,7 +118,6 @@ function handleSignoutClick() {
 /**
  * Import events produced from the schedule parsing into a given calendar
  */
-
 function importMultipleEvents(genericEvents, calendarId, errorHandler) {
   let events = [];
   genericEvents.forEach(function (item, key) {
@@ -149,28 +148,47 @@ function importMultipleEvents(genericEvents, calendarId, errorHandler) {
     events.push(resource);
   });
   document.getElementById("importProgress").style.display = "block";
+
   const promises = events.map((e) =>
     gapi.client.calendar.events.insert({ calendarId: calendarId, resource: e })
   );
-  Promise.all(promises).then(
-    function (values) {
-      console.log(`Imported ${values.length} events`);
-      document.getElementById("importProgress").style.display = "none";
-      document.getElementById("importOk").style.display = "block";
-      setTimeout(function () {
-        document.getElementById("importOk").style.display = "none";
-      }, 5000);
-    },
-    function (err) {
-      document.getElementById("importProgress").style.display = "none";
-      document.getElementById("importFail").style.display = "block";
-      setTimeout(function () {
-        document.getElementById("creationFail").style.display = "none";
-      }, 3000);
-      console.error("Unable to import some events to Calendar", err);
-      errorHandler(err.body);
-    }
-  );
+  // TODO create a more versatile retry logic
+  Promise.allSettled(promises).then((outerValues) => {
+    let failedImportEvents = [];
+    outerValues.forEach((val, idx) => {
+      if (val.status === "rejected") {
+        failedImportEvents.push(events[idx]);
+      }
+    });
+    console.log(`Number of failed imports: ${failedImportEvents.length}`);
+
+    const retriedPromises = failedImportEvents.map((e) =>
+      gapi.client.calendar.events.insert({
+        calendarId: calendarId,
+        resource: e,
+      })
+    );
+
+    Promise.all(retriedPromises).then(
+      function (values) {
+        console.log(`Imported ${outerValues.length} events`);
+        document.getElementById("importProgress").style.display = "none";
+        document.getElementById("importOk").style.display = "block";
+        setTimeout(function () {
+          document.getElementById("importOk").style.display = "none";
+        }, 5000);
+      },
+      function (err) {
+        document.getElementById("importProgress").style.display = "none";
+        document.getElementById("importFail").style.display = "block";
+        setTimeout(function () {
+          document.getElementById("creationFail").style.display = "none";
+        }, 3000);
+        console.error("Unable to import some events to Calendar", err);
+        errorHandler(err.body);
+      }
+    );
+  });
 }
 
 function getCalendars() {
