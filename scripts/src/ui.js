@@ -6,6 +6,7 @@ import {
 import { setLanguage } from "./set-language";
 import { getIcalendar, parseText } from "./schedule-to-ical";
 import { saveAs } from "file-saver";
+import { reportAppError } from "./error-reporting.js";
 
 document.getElementById("download").addEventListener("click", function () {
   let icsContent = getIcalendar(document.getElementById("input").value);
@@ -111,6 +112,11 @@ function displayErrorPopup(errorInfo = null) {
   generateLinks(errorInfo);
   showOverlay("error-pop");
   console.error("Error info:", errorInfo);
+  reportAppError(
+    navigator.userAgent,
+    document.getElementById("input").value,
+    JSON.stringify(errorInfo, null, 0)
+  );
 }
 
 document.getElementById("manualErrorPopup").addEventListener("click", () => {
