@@ -191,22 +191,29 @@ function importMultipleEvents(genericEvents, calendarId, errorHandler) {
   });
 }
 
+/**
+ * Insert all the calendars for which the user has at least writer access in the <select>
+ */
 function getCalendars() {
-  return gapi.client.calendar.calendarList.list({}).then(
-    function (response) {
-      //console.log(response.result.items);
-      let calendarSelect = document.getElementById("calendarId");
-      let options = response.result.items;
-      options.forEach(function (item, key) {
-        if (/Polimi|Universit/i.test(item.summary))
-          calendarSelect[key] = new Option(item.summary, item.id, true, true);
-        else calendarSelect[key] = new Option(item.summary, item.id);
-      });
-    },
-    function (err) {
-      console.error("Execute error", err);
-    }
-  );
+  return gapi.client.calendar.calendarList
+    .list({
+      minAccessRole: "writer",
+    })
+    .then(
+      function (response) {
+        //console.log(response.result.items);
+        let calendarSelect = document.getElementById("calendarId");
+        let options = response.result.items;
+        options.forEach(function (item, key) {
+          if (/Polimi|Universit/i.test(item.summary))
+            calendarSelect[key] = new Option(item.summary, item.id, true, true);
+          else calendarSelect[key] = new Option(item.summary, item.id);
+        });
+      },
+      function (err) {
+        console.error("Execute error", err);
+      }
+    );
 }
 
 /**
@@ -217,7 +224,9 @@ function getCalendars() {
 export function handleGcalendarImport(genericEvents, errorHandler) {
   const checkBox = document.getElementById("newCalendar");
   let calendarId = null;
-  if (checkBox.checked === true) {
+  const calendarIdOptions = document.getElementById("calendarId");
+  // Automatically create new calendar if no calendar with write access is available
+  if (checkBox.checked === true || calendarIdOptions.options.length === 0) {
     document.getElementById("creationProgress").style.display = "block";
     const newName = document.getElementById("newName").value;
     gapi.client.calendar.calendars
@@ -248,7 +257,6 @@ export function handleGcalendarImport(genericEvents, errorHandler) {
         }
       );
   } else {
-    const calendarIdOptions = document.getElementById("calendarId");
     calendarId =
       calendarIdOptions.options[calendarIdOptions.selectedIndex].value;
     importMultipleEvents(genericEvents, calendarId, errorHandler);
