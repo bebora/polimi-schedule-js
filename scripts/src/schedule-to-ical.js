@@ -75,9 +75,11 @@ const months = {
   dic: 12,
 };
 // From existing examples, lessons always start in sep-oct or feb-mar-apr and respectively end in dec-jan or apr-may-jun
+// Distributed Systems ends in oct (2022), Networked Software for Distributed Systems starts in nov (2022)
+// Could the first end in nov or the latter start in oct? Assuming so
 // This definitely breaks if some actual course starts or ends on unexpected months
-const acceptableStartingMonths = [2, 3, 4, 9, 10];
-const acceptableEndingMonths = [4, 5, 6, 12, 1];
+const acceptableStartingMonths = [2, 3, 4, 9, 10, 11];
+const acceptableEndingMonths = [4, 5, 6, 10, 11, 12, 1];
 const languageLookup = {
   Lezione: "it",
   Esercitazione: "it",

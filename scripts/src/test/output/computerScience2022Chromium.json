@@ -1,0 +1,155 @@
+[
+  {
+    "summary": "SOFTWARE ENGINEERING 2",
+    "start": "2022-09-14T08:15:00.000+02:00",
+    "end": "2022-09-14T10:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.518+02:00",
+    "location": "SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T071500Z",
+    "description": "Lezione\nDocente:\nRossi Matteo Giovanni"
+  },
+  {
+    "summary": "SOFTWARE ENGINEERING 2",
+    "start": "2022-09-15T08:15:00.000+02:00",
+    "end": "2022-09-15T10:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.518+02:00",
+    "location": "2.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T071500Z",
+    "description": "Esercitazione\nDocente:\nRossi Matteo Giovanni"
+  },
+  {
+    "summary": "PRINCIPLES OF PROGRAMMING LANGUAGES",
+    "start": "2022-09-14T12:15:00.000+02:00",
+    "end": "2022-09-14T14:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.520+02:00",
+    "location": "21.S.4 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T111500Z",
+    "description": "Lezione\nDocente:\nPradella Matteo"
+  },
+  {
+    "summary": "PRINCIPLES OF PROGRAMMING LANGUAGES",
+    "start": "2022-09-16T12:15:00.000+02:00",
+    "end": "2022-09-16T14:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.521+02:00",
+    "location": "25.2.3 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T111500Z",
+    "description": "Lezione\nDocente:\nPradella Matteo"
+  },
+  {
+    "summary": "FORMAL LANGUAGES AND COMPILERS",
+    "start": "2022-09-13T08:15:00.000+02:00",
+    "end": "2022-09-13T10:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.523+02:00",
+    "location": "SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T071500Z",
+    "description": "Lezione\nDocente:\nMorzenti Angelo Carlo"
+  },
+  {
+    "summary": "FORMAL LANGUAGES AND COMPILERS",
+    "start": "2022-09-15T10:15:00.000+02:00",
+    "end": "2022-09-15T12:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.524+02:00",
+    "location": "2.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T091500Z",
+    "description": "Esercitazione\nDocente:\nMorzenti Angelo Carlo"
+  },
+  {
+    "summary": "FOUNDATIONS OF OPERATIONS RESEARCH",
+    "start": "2022-09-12T16:15:00.000+02:00",
+    "end": "2022-09-12T19:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.526+02:00",
+    "location": "5.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T151500Z",
+    "description": "Esercitazione\nDocente:\nAmaldi Edoardo"
+  },
+  {
+    "summary": "FOUNDATIONS OF OPERATIONS RESEARCH",
+    "start": "2022-09-13T10:15:00.000+02:00",
+    "end": "2022-09-13T12:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.526+02:00",
+    "location": "5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T091500Z",
+    "description": "Lezione\nDocente:\nAmaldi Edoardo"
+  },
+  {
+    "summary": "FOUNDATIONS OF OPERATIONS RESEARCH",
+    "start": "2022-09-14T10:15:00.000+02:00",
+    "end": "2022-09-14T12:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.526+02:00",
+    "location": "25.S.1 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T091500Z",
+    "description": "Lezione\nDocente:\nAmaldi Edoardo"
+  },
+  {
+    "summary": "DATA BASES 2",
+    "start": "2022-09-12T10:15:00.000+02:00",
+    "end": "2022-09-12T12:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.527+02:00",
+    "location": "26.11 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T091500Z",
+    "description": "Lezione\nDocente:\nFraternali Piero"
+  },
+  {
+    "summary": "DATA BASES 2",
+    "start": "2022-09-16T10:15:00.000+02:00",
+    "end": "2022-09-16T12:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.527+02:00",
+    "location": "26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T091500Z",
+    "description": "Esercitazione\nDocente:\nFraternali Piero"
+  },
+  {
+    "summary": "DISTRIBUTED SYSTEMS",
+    "start": "2022-09-12T13:15:00.000+02:00",
+    "end": "2022-09-12T16:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.529+02:00",
+    "location": "20.S.1 (Milano Città Studi - Via Bassini - Edificio 20 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221024T111500Z",
+    "description": "Lezione\nDocente:\nCugola Gianpaolo"
+  },
+  {
+    "summary": "DISTRIBUTED SYSTEMS",
+    "start": "2022-09-14T08:15:00.000+02:00",
+    "end": "2022-09-14T11:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.529+02:00",
+    "location": "T.2.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221026T061500Z",
+    "description": "Lezione\nDocente:\nCugola Gianpaolo"
+  },
+  {
+    "summary": "DISTRIBUTED SYSTEMS",
+    "start": "2022-09-16T08:15:00.000+02:00",
+    "end": "2022-09-16T10:15:00.000+02:00",
+    "dtstamp": "2022-09-29T02:04:34.530+02:00",
+    "location": "T.1.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221028T061500Z",
+    "description": "Lezione\nDocente:\nCugola Gianpaolo"
+  },
+  {
+    "summary": "NETWORKED SOFTWARE FOR DISTRIBUTED SYSTEMS",
+    "start": "2022-11-07T13:15:00.000+01:00",
+    "end": "2022-11-07T16:15:00.000+01:00",
+    "dtstamp": "2022-09-29T02:04:34.531+02:00",
+    "location": "20.S.1 (Milano Città Studi - Via Bassini - Edificio 20 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T121500Z",
+    "description": "Lezione\nDocente:\nMottola Luca"
+  },
+  {
+    "summary": "NETWORKED SOFTWARE FOR DISTRIBUTED SYSTEMS",
+    "start": "2022-11-02T08:15:00.000+01:00",
+    "end": "2022-11-02T11:15:00.000+01:00",
+    "dtstamp": "2022-09-29T02:04:34.531+02:00",
+    "location": "T.2.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T071500Z",
+    "description": "Lezione\nDocente:\nMottola Luca"
+  },
+  {
+    "summary": "NETWORKED SOFTWARE FOR DISTRIBUTED SYSTEMS",
+    "start": "2022-11-04T08:15:00.000+01:00",
+    "end": "2022-11-04T10:15:00.000+01:00",
+    "dtstamp": "2022-09-29T02:04:34.531+02:00",
+    "location": "T.1.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T071500Z",
+    "description": "Lezione\nDocente:\nMottola Luca"
+  }
+]
