@@ -112,11 +112,14 @@ function displayErrorPopup(errorInfo = null) {
   generateLinks(errorInfo);
   showOverlay("error-pop");
   console.error("Error info:", errorInfo);
-  reportAppError(
-    navigator.userAgent,
-    document.getElementById("input").value,
-    JSON.stringify(errorInfo, null, 0)
-  );
+  // Set "disable-reporting" to any value to disable automatic error reporting, useful while manually debugging errors
+  if (window.localStorage.getItem("disable-reporting") === null) {
+    reportAppError(
+      navigator.userAgent,
+      document.getElementById("input").value,
+      JSON.stringify(errorInfo, null, 0)
+    );
+  }
 }
 
 document.getElementById("manualErrorPopup").addEventListener("click", () => {
