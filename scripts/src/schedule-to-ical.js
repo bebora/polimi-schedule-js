@@ -143,7 +143,7 @@ function setHourGenerator(firstDatetime) {
  * @return {boolean}
  */
 function isValidDate(line) {
-  return /\d{2}-[a-z]{3}-\d{4}/gm.test(line);
+  return /\d{2}-[a-zA-Z]{3}-\d{4}/gm.test(line);
 }
 
 /**
