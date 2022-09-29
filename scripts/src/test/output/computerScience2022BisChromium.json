@@ -1,0 +1,119 @@
+[
+  {
+    "summary": "SOFTWARE ENGINEERING 2",
+    "start": "2022-09-14T08:15:00.000+02:00",
+    "end": "2022-09-14T10:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.789+02:00",
+    "location": "20.S.1 (Milano Città Studi - Via Bassini - Edificio 20 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T071500Z",
+    "description": "Lezione\nDocente:\nDi Nitto Elisabetta"
+  },
+  {
+    "summary": "SOFTWARE ENGINEERING 2",
+    "start": "2022-09-15T08:15:00.000+02:00",
+    "end": "2022-09-15T10:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.789+02:00",
+    "location": "7.1.3 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 7 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T071500Z",
+    "description": "Esercitazione\nDocente:\nDi Nitto Elisabetta"
+  },
+  {
+    "summary": "RECOMMENDER SYSTEMS",
+    "start": "2022-09-14T14:15:00.000+02:00",
+    "end": "2022-09-14T16:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.792+02:00",
+    "location": "9.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T131500Z",
+    "description": "Lezione\nDocente:\nCremonesi Paolo"
+  },
+  {
+    "summary": "RECOMMENDER SYSTEMS",
+    "start": "2022-09-15T16:15:00.000+02:00",
+    "end": "2022-09-15T18:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.792+02:00",
+    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T151500Z",
+    "description": "Lezione\nDocente:\nCremonesi Paolo"
+  },
+  {
+    "summary": "ADVANCED USER INTERFACES- IEDIE PROGRAM",
+    "start": "2022-09-12T13:15:00.000+02:00",
+    "end": "2022-09-12T15:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.794+02:00",
+    "location": "Z.1 D.I. (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T121500Z",
+    "description": "Lezione\nDocenti:\nGarzotto Franca\nBeccaluva Eleonora Aida\nPatti Alberto\nVona Francesco\nGiudici Mathyas\nCatania Fabio\nBarbieri Jessica\nCaslini Giacomo\nCrovari Pietro\nGianotti Mattia"
+  },
+  {
+    "summary": "ADVANCED USER INTERFACES- IEDIE PROGRAM",
+    "start": "2022-09-14T11:15:00.000+02:00",
+    "end": "2022-09-14T13:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.794+02:00",
+    "location": "G.1 (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T101500Z",
+    "description": "Lezione\nDocenti:\nGarzotto Franca\nBeccaluva Eleonora Aida\nPatti Alberto\nVona Francesco\nGiudici Mathyas\nCatania Fabio\nBarbieri Jessica\nCaslini Giacomo\nCrovari Pietro\nGianotti Mattia"
+  },
+  {
+    "summary": "DATA BASES 2",
+    "start": "2022-09-12T10:15:00.000+02:00",
+    "end": "2022-09-12T12:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.795+02:00",
+    "location": "5.02 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T091500Z",
+    "description": "Lezione\nDocenti:\nComai Sara\nMilani Federico\nBraga Daniele Maria"
+  },
+  {
+    "summary": "DATA BASES 2",
+    "start": "2022-09-16T10:15:00.000+02:00",
+    "end": "2022-09-16T12:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.796+02:00",
+    "location": "B.4.2 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quarto)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T091500Z",
+    "description": "Esercitazione\nDocenti:\nComai Sara\nMilani Federico\nBraga Daniele Maria"
+  },
+  {
+    "summary": "GAME THEORY",
+    "start": "2022-09-13T15:15:00.000+02:00",
+    "end": "2022-09-13T18:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.797+02:00",
+    "location": "7.1.3 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 7 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221025T131500Z",
+    "description": "Lezione\nDocenti:\nValente Giovanni\nEl Skaf Rawad"
+  },
+  {
+    "summary": "GAME THEORY",
+    "start": "2022-09-15T08:15:00.000+02:00",
+    "end": "2022-09-15T10:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.797+02:00",
+    "location": "ROGERS (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221027T061500Z",
+    "description": "Lezione\nDocenti:\nValente Giovanni\nEl Skaf Rawad"
+  },
+  {
+    "summary": "GAME THEORY",
+    "start": "2022-09-16T14:15:00.000+02:00",
+    "end": "2022-09-16T17:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.797+02:00",
+    "location": "3.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221028T121500Z",
+    "description": "Lezione\nDocenti:\nValente Giovanni\nEl Skaf Rawad"
+  },
+  {
+    "summary": "OFFENSIVE AND DEFENSIVE CYBERSECURITY",
+    "start": "2022-09-12T16:15:00.000+02:00",
+    "end": "2022-09-12T18:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.799+02:00",
+    "location": "21.S.3 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T151500Z",
+    "description": "Lezione\nDocente:\nPolino Mario"
+  },
+  {
+    "summary": "OFFENSIVE AND DEFENSIVE CYBERSECURITY",
+    "start": "2022-09-15T16:15:00.000+02:00",
+    "end": "2022-09-15T18:15:00.000+02:00",
+    "dtstamp": "2022-09-29T16:06:56.799+02:00",
+    "location": "2.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T151500Z",
+    "description": "Lezione\nDocente:\nPolino Mario"
+  }
+]
