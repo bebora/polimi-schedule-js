@@ -1,0 +1,110 @@
+[
+  {
+    "summary": "ANALISI MATEMATICA 1",
+    "start": "2022-09-12T14:15:00.000+02:00",
+    "end": "2022-09-12T16:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.617+02:00",
+    "location": "9.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T131500Z",
+    "description": "Lezione\nDocente:\nBoella Marco Ugo Claudio"
+  },
+  {
+    "summary": "ANALISI MATEMATICA 1",
+    "start": "2022-09-14T08:15:00.000+02:00",
+    "end": "2022-09-14T11:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.618+02:00",
+    "location": "3.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T071500Z",
+    "description": "Lezione\nDocente:\nBoella Marco Ugo Claudio"
+  },
+  {
+    "summary": "ANALISI MATEMATICA 1",
+    "start": "2022-09-16T14:15:00.000+02:00",
+    "end": "2022-09-16T17:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.619+02:00",
+    "location": "5.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T131500Z",
+    "description": "Esercitazione\nDocente:\nBoella Marco Ugo Claudio"
+  },
+  {
+    "summary": "ANALISI MATEMATICA 1",
+    "start": "2022-09-16T11:15:00.000+02:00",
+    "end": "2022-09-16T14:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.620+02:00",
+    "location": "B.5.5 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quinto)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T101500Z",
+    "description": "Esercitazione\nDocente:\nBoella Marco Ugo Claudio"
+  },
+  {
+    "summary": "FONDAMENTI DI INFORMATICA",
+    "start": "2022-09-12T08:15:00.000+02:00",
+    "end": "2022-09-12T11:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.621+02:00",
+    "location": "T.2.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T071500Z",
+    "description": "Lezione\nDocente:\nCaglioti Vincenzo"
+  },
+  {
+    "summary": "FONDAMENTI DI INFORMATICA",
+    "start": "2022-09-14T11:15:00.000+02:00",
+    "end": "2022-09-14T14:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.621+02:00",
+    "location": "3.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T101500Z",
+    "description": "Lezione\nDocente:\nCaglioti Vincenzo"
+  },
+  {
+    "summary": "FONDAMENTI DI INFORMATICA",
+    "start": "2022-09-15T12:15:00.000+02:00",
+    "end": "2022-09-15T14:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.622+02:00",
+    "location": "T.1.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T111500Z",
+    "description": "Lezione\nDocente:\nCaglioti Vincenzo"
+  },
+  {
+    "summary": "FONDAMENTI DI INFORMATICA",
+    "start": "2022-09-15T16:15:00.000+02:00",
+    "end": "2022-09-15T19:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.622+02:00",
+    "location": "T.1.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T151500Z",
+    "description": "Laboratorio informatico\nDocente:\nCaglioti Vincenzo"
+  },
+  {
+    "summary": "GEOMETRIA E ALGEBRA LINEARE",
+    "start": "2022-09-12T11:15:00.000+02:00",
+    "end": "2022-09-12T13:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.624+02:00",
+    "location": "T.2.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T101500Z",
+    "description": "Lezione\nDocente:\nPinton Stefano"
+  },
+  {
+    "summary": "GEOMETRIA E ALGEBRA LINEARE",
+    "start": "2022-09-14T16:15:00.000+02:00",
+    "end": "2022-09-14T19:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.625+02:00",
+    "location": "B.2.1 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T151500Z",
+    "description": "Esercitazione\nDocente:\nPinton Stefano"
+  },
+  {
+    "summary": "GEOMETRIA E ALGEBRA LINEARE",
+    "start": "2022-09-14T15:15:00.000+02:00",
+    "end": "2022-09-14T18:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.625+02:00",
+    "location": "26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T141500Z",
+    "description": "Esercitazione\nDocente:\nPinton Stefano"
+  },
+  {
+    "summary": "GEOMETRIA E ALGEBRA LINEARE",
+    "start": "2022-09-15T10:15:00.000+02:00",
+    "end": "2022-09-15T12:15:00.000+02:00",
+    "dtstamp": "2022-10-09T20:52:53.625+02:00",
+    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano P",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T091500Z",
+    "description": "Lezione\nDocente:\nPinton Stefano"
+  }
+]

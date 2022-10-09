@@ -137,13 +137,14 @@ function setHourGenerator(firstDatetime) {
   };
 }
 
+const aiucDateRegex = /\d{2}-[a-zA-Z]{3}-\d{4}/;
 /**
  * Check if input line is a date or a virtual classroom. Not a proper date validator.
  * @param {string} line
  * @return {boolean}
  */
 function isValidDate(line) {
-  return /\d{2}-[a-zA-Z]{3}-\d{4}/gm.test(line);
+  return aiucDateRegex.test(line);
 }
 
 /**
@@ -471,6 +472,8 @@ function parseIIICourse(
   }
 }
 
+const titleRegex =
+  /^\s*(\d{6}) - (.*?)(?:\s*\(\s*(?:Docente|Professor|Lecturer|Teacher):(.*)\)|$)/gm;
 /**
  * @param {string} course textual representation of the course
  * @param {String[]|null} upperLevelProfessorNames - list of professor names to use. If null, create them from scratch
@@ -482,8 +485,6 @@ function parseCourse(
   upperLevelProfessorNames = null,
   subcourseSeparator = null
 ) {
-  const titleRegex =
-    /^\s*(\d{6}) - (.*?)(?:\s*\(\s*(?:Docente|Professor|Lecturer|Teacher):(.*)\)|$)/gm;
   const titles = [...course.matchAll(titleRegex)];
   if (titles.length === 0) {
     return { data: [], error: null };
@@ -533,13 +534,36 @@ function parseCourse(
   }
 }
 
+const weekdaysRegex = Object.keys(weekdays).join("|");
+function splitCollapsedDates(match, p1, p2, offset, string, groups) {
+  const dates = p2.match(/.{11}/g);
+  return `${p1}\n${dates.join("\n")}`;
+}
+
 /**
  * Apply minor transformation to the user input to allow for easier parsing
  * @param {string} userInput
  * @return {string}
  */
 function preprocessText(userInput) {
-  return userInput.replace(/\n\)/g, ")"); // Remove newline before the closing parenthesis of the professor section, if present
+  return (
+    userInput
+      .replace(/\n\)/g, ")") // Remove newline before the closing parenthesis of the professor section, if present
+      .replace(/\u00A0/g, " ") // Transform non-breaking space into a regular space
+      // Insert newline before days if they are merged with the previous day/course info (see Samsung Browser input)
+      .replace(
+        new RegExp(`(?<pre>\\S)(?<aiucDate>(${aiucDateRegex.source})+)`, "g"),
+        splitCollapsedDates
+      ) // For AIUC courses
+      .replace(new RegExp(`(\\S)(${weekdaysRegex})`, "g"), "$1\n$2") // For III courses
+      .replace(
+        new RegExp(
+          `(?<titlePart>${titleRegex.source})(?<doubleNewline>\\n\\n)(?<semester>Semester|Semestre)`,
+          "gm"
+        ),
+        "$<titlePart>\n$<semester>"
+      ) // Remove extra newline between title and semester info (see Samsung Browser input)
+  );
 }
 
 /**
