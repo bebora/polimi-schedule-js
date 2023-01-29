@@ -116,9 +116,73 @@ function handleSignoutClick() {
 }
 
 /**
+ * Import event resources with some delay between them to prevent hitting rate limits due to bursts of imports
+ */
+function delayedImport(
+  calendarId,
+  events,
+  errorHandler,
+  onProgress,
+  currentTry = 0
+) {
+  onProgress(events.length);
+  const maxTries = 3;
+  console.log(`Importing ${events.length} events`);
+  let delay = 0;
+  const delayIncrement = 500 * (currentTry + 1);
+
+  const promises = events.map((event) => {
+    delay += delayIncrement;
+    return new Promise((resolve) => setTimeout(resolve, delay)).then(() =>
+      gapi.client.calendar.events.insert({
+        calendarId: calendarId,
+        resource: event,
+      })
+    );
+  });
+
+  Promise.allSettled(promises).then((outerValues) => {
+    const failedImportEvents = [];
+    const failedImportsIndices = [];
+    outerValues.forEach((val, idx) => {
+      if (val.status === "rejected") {
+        failedImportEvents.push(events[idx]);
+        failedImportsIndices.push(idx);
+      }
+    });
+    console.log(`Number of failed imports: ${failedImportEvents.length}`);
+
+    if (failedImportEvents.length === 0) {
+      onProgress(0);
+    } else {
+      if (currentTry < maxTries) {
+        delayedImport(
+          calendarId,
+          failedImportEvents,
+          errorHandler,
+          onProgress,
+          currentTry + 1
+        );
+      } else {
+        console.error(
+          "Unable to import some events to Calendar",
+          outerValues[failedImportsIndices[0]].reason
+        );
+        onProgress(-1);
+        errorHandler(outerValues[failedImportsIndices[0]].reason);
+      }
+    }
+  });
+}
+/**
  * Import events produced from the schedule parsing into a given calendar
  */
-function importMultipleEvents(genericEvents, calendarId, errorHandler) {
+function importMultipleEvents(
+  genericEvents,
+  calendarId,
+  errorHandler,
+  onProgress
+) {
   let events = [];
   genericEvents.forEach(function (item, key) {
     let resource = {
@@ -149,46 +213,7 @@ function importMultipleEvents(genericEvents, calendarId, errorHandler) {
   });
   document.getElementById("importProgress").style.display = "block";
 
-  const promises = events.map((e) =>
-    gapi.client.calendar.events.insert({ calendarId: calendarId, resource: e })
-  );
-  // TODO create a more versatile retry logic
-  Promise.allSettled(promises).then((outerValues) => {
-    let failedImportEvents = [];
-    outerValues.forEach((val, idx) => {
-      if (val.status === "rejected") {
-        failedImportEvents.push(events[idx]);
-      }
-    });
-    console.log(`Number of failed imports: ${failedImportEvents.length}`);
-
-    const retriedPromises = failedImportEvents.map((e) =>
-      gapi.client.calendar.events.insert({
-        calendarId: calendarId,
-        resource: e,
-      })
-    );
-
-    Promise.all(retriedPromises).then(
-      function (values) {
-        console.log(`Imported ${outerValues.length} events`);
-        document.getElementById("importProgress").style.display = "none";
-        document.getElementById("importOk").style.display = "block";
-        setTimeout(function () {
-          document.getElementById("importOk").style.display = "none";
-        }, 5000);
-      },
-      function (err) {
-        document.getElementById("importProgress").style.display = "none";
-        document.getElementById("importFail").style.display = "block";
-        setTimeout(function () {
-          document.getElementById("creationFail").style.display = "none";
-        }, 3000);
-        console.error("Unable to import some events to Calendar", err);
-        errorHandler(err.body);
-      }
-    );
-  });
+  delayedImport(calendarId, events, errorHandler, onProgress);
 }
 
 /**
@@ -220,8 +245,9 @@ function getCalendars() {
  * Insert the events in the appropriate calendar
  * @param genericEvents
  * @param {function} errorHandler
+ * @param {function} onProgress
  */
-export function handleGcalendarImport(genericEvents, errorHandler) {
+export function handleGcalendarImport(genericEvents, errorHandler, onProgress) {
   const checkBox = document.getElementById("newCalendar");
   let calendarId = null;
   const calendarIdOptions = document.getElementById("calendarId");
@@ -244,7 +270,12 @@ export function handleGcalendarImport(genericEvents, errorHandler) {
             document.getElementById("creationOk").style.display = "none";
           }, 3000);
           calendarId = response.result.id;
-          importMultipleEvents(genericEvents, calendarId, errorHandler);
+          importMultipleEvents(
+            genericEvents,
+            calendarId,
+            errorHandler,
+            onProgress
+          );
         },
         function (err) {
           document.getElementById("creationProgress").style.display = "none";
@@ -259,6 +290,6 @@ export function handleGcalendarImport(genericEvents, errorHandler) {
   } else {
     calendarId =
       calendarIdOptions.options[calendarIdOptions.selectedIndex].value;
-    importMultipleEvents(genericEvents, calendarId, errorHandler);
+    importMultipleEvents(genericEvents, calendarId, errorHandler, onProgress);
   }
 }

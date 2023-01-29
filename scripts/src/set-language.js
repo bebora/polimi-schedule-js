@@ -37,8 +37,9 @@ const strings = {
         "The app can directly insert events Google Calendar to simplify the import, without having to download any file.<br>In order to do so, it explicitly requests user consent to connect to their Google account. Specifically, the app needs to read the names of existing calendars to list them when the user chooses where to import the events. The user may want to create a new calendar for the events, so the app also needs write access on Google Calendar. Full access permissions(read+write) are then needed for the correct app operations, but it doesn't and will never use them for purposes other than those described here.<br>You can read the complete privacy policy by clicking on the link at the bottom of the page.",
       homepageFooter: "Home + How to use",
       howToLink: "How to use",
-      importProgress: "Importing events...",
-      importOk: "Events imported",
+      importProgressPre: "Importing",
+      importProgressPost: "events...",
+      importOk: "Events imported ✅",
       importFail: "Unable to import the events",
       errorTitle: "Oops! Something went wrong",
       genericError:
@@ -93,8 +94,9 @@ const strings = {
         "L'app può inserire gli eventi su Google Calendar direttamente per semplificare il più possibile l'importazione, senza dover scaricare nessun file.<br>Per fare ciò, richiede esplicitamente il consenso dell'utente per collegarsi all'account Google. In particolare, l'app ha bisogno di leggere i nomi dei calendari esistenti per poi proporli se l'utente vuole importare gli eventi in un calendario esistente. L'utente può voler creare un nuovo calendario per gli eventi, quindi l'app ha bisogno anche dei permessi in scrittura sul calendario Google. Sono necessari quindi permessi completi sul calendario, ma l'app non usa ora né userà mai i permessi per scopi differenti da quelli qui descritti.<br>È possibile vedere la privacy policy completa cliccando sul link a fondo pagina.",
       homepageFooter: "Home + Istruzioni d'uso",
       howToLink: "Istruzioni",
-      importProgress: "Importando gli eventi...",
-      importOk: "Eventi importati",
+      importProgressPre: "Importando",
+      importProgressPost: "eventi...",
+      importOk: "Eventi importati ✅",
       importFail: "Impossibile importare gli eventi",
       errorTitle: "Ops! Qualcosa è andato storto",
       genericError:

@@ -8,6 +8,28 @@ import { getIcalendar, parseText } from "./schedule-to-ical";
 import { saveAs } from "file-saver";
 import { reportAppError } from "./error-reporting.js";
 
+/**
+ * Display the number of events being imported
+ * @param {number} eventsCount -1 means error
+ */
+function onGcalendarProgress(eventsCount) {
+  if (eventsCount > 0) {
+    document.getElementById("eventsCount").innerText = `${eventsCount}`;
+  } else if (eventsCount === 0) {
+    document.getElementById("importProgress").style.display = "none";
+    document.getElementById("importOk").style.display = "block";
+    setTimeout(function () {
+      document.getElementById("importOk").style.display = "none";
+    }, 5000);
+  } else {
+    document.getElementById("importProgress").style.display = "none";
+    document.getElementById("importFail").style.display = "block";
+    setTimeout(function () {
+      document.getElementById("creationFail").style.display = "none";
+    }, 3000);
+  }
+}
+
 document.getElementById("download").addEventListener("click", function () {
   let icsContent = getIcalendar(document.getElementById("input").value);
   if (icsContent.error !== null) {
@@ -36,7 +58,7 @@ document.getElementById("import_button").addEventListener("click", function () {
     );
     displayErrorPopup(events.error);
   } else {
-    handleGcalendarImport(events.data, displayErrorPopup);
+    handleGcalendarImport(events.data, displayErrorPopup, onGcalendarProgress);
   }
 });
 
@@ -99,7 +121,7 @@ ${timetableInput}
 \`\`\`
 `;
   if (errorInfo !== null) {
-    issueText += `Error info: \`${JSON.stringify(errorInfo, null, 0)}\`\n`;
+    issueText += `Error info: \`${errorInfo}\`\n`;
   }
   issueText += "</details>";
 
@@ -108,7 +130,13 @@ ${timetableInput}
   ).href = `${base_issue_url}?body=${encodeURIComponent(issueText)}`;
 }
 
-function displayErrorPopup(errorInfo = null) {
+function displayErrorPopup(rawErrorInfo = null) {
+  let errorInfo;
+  if (rawErrorInfo instanceof String) {
+    errorInfo = rawErrorInfo;
+  } else {
+    errorInfo = JSON.stringify(rawErrorInfo, null, 0);
+  }
   generateLinks(errorInfo);
   showOverlay("error-pop");
   console.error("Error info:", errorInfo);
@@ -160,6 +188,7 @@ function bindEventListeners() {
 function setupUi() {
   bindEventListeners();
   setLanguage((navigator.language || navigator.userLanguage).slice(0, 2));
+  displayNewName(); // Show new calendar name if checkbox active after page refresh
 }
 
 export { gapiLoaded, gisLoaded };
