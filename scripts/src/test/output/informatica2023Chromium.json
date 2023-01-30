@@ -1,0 +1,119 @@
+[
+  {
+    "summary": "ELETTROTECNICA",
+    "start": "2023-02-21T08:15:00.000+01:00",
+    "end": "2023-02-21T11:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.906+01:00",
+    "location": "T.1.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T061500Z",
+    "description": "Lezione\nDocente:\nBizzarri Federico"
+  },
+  {
+    "summary": "ELETTROTECNICA",
+    "start": "2023-02-23T10:15:00.000+01:00",
+    "end": "2023-02-23T13:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.907+01:00",
+    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230601T081500Z",
+    "description": "Lezione\nDocente:\nBizzarri Federico"
+  },
+  {
+    "summary": "ELETTROTECNICA",
+    "start": "2023-02-24T14:15:00.000+01:00",
+    "end": "2023-02-24T16:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.907+01:00",
+    "location": "T.1.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T121500Z",
+    "description": "Lezione\nDocente:\nBizzarri Federico"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2023-02-20T15:15:00.000+01:00",
+    "end": "2023-02-20T17:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.909+01:00",
+    "location": "21.S.4 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230529T131500Z",
+    "description": "Esercitazione\nDocenti:\nBizzarri Federico\nContini Davide\nDella Valle Giuseppe\nMusumeci Francesco"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2023-02-21T11:15:00.000+01:00",
+    "end": "2023-02-21T13:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.909+01:00",
+    "location": "2.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T091500Z",
+    "description": "Lezione\nDocenti:\nBizzarri Federico\nContini Davide\nDella Valle Giuseppe\nMusumeci Francesco"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2023-02-22T15:15:00.000+01:00",
+    "end": "2023-02-22T17:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.909+01:00",
+    "location": "2.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T131500Z",
+    "description": "Lezione\nDocenti:\nBizzarri Federico\nContini Davide\nDella Valle Giuseppe\nMusumeci Francesco"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2023-02-22T17:15:00.000+01:00",
+    "end": "2023-02-22T19:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.910+01:00",
+    "location": "2.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T151500Z",
+    "description": "Esercitazione\nDocenti:\nBizzarri Federico\nContini Davide\nDella Valle Giuseppe\nMusumeci Francesco"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2023-02-22T17:15:00.000+01:00",
+    "end": "2023-02-22T19:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.910+01:00",
+    "location": "3.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T151500Z",
+    "description": "Esercitazione\nDocenti:\nBizzarri Federico\nContini Davide\nDella Valle Giuseppe\nMusumeci Francesco"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2023-02-23T15:15:00.000+01:00",
+    "end": "2023-02-23T17:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.910+01:00",
+    "location": "21.S.3 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230601T131500Z",
+    "description": "Esercitazione\nDocenti:\nBizzarri Federico\nContini Davide\nDella Valle Giuseppe\nMusumeci Francesco"
+  },
+  {
+    "summary": "FISICA",
+    "start": "2023-02-24T10:15:00.000+01:00",
+    "end": "2023-02-24T13:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.911+01:00",
+    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T081500Z",
+    "description": "Lezione\nDocenti:\nBizzarri Federico\nContini Davide\nDella Valle Giuseppe\nMusumeci Francesco"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2023-02-20T11:15:00.000+01:00",
+    "end": "2023-02-20T14:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.912+01:00",
+    "location": "9.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230529T091500Z",
+    "description": "Lezione\nDocente:\nMusumeci Francesco"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2023-02-22T10:15:00.000+01:00",
+    "end": "2023-02-22T13:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.913+01:00",
+    "location": "4.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 4 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T081500Z",
+    "description": "Esercitazione\nDocente:\nMusumeci Francesco"
+  },
+  {
+    "summary": "FONDAMENTI DI COMUNICAZIONI E INTERNET",
+    "start": "2023-02-24T08:15:00.000+01:00",
+    "end": "2023-02-24T10:15:00.000+01:00",
+    "dtstamp": "2023-01-30T20:50:39.913+01:00",
+    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T061500Z",
+    "description": "Lezione\nDocente:\nMusumeci Francesco"
+  }
+]

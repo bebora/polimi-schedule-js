@@ -548,29 +548,81 @@ function splitCollapsedDates(match, p1, p2, offset, string, groups) {
 }
 
 /**
+ * Adjust text so that each line has well-balanced parentheses
+ * This does not traverse the text with a proper stack implementation,
+ * it just enforces that the number of "(" is the same as that of ")"
+ * @param {string} text
+ * @return {string}
+ */
+function adjustParentheses(text) {
+  const inputLines = text.split("\n");
+  const outputLines = [];
+  let lineBuilder = "";
+  let extraOpenInBuilder = 0;
+  for (const line of inputLines) {
+    const openParenthesesCount = (line.match(/\(/g) || []).length;
+    const closeParenthesesCount = (line.match(/\)/g) || []).length;
+    if (extraOpenInBuilder > 0) {
+      extraOpenInBuilder += openParenthesesCount - closeParenthesesCount;
+      lineBuilder += ` ${line}`;
+      if (extraOpenInBuilder === 0) {
+        outputLines.push(lineBuilder);
+        lineBuilder = "";
+      }
+    } else {
+      extraOpenInBuilder += openParenthesesCount - closeParenthesesCount;
+      if (extraOpenInBuilder === 0) {
+        outputLines.push(line);
+      } else {
+        lineBuilder = line;
+      }
+    }
+  }
+  // Append last line and balance it
+  if (lineBuilder !== "") {
+    outputLines.push(`${lineBuilder}${")".repeat(extraOpenInBuilder)}`);
+  }
+  return outputLines.join("\n");
+}
+
+/**
+ * Add newlines before titles if no course sections are detected
+ * @param {string} text
+ * @return {string}
+ */
+function guessNewlines(text) {
+  if (text.match("\n\n") === null) {
+    return text.replace(titleRegex, "\n$&");
+  } else {
+    return text;
+  }
+}
+
+/**
  * Apply minor transformation to the user input to allow for easier parsing
  * @param {string} userInput
  * @return {string}
  */
 function preprocessText(userInput) {
-  return (
-    userInput
-      .replace(/\n\)/g, ")") // Remove newline before the closing parenthesis of the professor section, if present
-      .replace(/\u00A0/g, " ") // Transform non-breaking space into a regular space
-      // Insert newline before days if they are merged with the previous day/course info (see Samsung Browser input)
-      .replace(
-        new RegExp(`(?<pre>\\S)(?<aiucDate>(${aiucDateRegex.source})+)`, "g"),
-        splitCollapsedDates
-      ) // For AIUC courses
-      .replace(new RegExp(`(\\S)(${weekdaysRegex})`, "g"), "$1\n$2") // For III courses
-      .replace(
-        new RegExp(
-          `(?<titlePart>${titleRegex.source})(?<doubleNewline>\\n\\n)(?<semester>Semester|Semestre)`,
-          "gm"
-        ),
-        "$<titlePart>\n$<semester>"
-      ) // Remove extra newline between title and semester info (see Samsung Browser input)
-  );
+  const simplePreprocessedText = userInput
+    .replace(/\n\)/g, ")") // Remove newline before the closing parenthesis of the professor section, if present
+    .replace(/\u00A0/g, " ") // Transform non-breaking space into a regular space
+    // Insert newline before days if they are merged with the previous day/course info (see Samsung Browser input)
+    .replace(
+      new RegExp(`(?<pre>\\S)(?<aiucDate>(${aiucDateRegex.source})+)`, "g"),
+      splitCollapsedDates
+    ) // For AIUC courses
+    .replace(new RegExp(`(\\S)(${weekdaysRegex})`, "g"), "$1\n$2") // For III courses
+    .replace(
+      new RegExp(
+        `(?<titlePart>${titleRegex.source})(?<doubleNewline>\\n\\n)(?<semester>Semester|Semestre)`,
+        "gm"
+      ),
+      "$<titlePart>\n$<semester>"
+    )
+    .trim(); // Remove extra newline between title and semester info (see Samsung Browser input)
+  const adjustedText = adjustParentheses(simplePreprocessedText);
+  return guessNewlines(adjustedText).trim();
 }
 
 /**
@@ -584,10 +636,10 @@ function parseText(allCourses) {
 
     let separator = "\n\n\n";
 
-    if (preprocessedInput.trim().includes("\n\n\n\n")) {
+    if (preprocessedInput.includes("\n\n\n\n")) {
       separator = "\n\n\n\n";
     }
-    let coursesList = preprocessedInput.trim().split(separator);
+    let coursesList = preprocessedInput.split(separator);
     let events = [];
     for (let wholeCourse of coursesList) {
       const newCourse = parseCourse(
@@ -602,7 +654,7 @@ function parseText(allCourses) {
     }
 
     // Prevent the error popup from appearing if the input is empty
-    if (events.length === 0 && preprocessedInput.trim().length !== 0) {
+    if (events.length === 0 && preprocessedInput.length !== 0) {
       return { data: [], error: "No courses detected" };
     }
 

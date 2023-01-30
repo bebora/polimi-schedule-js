@@ -1,0 +1,119 @@
+[
+  {
+    "summary": "MECCANICA APPLICATA ALLE MACCHINE",
+    "start": "2023-02-21T08:15:00.000+01:00",
+    "end": "2023-02-21T10:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.815+01:00",
+    "location": "B8 2.1 (Milano Bovisa - Via Durando - Edificio B8 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T061500Z",
+    "description": "Lezione\nDocente:\nZasso Alberto"
+  },
+  {
+    "summary": "MECCANICA APPLICATA ALLE MACCHINE",
+    "start": "2023-02-22T12:15:00.000+01:00",
+    "end": "2023-02-22T14:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.816+01:00",
+    "location": "L.09 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T101500Z",
+    "description": "Esercitazione\nDocente:\nZasso Alberto"
+  },
+  {
+    "summary": "MECCANICA APPLICATA ALLE MACCHINE",
+    "start": "2023-02-22T12:15:00.000+01:00",
+    "end": "2023-02-22T14:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.817+01:00",
+    "location": "BL.27.02 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T101500Z",
+    "description": "Esercitazione\nDocente:\nZasso Alberto"
+  },
+  {
+    "summary": "MECCANICA APPLICATA ALLE MACCHINE",
+    "start": "2023-02-23T15:15:00.000+01:00",
+    "end": "2023-02-23T17:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.817+01:00",
+    "location": "B8 2.1 (Milano Bovisa - Via Durando - Edificio B8 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230601T131500Z",
+    "description": "Lezione\nDocente:\nZasso Alberto"
+  },
+  {
+    "summary": "MECCANICA APPLICATA ALLE MACCHINE",
+    "start": "2023-02-24T08:15:00.000+01:00",
+    "end": "2023-02-24T10:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.818+01:00",
+    "location": "BL.27.08 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T061500Z",
+    "description": "Esercitazione\nDocente:\nZasso Alberto"
+  },
+  {
+    "summary": "MECCANICA APPLICATA ALLE MACCHINE",
+    "start": "2023-02-24T08:15:00.000+01:00",
+    "end": "2023-02-24T10:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.818+01:00",
+    "location": "BL.27.01 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T061500Z",
+    "description": "Esercitazione\nDocente:\nZasso Alberto"
+  },
+  {
+    "summary": "MISURE MECCANICHE E TERMICHE",
+    "start": "2023-02-21T13:15:00.000+01:00",
+    "end": "2023-02-21T15:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.819+01:00",
+    "location": "B8 0.2 (Milano Bovisa - Via Durando - Edificio B8 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T111500Z",
+    "description": "Lezione\nDocente:\nSaggin Bortolino"
+  },
+  {
+    "summary": "MISURE MECCANICHE E TERMICHE",
+    "start": "2023-02-22T10:15:00.000+01:00",
+    "end": "2023-02-22T12:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.820+01:00",
+    "location": "BL.27.02 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T081500Z",
+    "description": "Esercitazione\nDocente:\nSaggin Bortolino"
+  },
+  {
+    "summary": "MISURE MECCANICHE E TERMICHE",
+    "start": "2023-02-23T08:15:00.000+01:00",
+    "end": "2023-02-23T15:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.820+01:00",
+    "location": "CLASD - EDIFICIO B.13 (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230601T061500Z",
+    "description": "Laboratorio sperimentale\nProfessor:\nSaggin Bortolino"
+  },
+  {
+    "summary": "MISURE MECCANICHE E TERMICHE",
+    "start": "2023-02-24T10:15:00.000+01:00",
+    "end": "2023-02-24T13:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.821+01:00",
+    "location": "BL.27.01 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T081500Z",
+    "description": "Lezione\nDocente:\nSaggin Bortolino"
+  },
+  {
+    "summary": "TECNOLOGIA MECCANICA 1",
+    "start": "2023-02-21T15:15:00.000+01:00",
+    "end": "2023-02-21T18:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.823+01:00",
+    "location": "B8 0.2 (Milano Bovisa - Via Durando - Edificio B8 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T131500Z",
+    "description": "Lezione\nDocente:\nMonno Michele"
+  },
+  {
+    "summary": "TECNOLOGIA MECCANICA 1",
+    "start": "2023-02-22T15:15:00.000+01:00",
+    "end": "2023-02-22T17:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.823+01:00",
+    "location": "B8 0.2 (Milano Bovisa - Via Durando - Edificio B8 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T131500Z",
+    "description": "Lezione\nDocente:\nMonno Michele"
+  },
+  {
+    "summary": "TECNOLOGIA MECCANICA 1",
+    "start": "2023-02-24T14:15:00.000+01:00",
+    "end": "2023-02-24T17:15:00.000+01:00",
+    "dtstamp": "2023-01-30T22:36:52.823+01:00",
+    "location": "B8 0.3 (Milano Bovisa - Via Durando - Edificio B8 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T121500Z",
+    "description": "Esercitazione\nDocente:\nMonno Michele"
+  }
+]

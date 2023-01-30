@@ -103,7 +103,7 @@
     "start": "2022-09-15T10:15:00.000+02:00",
     "end": "2022-09-15T12:15:00.000+02:00",
     "dtstamp": "2022-10-09T20:52:53.625+02:00",
-    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano P",
+    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano P)",
     "rrule": "FREQ=WEEKLY;UNTIL=20221222T091500Z",
     "description": "Lezione\nDocente:\nPinton Stefano"
   }
