@@ -1,0 +1,42 @@
+FISICA TECNICA  (Docente: Salioni Alberto )
+Inizio lezioni: 22/02/2023  Fine lezioni: 01/06/2023
+Mercoledì dalle 08:15 alle 10:15, lezione in aula 9.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Terra)
+Giovedì dalle 14:15 alle 16:15, lezione in aula 3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)
+Aula virtuale - Salioni Alberto
+
+
+MECCANICA (PER ING. INFORMATICA)  (Docente: Somaschini Claudio )
+Inizio lezioni: 21/02/2023  Fine lezioni: 01/06/2023
+Martedì dalle 09:15 alle 11:15, lezione in aula T.2.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)
+Giovedì dalle 16:15 alle 18:15, lezione in aula T.2.2 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)
+Aula virtuale - Somaschini Claudio
+
+
+COMPUTING INFRASTRUCTURES  (Docente: Palermo Gianluca )
+Inizio lezioni: 20/02/2023  Fine lezioni: 30/05/2023
+Lunedì dalle 14:15 alle 16:15, lezione in aula SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)
+Martedì dalle 12:15 alle 14:15, esercitazione in aula 26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)
+Aula virtuale - Palermo Gianluca
+
+
+FORMAL METHODS FOR CONCURRENT AND REAL-TIME SYSTEMS  (Docente: San Pietro Pierluigi )
+Inizio lezioni: 22/02/2023  Fine lezioni: 31/05/2023
+Mercoledì dalle 14:15 alle 16:15, lezione in aula B.5.5 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quinto)
+Venerdì dalle 12:15 alle 14:15, esercitazione in aula 3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)
+Aula virtuale - San Pietro Pierluigi
+
+
+COMPUTER SECURITY  (Docente: Zanero Stefano )
+Inizio lezioni: 23/02/2023  Fine lezioni: 01/06/2023
+Giovedì dalle 10:15 alle 12:15, lezione in aula 5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)
+Venerdì dalle 10:15 alle 12:15, esercitazione in aula 21.S.3 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)
+Aula virtuale - Zanero Stefano
+Aula virtuale - Longari Stefano
+Aula virtuale - Bellante Armando
+
+
+ADVANCED COMPUTER ARCHITECTURES (Docente: Silvano Cristina )
+Inizio lezioni: 20/02/2023  Fine lezioni: 31/05/2023
+Lunedì dalle 10:15 alle 12:15, lezione in aula SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)
+Mercoledì dalle 10:15 alle 12:15, esercitazione in aula 25.S.2 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)
+Aula virtuale - Silvano Cristina

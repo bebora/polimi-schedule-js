@@ -1,0 +1,92 @@
+[
+  {
+    "summary": "Modellistica dei Sistemi Meccanici",
+    "start": "2023-02-21T08:30:00.000+01:00",
+    "end": "2023-02-21T10:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.606+01:00",
+    "location": "2.1.1 (Leonardo - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T063000Z",
+    "description": "Lezione\nDocente:\nResta Ferruccio"
+  },
+  {
+    "summary": "Modellistica dei Sistemi Meccanici",
+    "start": "2023-02-22T15:30:00.000+01:00",
+    "end": "2023-02-22T17:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.607+01:00",
+    "location": "8.0.1 (Leonardo - Edificio 8 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T133000Z",
+    "description": "Esercitazione\nDocente:\nResta Ferruccio"
+  },
+  {
+    "summary": "Modellistica dei Sistemi Meccanici",
+    "start": "2023-02-22T08:30:00.000+01:00",
+    "end": "2023-02-22T10:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.608+01:00",
+    "location": "26.16 (Via Golgi - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T063000Z",
+    "description": "Lezione\nDocente:\nResta Ferruccio"
+  },
+  {
+    "summary": "Modellistica dei Sistemi Meccanici",
+    "start": "2023-02-24T08:30:00.000+01:00",
+    "end": "2023-02-24T10:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.608+01:00",
+    "location": "2.1.1 (Leonardo - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T063000Z",
+    "description": "Esercitazione\nDocente:\nResta Ferruccio"
+  },
+  {
+    "summary": "Fondamenti di Elettronica",
+    "start": "2023-02-21T10:30:00.000+01:00",
+    "end": "2023-02-21T13:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.610+01:00",
+    "location": "2.1.1 (Leonardo - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T083000Z",
+    "description": "Lezione\nDocente:\nCarminati Marco"
+  },
+  {
+    "summary": "Fondamenti di Elettronica",
+    "start": "2023-02-22T10:30:00.000+01:00",
+    "end": "2023-02-22T12:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.610+01:00",
+    "location": "26.16 (Via Golgi - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T083000Z",
+    "description": "Lezione\nDocente:\nCarminati Marco"
+  },
+  {
+    "summary": "Fondamenti di Elettronica",
+    "start": "2023-02-24T14:30:00.000+01:00",
+    "end": "2023-02-24T17:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.610+01:00",
+    "location": "5.03 (Leonardo - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T123000Z",
+    "description": "Esercitazione\nDocente:\nCarminati Marco"
+  },
+  {
+    "summary": "Fondamenti di Automatica",
+    "start": "2023-02-21T14:30:00.000+01:00",
+    "end": "2023-02-21T17:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.612+01:00",
+    "location": "25.0.1 (Via Golgi - Edificio 25 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T123000Z",
+    "description": "Lezione\nDocente:\nTanelli Mara"
+  },
+  {
+    "summary": "Fondamenti di Automatica",
+    "start": "2023-02-22T13:30:00.000+01:00",
+    "end": "2023-02-22T15:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.613+01:00",
+    "location": "3.1.3 (Leonardo - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T113000Z",
+    "description": "Lezione\nDocente:\nTanelli Mara"
+  },
+  {
+    "summary": "Fondamenti di Automatica",
+    "start": "2023-02-24T10:30:00.000+01:00",
+    "end": "2023-02-24T13:00:00.000+01:00",
+    "dtstamp": "2023-01-30T19:28:44.613+01:00",
+    "location": "2.1.1 (Leonardo - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T083000Z",
+    "description": "Esercitazione\nDocente:\nTanelli Mara"
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "summary": "FISICA TECNICA",
+    "start": "2023-02-22T08:15:00.000+01:00",
+    "end": "2023-02-22T10:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.782+01:00",
+    "location": "9.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T061500Z",
+    "description": "Lezione\nDocente:\nSalioni Alberto"
+  },
+  {
+    "summary": "FISICA TECNICA",
+    "start": "2023-02-23T14:15:00.000+01:00",
+    "end": "2023-02-23T16:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.783+01:00",
+    "location": "3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230601T121500Z",
+    "description": "Lezione\nDocente:\nSalioni Alberto"
+  },
+  {
+    "summary": "MECCANICA (PER ING. INFORMATICA)",
+    "start": "2023-02-21T09:15:00.000+01:00",
+    "end": "2023-02-21T11:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.785+01:00",
+    "location": "T.2.1 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T071500Z",
+    "description": "Lezione\nDocente:\nSomaschini Claudio"
+  },
+  {
+    "summary": "MECCANICA (PER ING. INFORMATICA)",
+    "start": "2023-02-23T16:15:00.000+01:00",
+    "end": "2023-02-23T18:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.786+01:00",
+    "location": "T.2.2 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230601T141500Z",
+    "description": "Lezione\nDocente:\nSomaschini Claudio"
+  },
+  {
+    "summary": "COMPUTING INFRASTRUCTURES",
+    "start": "2023-02-20T14:15:00.000+01:00",
+    "end": "2023-02-20T16:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.787+01:00",
+    "location": "SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230529T121500Z",
+    "description": "Lezione\nDocente:\nPalermo Gianluca"
+  },
+  {
+    "summary": "COMPUTING INFRASTRUCTURES",
+    "start": "2023-02-21T12:15:00.000+01:00",
+    "end": "2023-02-21T14:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.788+01:00",
+    "location": "26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230530T101500Z",
+    "description": "Esercitazione\nDocente:\nPalermo Gianluca"
+  },
+  {
+    "summary": "FORMAL METHODS FOR CONCURRENT AND REAL-TIME SYSTEMS",
+    "start": "2023-02-22T14:15:00.000+01:00",
+    "end": "2023-02-22T16:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.789+01:00",
+    "location": "B.5.5 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quinto)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T121500Z",
+    "description": "Lezione\nDocente:\nSan Pietro Pierluigi"
+  },
+  {
+    "summary": "FORMAL METHODS FOR CONCURRENT AND REAL-TIME SYSTEMS",
+    "start": "2023-02-24T12:15:00.000+01:00",
+    "end": "2023-02-24T14:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.790+01:00",
+    "location": "3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T101500Z",
+    "description": "Esercitazione\nDocente:\nSan Pietro Pierluigi"
+  },
+  {
+    "summary": "COMPUTER SECURITY",
+    "start": "2023-02-23T10:15:00.000+01:00",
+    "end": "2023-02-23T12:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.791+01:00",
+    "location": "5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230601T081500Z",
+    "description": "Lezione\nDocenti:\nZanero Stefano\nLongari Stefano\nBellante Armando"
+  },
+  {
+    "summary": "COMPUTER SECURITY",
+    "start": "2023-02-24T10:15:00.000+01:00",
+    "end": "2023-02-24T12:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.792+01:00",
+    "location": "21.S.3 (Milano Città Studi - Via Bassini - Edificio 21 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230526T081500Z",
+    "description": "Esercitazione\nDocenti:\nZanero Stefano\nLongari Stefano\nBellante Armando"
+  },
+  {
+    "summary": "ADVANCED COMPUTER ARCHITECTURES",
+    "start": "2023-02-20T10:15:00.000+01:00",
+    "end": "2023-02-20T12:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.793+01:00",
+    "location": "SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230529T081500Z",
+    "description": "Lezione\nDocente:\nSilvano Cristina"
+  },
+  {
+    "summary": "ADVANCED COMPUTER ARCHITECTURES",
+    "start": "2023-02-22T10:15:00.000+01:00",
+    "end": "2023-02-22T12:15:00.000+01:00",
+    "dtstamp": "2023-01-30T17:26:57.793+01:00",
+    "location": "25.S.2 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20230531T081500Z",
+    "description": "Esercitazione\nDocente:\nSilvano Cristina"
+  }
+]

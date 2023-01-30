@@ -137,7 +137,8 @@ function setHourGenerator(firstDatetime) {
   };
 }
 
-const aiucDateRegex = /\d{2}-[a-zA-Z]{3}-\d{4}/;
+const aiucDateRegexSource = String.raw`\d{2}-[a-zA-Z]{3}-\d{4}`;
+const aiucDateRegex = new RegExp(aiucDateRegexSource);
 /**
  * Check if input line is a date or a virtual classroom. Not a proper date validator.
  * @param {string} line
@@ -146,6 +147,10 @@ const aiucDateRegex = /\d{2}-[a-zA-Z]{3}-\d{4}/;
 function isValidDate(line) {
   return aiucDateRegex.test(line);
 }
+
+const unacceptableTitleWords = `${Object.keys(weekdays).join(
+  "|"
+)}|Virtual classroom|Aula virtuale|Inizio lezioni|Start of lessons|Lectures start|Lessons start|Fine lezioni|End of lessons*|Lectures end|Lessons end|Semester:|Semestre:|${aiucDateRegexSource}|\\(|\\)`;
 
 /**
  * Detect whether course dates are in dd/mm/yyyy or mm/dd/yyyy format
@@ -205,7 +210,7 @@ function buildProfessorsList(course, alreadyMatchedTitles) {
 
   for (let title of alreadyMatchedTitles) {
     if (title[3] !== undefined)
-      //Some courses composed of multiple subcourses does not have the professor name at the start
+      //Some courses composed of multiple subcourses do not have the professor name at the start
       professorNames.push(title[3].trim());
   }
   const virtualClassroomRegex =
@@ -472,8 +477,10 @@ function parseIIICourse(
   }
 }
 
-const titleRegex =
-  /^\s*(\d{6}) - (.*?)(?:\s*\(\s*(?:Docente|Professor|Lecturer|Teacher):(.*)\)|$)/gm;
+const titleRegex = new RegExp(
+  String.raw`^(?:\s*(\d{6}) - )?((?!${unacceptableTitleWords})[^\s].+?)(?:\s*\(\s*(?:Docente|Professor|Lecturer|Teacher):(.*)\)|$)`,
+  "gm"
+);
 /**
  * @param {string} course textual representation of the course
  * @param {String[]|null} upperLevelProfessorNames - list of professor names to use. If null, create them from scratch
@@ -520,7 +527,7 @@ function parseCourse(
 
   const courseName = titles[titles.length - 1][2];
   const datesRegex =
-    /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start|Lessons start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lesson(?:s*)|Lectures end|Lessons end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
+    /(1|2|A|Annual(?:e*))?\s*(?:Inizio lezioni|Start of lessons|Lectures start|Lessons start): (\d{2}\/\d{2}\/\d{4})\s*(?:Fine lezioni|End of lessons*|Lectures end|Lessons end): (\d{2}\/\d{2}\/\d{4})/g; //English strings are different between Manifesto degli Studi and personal timetables from the Online Services
   if (!datesRegex.test(course)) {
     return parseAUICCourse(course, professorNames, courseName);
   } else {
