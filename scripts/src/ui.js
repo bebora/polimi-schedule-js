@@ -132,7 +132,7 @@ ${timetableInput}
 
 function displayErrorPopup(rawErrorInfo = null) {
   let errorInfo;
-  if (rawErrorInfo instanceof String) {
+  if (typeof rawErrorInfo === "string" || rawErrorInfo instanceof String) {
     errorInfo = rawErrorInfo;
   } else {
     errorInfo = JSON.stringify(rawErrorInfo, null, 0);
