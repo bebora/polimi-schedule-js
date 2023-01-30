@@ -1,0 +1,36 @@
+054443 - SOFTWARE ENGINEERING 2 (Docente: Rossi Matteo Giovanni )
+Inizio lezioni: 14/09/2022 Fine lezioni: 22/12/2022
+Mercoledì dalle 08:15 alle 10:15, lezione in aula SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini -
+Edificio 20 - Piano Terra)
+Giovedì dalle 08:15 alle 10:15, esercitazione in aula 7.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 7 - Piano Primo)
+056901 - SYSTEMS AND METHODS FOR BIG AND UNSTRUCTURED DATA (Docente: Brambilla Marco )
+Inizio lezioni: 13/09/2022 Fine lezioni: 22/12/2022
+Martedì dalle 14:15 alle 16:15, lezione in aula 9.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 -
+Edificio 9 - Piano Primo)
+Giovedì dalle 14:15 alle 16:15, lezione in aula 5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)
+089182 - FORMAL LANGUAGES AND COMPILERS (Docente: Morzenti Angelo Carlo )
+Inizio lezioni: 13/09/2022 Fine lezioni: 22/12/2022
+Martedì dalle 08:15 alle 10:15, lezione in aula SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini -
+Edificio 20 - Piano Terra)
+Giovedì dalle 10:15 alle 12:15, esercitazione in aula 2.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)
+088983 - FOUNDATIONS OF OPERATIONS RESEARCH (Docente: Amaldi Edoardo )
+Inizio lezioni: 12/09/2022 Fine lezioni: 21/12/2022
+Lunedì dalle 16:15 alle 19:15, esercitazione in aula 5.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 -
+Edificio 5 - Piano Terra)
+Martedì dalle 10:15 alle 12:15, lezione in aula 5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)
+Mercoledì dalle 10:15 alle 12:15, lezione in aula 25.S.1 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)
+089183 - DATA BASES 2 (Docente: Fraternali Piero )
+Inizio lezioni: 12/09/2022 Fine lezioni: 23/12/2022
+Lunedì dalle 10:15 alle 12:15, lezione in aula 26.11 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano
+Primo)
+Venerdì dalle 10:15 alle 12:15, esercitazione in aula 26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)
+056890 - UNCERTAINTY IN ARTIFICIAL INTELLIGENCE (Docente: Bonarini Andrea )
+Inizio lezioni: 12/09/2022 Fine lezioni: 21/12/2022
+Lunedì dalle 14:15 alle 16:15, lezione in aula 3.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio
+3 - Piano Primo)
+Mercoledì dalle 15:15 alle 17:15, esercitazione in aula 3.1.5 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)
+Mercoledì dalle 17:15 alle 18:15, esercitazione in aula 3.1.5 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)
+058844 - ADVANCED TOPICS IN DEEP LEARNING: THE RISE OF TRANSFORMERS (Docente: Matteucci Matteo )
+Inizio lezioni: --/--/---- Fine lezioni: --/--/---- Nessun orario definito
+058845 - HUMAN-COMPUTER INTERACTION FOR AI (HCI4AI) (Docente: Matera Maristella )
+Inizio lezioni: --/--/---- Fine lezioni: --/--/---- Nessun orario definito

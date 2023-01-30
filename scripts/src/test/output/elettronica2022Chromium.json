@@ -1,0 +1,119 @@
+[
+  {
+    "summary": "FONDAMENTI DI SEGNALI E TRASMISSIONE",
+    "start": "2022-09-12T09:15:00.000+02:00",
+    "end": "2022-09-12T11:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.250+01:00",
+    "location": "25.2.3 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T081500Z",
+    "description": "Lezione\nDocenti:\nBoffi Pierpaolo\nGatto Alberto"
+  },
+  {
+    "summary": "FONDAMENTI DI SEGNALI E TRASMISSIONE",
+    "start": "2022-09-13T09:15:00.000+02:00",
+    "end": "2022-09-13T11:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.250+01:00",
+    "location": "B.2.3 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T081500Z",
+    "description": "Lezione\nDocenti:\nBoffi Pierpaolo\nGatto Alberto"
+  },
+  {
+    "summary": "FONDAMENTI DI SEGNALI E TRASMISSIONE",
+    "start": "2022-09-15T10:15:00.000+02:00",
+    "end": "2022-09-15T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.251+01:00",
+    "location": "7.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 7 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T091500Z",
+    "description": "Lezione\nDocenti:\nBoffi Pierpaolo\nGatto Alberto"
+  },
+  {
+    "summary": "FONDAMENTI DI SEGNALI E TRASMISSIONE",
+    "start": "2022-09-16T08:15:00.000+02:00",
+    "end": "2022-09-16T10:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.252+01:00",
+    "location": "25.S.1 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T071500Z",
+    "description": "Lezione\nDocenti:\nBoffi Pierpaolo\nGatto Alberto"
+  },
+  {
+    "summary": "SISTEMI ELETTRONICI DIGITALI",
+    "start": "2022-09-12T14:15:00.000+02:00",
+    "end": "2022-09-12T16:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.258+01:00",
+    "location": "SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T131500Z",
+    "description": "Lezione\nDocente:\nGeraci Angelo"
+  },
+  {
+    "summary": "SISTEMI ELETTRONICI DIGITALI",
+    "start": "2022-09-13T11:15:00.000+02:00",
+    "end": "2022-09-13T13:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.259+01:00",
+    "location": "B.2.3 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T101500Z",
+    "description": "Lezione\nDocente:\nGeraci Angelo"
+  },
+  {
+    "summary": "SISTEMI ELETTRONICI DIGITALI",
+    "start": "2022-09-14T13:15:00.000+02:00",
+    "end": "2022-09-14T15:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.259+01:00",
+    "location": "26.14 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T121500Z",
+    "description": "Lezione\nDocente:\nGeraci Angelo"
+  },
+  {
+    "summary": "SISTEMI ELETTRONICI DIGITALI",
+    "start": "2022-09-15T08:15:00.000+02:00",
+    "end": "2022-09-15T10:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.260+01:00",
+    "location": "25.S.3 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T071500Z",
+    "description": "Lezione\nDocente:\nGeraci Angelo"
+  },
+  {
+    "summary": "ELETTRONICA ANALOGICA ",
+    "start": "2022-09-12T11:15:00.000+02:00",
+    "end": "2022-09-12T13:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.262+01:00",
+    "location": "25.2.3 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T101500Z",
+    "description": "Lezione\nDocente:\nSampietro Marco"
+  },
+  {
+    "summary": "ELETTRONICA ANALOGICA ",
+    "start": "2022-09-13T14:15:00.000+02:00",
+    "end": "2022-09-13T16:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.262+01:00",
+    "location": "3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T131500Z",
+    "description": "Lezione\nDocente:\nSampietro Marco"
+  },
+  {
+    "summary": "ELETTRONICA ANALOGICA ",
+    "start": "2022-09-14T15:15:00.000+02:00",
+    "end": "2022-09-14T17:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.263+01:00",
+    "location": "25.S.1 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T141500Z",
+    "description": "Lezione\nDocente:\nSampietro Marco"
+  },
+  {
+    "summary": "ELETTRONICA ANALOGICA ",
+    "start": "2022-09-15T13:15:00.000+02:00",
+    "end": "2022-09-15T17:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.263+01:00",
+    "location": "G.0.1 (Milano Città Studi - Via Golgi 40 - Edificio 23 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T121500Z",
+    "description": "Laboratorio sperimentale\nProfessor:\nSampietro Marco"
+  },
+  {
+    "summary": "ELETTRONICA ANALOGICA ",
+    "start": "2022-09-16T10:15:00.000+02:00",
+    "end": "2022-09-16T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:41:17.264+01:00",
+    "location": "5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T091500Z",
+    "description": "Lezione\nDocente:\nSampietro Marco"
+  }
+]

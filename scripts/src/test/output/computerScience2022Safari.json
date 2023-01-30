@@ -1,0 +1,128 @@
+[
+  {
+    "summary": "SOFTWARE ENGINEERING 2",
+    "start": "2022-09-14T08:15:00.000+02:00",
+    "end": "2022-09-14T10:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.441+01:00",
+    "location": "SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T071500Z",
+    "description": "Lezione\nDocente:\nRossi Matteo Giovanni"
+  },
+  {
+    "summary": "SOFTWARE ENGINEERING 2",
+    "start": "2022-09-15T08:15:00.000+02:00",
+    "end": "2022-09-15T10:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.442+01:00",
+    "location": "7.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 7 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T071500Z",
+    "description": "Esercitazione\nDocente:\nRossi Matteo Giovanni"
+  },
+  {
+    "summary": "SYSTEMS AND METHODS FOR BIG AND UNSTRUCTURED DATA",
+    "start": "2022-09-13T14:15:00.000+02:00",
+    "end": "2022-09-13T16:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.444+01:00",
+    "location": "9.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T131500Z",
+    "description": "Lezione\nDocente:\nBrambilla Marco"
+  },
+  {
+    "summary": "SYSTEMS AND METHODS FOR BIG AND UNSTRUCTURED DATA",
+    "start": "2022-09-15T14:15:00.000+02:00",
+    "end": "2022-09-15T16:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.445+01:00",
+    "location": "5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T131500Z",
+    "description": "Lezione\nDocente:\nBrambilla Marco"
+  },
+  {
+    "summary": "FORMAL LANGUAGES AND COMPILERS",
+    "start": "2022-09-13T08:15:00.000+02:00",
+    "end": "2022-09-13T10:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.446+01:00",
+    "location": "SALA CONF. EMILIO GATTI (Milano Città Studi - Via Bassini - Edificio 20 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T071500Z",
+    "description": "Lezione\nDocente:\nMorzenti Angelo Carlo"
+  },
+  {
+    "summary": "FORMAL LANGUAGES AND COMPILERS",
+    "start": "2022-09-15T10:15:00.000+02:00",
+    "end": "2022-09-15T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.447+01:00",
+    "location": "2.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T091500Z",
+    "description": "Esercitazione\nDocente:\nMorzenti Angelo Carlo"
+  },
+  {
+    "summary": "FOUNDATIONS OF OPERATIONS RESEARCH",
+    "start": "2022-09-12T16:15:00.000+02:00",
+    "end": "2022-09-12T19:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.448+01:00",
+    "location": "5.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T151500Z",
+    "description": "Esercitazione\nDocente:\nAmaldi Edoardo"
+  },
+  {
+    "summary": "FOUNDATIONS OF OPERATIONS RESEARCH",
+    "start": "2022-09-13T10:15:00.000+02:00",
+    "end": "2022-09-13T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.448+01:00",
+    "location": "5.03 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T091500Z",
+    "description": "Lezione\nDocente:\nAmaldi Edoardo"
+  },
+  {
+    "summary": "FOUNDATIONS OF OPERATIONS RESEARCH",
+    "start": "2022-09-14T10:15:00.000+02:00",
+    "end": "2022-09-14T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.450+01:00",
+    "location": "25.S.1 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T091500Z",
+    "description": "Lezione\nDocente:\nAmaldi Edoardo"
+  },
+  {
+    "summary": "DATA BASES 2",
+    "start": "2022-09-12T10:15:00.000+02:00",
+    "end": "2022-09-12T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.451+01:00",
+    "location": "26.11 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T091500Z",
+    "description": "Lezione\nDocente:\nFraternali Piero"
+  },
+  {
+    "summary": "DATA BASES 2",
+    "start": "2022-09-16T10:15:00.000+02:00",
+    "end": "2022-09-16T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.451+01:00",
+    "location": "26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221223T091500Z",
+    "description": "Esercitazione\nDocente:\nFraternali Piero"
+  },
+  {
+    "summary": "UNCERTAINTY IN ARTIFICIAL INTELLIGENCE",
+    "start": "2022-09-12T14:15:00.000+02:00",
+    "end": "2022-09-12T16:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.451+01:00",
+    "location": "3.1.4 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T131500Z",
+    "description": "Lezione\nDocente:\nBonarini Andrea"
+  },
+  {
+    "summary": "UNCERTAINTY IN ARTIFICIAL INTELLIGENCE",
+    "start": "2022-09-14T15:15:00.000+02:00",
+    "end": "2022-09-14T17:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.453+01:00",
+    "location": "3.1.5 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T141500Z",
+    "description": "Esercitazione\nDocente:\nBonarini Andrea"
+  },
+  {
+    "summary": "UNCERTAINTY IN ARTIFICIAL INTELLIGENCE",
+    "start": "2022-09-14T17:15:00.000+02:00",
+    "end": "2022-09-14T18:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:44:10.453+01:00",
+    "location": "3.1.5 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T161500Z",
+    "description": "Esercitazione\nDocente:\nBonarini Andrea"
+  }
+]
