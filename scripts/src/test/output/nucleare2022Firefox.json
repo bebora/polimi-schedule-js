@@ -1,0 +1,65 @@
+[
+  {
+    "summary": "MACCHINE",
+    "start": "2022-09-12T10:15:00.000+02:00",
+    "end": "2022-09-12T12:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:01:38.728+01:00",
+    "location": "L.09 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221219T091500Z",
+    "description": "Lezione\nDocente:\nMontenegro Gianluca"
+  },
+  {
+    "summary": "MACCHINE",
+    "start": "2022-09-13T13:15:00.000+02:00",
+    "end": "2022-09-13T15:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:01:38.728+01:00",
+    "location": "L.06 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T121500Z",
+    "description": "Lezione\nDocente:\nMontenegro Gianluca"
+  },
+  {
+    "summary": "MACCHINE",
+    "start": "2022-09-14T13:15:00.000+02:00",
+    "end": "2022-09-14T15:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:01:38.729+01:00",
+    "location": "BL.27.07 (Milano Bovisa - Via La Masa - Edificio BL27 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T121500Z",
+    "description": "Lezione\nDocente:\nMontenegro Gianluca"
+  },
+  {
+    "summary": "MACCHINE",
+    "start": "2022-09-15T12:15:00.000+02:00",
+    "end": "2022-09-15T14:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:01:38.730+01:00",
+    "location": "L.06 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T111500Z",
+    "description": "Lezione\nDocente:\nMontenegro Gianluca"
+  },
+  {
+    "summary": "INTRODUCTION TO NUCLEAR ENGINEERING A+B",
+    "start": "2022-09-13T08:15:00.000+02:00",
+    "end": "2022-09-13T10:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:01:38.731+01:00",
+    "location": "L.11 (Milano Bovisa - Via La Masa - Edificio B12 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221220T071500Z",
+    "description": "Lezione\nDocente:\nRicotti Marco Enrico"
+  },
+  {
+    "summary": "INTRODUCTION TO NUCLEAR ENGINEERING A+B",
+    "start": "2022-09-14T08:15:00.000+02:00",
+    "end": "2022-09-14T11:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:01:38.732+01:00",
+    "location": "B2.2.15 (Milano Bovisa - Via Durando - Edificio B2 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221221T071500Z",
+    "description": "Lezione\nDocente:\nRicotti Marco Enrico"
+  },
+  {
+    "summary": "INTRODUCTION TO NUCLEAR ENGINEERING A+B",
+    "start": "2022-09-15T14:15:00.000+02:00",
+    "end": "2022-09-15T17:15:00.000+02:00",
+    "dtstamp": "2023-01-31T00:01:38.732+01:00",
+    "location": "LM.5 (Milano Bovisa - Via La Masa - Edificio B15 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20221222T131500Z",
+    "description": "Esercitazione\nDocente:\nRicotti Marco Enrico"
+  }
+]

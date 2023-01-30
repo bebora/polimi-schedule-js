@@ -371,7 +371,7 @@ function parseIIICourse(
     }
 
     const events = [];
-    let courseDays = /[^\n]+\n[^\n]+\n?([\s\S]*)/.exec(course);
+    let courseDays = /\n[^\n]+\n?([\s\S]*)/.exec(course);
     if (courseDays !== null && courseDays[1] !== "") {
       let rows = courseDays[1].trim().split("\n\n")[0].split("\n");
       for (let j of rows) {
@@ -590,8 +590,8 @@ function adjustParentheses(text) {
  * @param {string} text
  * @return {string}
  */
-function guessNewlines(text) {
-  if (text.match("\n\n") === null) {
+function guessNewlines(text, courseSeparator = "\n\n") {
+  if (text.match(courseSeparator) === null) {
     return text.replace(titleRegex, "\n$&");
   } else {
     return text;
@@ -628,9 +628,10 @@ function preprocessText(userInput) {
 /**
  * Parse the whole timetable input
  * @param {string} allCourses - User timetable
+ * @param {boolean} firstTry - True if first call of the function on the current input
  * @return {ParsedData}
  */
-function parseText(allCourses) {
+function parseText(allCourses, firstTry = true) {
   try {
     const preprocessedInput = preprocessText(allCourses);
 
@@ -655,7 +656,12 @@ function parseText(allCourses) {
 
     // Prevent the error popup from appearing if the input is empty
     if (events.length === 0 && preprocessedInput.length !== 0) {
-      return { data: [], error: "No courses detected" };
+      // A newline before titles may be useful to parse some inputs
+      if (firstTry) {
+        return parseText(guessNewlines(preprocessedInput, "\n\n\n"), false);
+      } else {
+        return { data: [], error: "No courses detected" };
+      }
     }
 
     return { data: events, error: null };
