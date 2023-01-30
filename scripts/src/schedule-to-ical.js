@@ -137,20 +137,20 @@ function setHourGenerator(firstDatetime) {
   };
 }
 
-const aiucDateRegexSource = String.raw`\d{2}-[a-zA-Z]{3}-\d{4}`;
-const aiucDateRegex = new RegExp(aiucDateRegexSource);
+const auicDateRegexSource = String.raw`\d{2}-[a-zA-Z]{3}-\d{4}`;
+const auicDateRegex = new RegExp(auicDateRegexSource);
 /**
  * Check if input line is a date or a virtual classroom. Not a proper date validator.
  * @param {string} line
  * @return {boolean}
  */
 function isValidDate(line) {
-  return aiucDateRegex.test(line);
+  return auicDateRegex.test(line);
 }
 
 const unacceptableTitleWords = `${Object.keys(weekdays).join(
   "|"
-)}|Virtual classroom|Aula virtuale|Inizio lezioni|Start of lessons|Lectures start|Lessons start|Fine lezioni|End of lessons*|Lectures end|Lessons end|Semester:|Semestre:|${aiucDateRegexSource}|\\(|\\)`;
+)}|Virtual classroom|Aula virtuale|Inizio lezioni|Start of lessons|Lectures start|Lessons start|Fine lezioni|End of lessons*|Lectures end|Lessons end|Semester:|Semestre:|${auicDateRegexSource}|\\(|\\)`;
 
 /**
  * Detect whether course dates are in dd/mm/yyyy or mm/dd/yyyy format
@@ -244,7 +244,7 @@ function getProfessorString(lessonType, professorNames) {
 }
 
 /**
- * Parse a course in the format typically used by the AIUC School
+ * Parse a course in the format typically used by the AUIC School
  * @param {string} course
  * @param {string[]} professorNames
  * @param {string} courseName
@@ -609,9 +609,9 @@ function preprocessText(userInput) {
     .replace(/\u00A0/g, " ") // Transform non-breaking space into a regular space
     // Insert newline before days if they are merged with the previous day/course info (see Samsung Browser input)
     .replace(
-      new RegExp(`(?<pre>\\S)(?<aiucDate>(${aiucDateRegex.source})+)`, "g"),
+      new RegExp(`(?<pre>\\S)(?<auicDate>(${auicDateRegexSource})+)`, "g"),
       splitCollapsedDates
-    ) // For AIUC courses
+    ) // For AUIC courses
     .replace(new RegExp(`(\\S)(${weekdaysRegex})`, "g"), "$1\n$2") // For III courses
     .replace(
       new RegExp(
