@@ -677,96 +677,85 @@ function parseText(allCourses, firstTry = true) {
 
 /**
  *
- * @param {string} allCourses
- * @param {boolean} logError
+ * @param {ParsedData} events
  * @return {IcalendarData}
  */
-function getIcalendar(allCourses, logError = true) {
-  let events = parseText(allCourses);
-  if (events.error !== null) {
-    if (logError) {
-      console.error(
-        "Unable to create iCalendar file! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer."
-      );
-    }
-    return { data: "", error: events.error };
-  } else {
-    // console.log(JSON.stringify(events.data, null, 2))
-    const versionProperty = new Property({ name: "VERSION", value: 2 });
-    const prodId = new Property({ name: "PRODID", value: "bebora@github" });
+function getIcalendar(events) {
+  // console.log(JSON.stringify(events.data, null, 2))
+  const versionProperty = new Property({ name: "VERSION", value: 2 });
+  const prodId = new Property({ name: "PRODID", value: "bebora@github" });
 
-    let calendar = new Component({
-      name: "VCALENDAR",
-      properties: [versionProperty, prodId],
+  let calendar = new Component({
+    name: "VCALENDAR",
+    properties: [versionProperty, prodId],
+  });
+
+  for (let e of events.data) {
+    let newEvent = new Component({
+      name: "VEVENT",
+      properties: [
+        new Property({
+          name: "SUMMARY",
+          value: e.summary,
+        }),
+        new Property({
+          name: "DTSTART",
+          parameters: { TZID: "Europe/Rome" },
+          value: dateToLocalRuleText(e.start),
+        }),
+        new Property({
+          name: "DTEND",
+          parameters: { TZID: "Europe/Rome" },
+          value: dateToLocalRuleText(e.end),
+        }),
+        new Property({
+          name: "DTSTAMP",
+          value: dateToUTCRuleText(e.dtstamp),
+        }),
+        new Property({
+          name: "UID",
+          value: uuidv4(),
+        }),
+      ],
     });
 
-    for (let e of events.data) {
-      let newEvent = new Component({
-        name: "VEVENT",
-        properties: [
-          new Property({
-            name: "SUMMARY",
-            value: e.summary,
-          }),
-          new Property({
-            name: "DTSTART",
-            parameters: { TZID: "Europe/Rome" },
-            value: dateToLocalRuleText(e.start),
-          }),
-          new Property({
-            name: "DTEND",
-            parameters: { TZID: "Europe/Rome" },
-            value: dateToLocalRuleText(e.end),
-          }),
-          new Property({
-            name: "DTSTAMP",
-            value: dateToUTCRuleText(e.dtstamp),
-          }),
-          new Property({
-            name: "UID",
-            value: uuidv4(),
-          }),
-        ],
-      });
-
-      if (e.location !== undefined) {
-        newEvent = newEvent.pushProperty(
-          new Property({
-            name: "LOCATION",
-            value: e.location,
-          })
-        );
-      }
-      if (e.description !== undefined) {
-        newEvent = newEvent.pushProperty(
-          new Property({
-            name: "DESCRIPTION",
-            value: e.description,
-          })
-        );
-      }
-      if (e.rrule !== undefined) {
-        newEvent = newEvent.pushProperty(
-          new Property({
-            name: "RRULE",
-            value: e.rrule,
-          })
-        );
-      }
-      if (e.rdate !== undefined) {
-        newEvent = newEvent.pushProperty(
-          new Property({
-            name: "RDATE",
-            value: e.rdate,
-          })
-        );
-      }
-
-      calendar = calendar.pushComponent(newEvent);
+    if (e.location !== undefined) {
+      newEvent = newEvent.pushProperty(
+        new Property({
+          name: "LOCATION",
+          value: e.location,
+        })
+      );
     }
-    const rawCalendar = calendar.toString();
-    return { data: insertVTimezone(rawCalendar), error: null };
+    if (e.description !== undefined) {
+      newEvent = newEvent.pushProperty(
+        new Property({
+          name: "DESCRIPTION",
+          value: e.description,
+        })
+      );
+    }
+    if (e.rrule !== undefined) {
+      newEvent = newEvent.pushProperty(
+        new Property({
+          name: "RRULE",
+          value: e.rrule,
+        })
+      );
+    }
+    if (e.rdate !== undefined) {
+      newEvent = newEvent.pushProperty(
+        new Property({
+          name: "RDATE",
+          value: e.rdate,
+        })
+      );
+    }
+
+    calendar = calendar.pushComponent(newEvent);
   }
+  const rawCalendar = calendar.toString();
+  return { data: insertVTimezone(rawCalendar), error: null };
 }
 
 export { parseText, getIcalendar };

@@ -31,18 +31,28 @@ function onGcalendarProgress(eventsCount) {
 }
 
 document.getElementById("download").addEventListener("click", function () {
-  let icsContent = getIcalendar(document.getElementById("input").value);
-  if (icsContent.error !== null) {
-    document.getElementById("error").style.display = "inline-block";
-    setTimeout(function () {
-      document.getElementById("error").style.display = "none";
-    }, 3000);
-    displayErrorPopup(icsContent.error);
+  const events = parseText(document.getElementById("input").value);
+  if (events.error !== null) {
+    console.error(
+      "Unable to create iCalendar file! Text may be invalid or empty. If you think your text is correct, retry and/or contact the website maintainer."
+    );
+    displayErrorPopup(events.error);
+  } else if (events.data.length > 0) {
+    let icsContent = getIcalendar(events);
+    if (icsContent.error !== null) {
+      document.getElementById("error").style.display = "inline-block";
+      setTimeout(function () {
+        document.getElementById("error").style.display = "none";
+      }, 3000);
+      displayErrorPopup(icsContent.error);
+    } else {
+      let blob = new Blob([icsContent.data], {
+        type: "text/plain;charset=utf-8",
+      });
+      saveAs(blob, "orarioPolimi.ics");
+    }
   } else {
-    let blob = new Blob([icsContent.data], {
-      type: "text/plain;charset=utf-8",
-    });
-    saveAs(blob, "orarioPolimi.ics");
+    console.warn("No events detected");
   }
 });
 
@@ -58,7 +68,18 @@ document.getElementById("import_button").addEventListener("click", function () {
     );
     displayErrorPopup(events.error);
   } else {
-    handleGcalendarImport(events.data, displayErrorPopup, onGcalendarProgress);
+    if (events.data.length > 0) {
+      handleGcalendarImport(
+        events.data,
+        displayErrorPopup,
+        onGcalendarProgress
+      );
+    } else {
+      document.getElementById("zeroEvents").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("zeroEvents").style.display = "none";
+      }, 3000);
+    }
   }
 });
 

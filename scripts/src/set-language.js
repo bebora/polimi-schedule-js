@@ -41,6 +41,7 @@ const strings = {
       importProgressPost: "events...",
       importOk: "Events imported ✅",
       importFail: "Unable to import the events",
+      zeroEvents: "No events to import",
       errorTitle: "Oops! Something went wrong",
       genericError:
         "The text you pasted isn't valid or it is in a new unsupported format.",
@@ -98,6 +99,7 @@ const strings = {
       importProgressPost: "eventi...",
       importOk: "Eventi importati ✅",
       importFail: "Impossibile importare gli eventi",
+      zeroEvents: "Nessun evento da importare",
       errorTitle: "Ops! Qualcosa è andato storto",
       genericError:
         "Il testo che hai incollato non è valido oppure è in un nuovo formato non supportato.",

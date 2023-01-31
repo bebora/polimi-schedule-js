@@ -1,4 +1,4 @@
-import { getIcalendar } from "./schedule-to-ical.js";
+import { getIcalendar, parseText } from "./schedule-to-ical.js";
 import { saveAs } from "file-saver";
 
 function sleep(ms) {
@@ -44,11 +44,12 @@ async function addDownloadButton() {
       orariText = fakeDiv.innerText;
     }
     if (showButton && document.getElementById("exportCalButton") == null) {
-      let icsContent = getIcalendar(orariText, false);
-      if (icsContent.error !== null) {
-        console.error(icsContent.error);
+      const events = parseText(orariText);
+      let icsContent = getIcalendar(events);
+      if (events.data.length === 0 || icsContent.error !== null) {
+        console.error(events.data.length, icsContent.error);
         alert(
-          "The userscript can't detect any course, please add something to the timetable"
+          "The userscript cannot detect any courses, please add something to the timetable"
         );
       } else {
         let buttonNode = document.createElement("BUTTON");
