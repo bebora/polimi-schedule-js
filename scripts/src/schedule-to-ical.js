@@ -363,7 +363,12 @@ function parseIIICourse(
     let end = DateTime.fromFormat(datesMatch[3], dateFormat, {
       zone: "Europe/Rome",
     });
-    if (start.valueOf() > end.valueOf()) {
+    if (start.invalid !== null || end.invalid != null) {
+      return {
+        data: [],
+        error: start.invalid || end.invalid,
+      };
+    } else if (start.valueOf() > end.valueOf()) {
       return {
         data: [],
         error: `Start is unexpectedly greater than End (${start} > ${end})`,

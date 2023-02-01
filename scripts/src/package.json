@@ -1,6 +1,6 @@
 {
   "name": "polimi-schedule-js",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Convert PoliMi timetables to ICS files",
   "main": "schedule-to-ical.js",
   "scripts": {
