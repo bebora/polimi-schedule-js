@@ -166,7 +166,7 @@ function displayErrorPopup(rawErrorInfo = null) {
     reportAppError(
       navigator.userAgent,
       document.getElementById("input").value,
-      JSON.stringify(errorInfo, null, 0)
+      errorInfo
     );
   }
 }
