@@ -324,6 +324,7 @@ function parseIIICourse(
   let datesGroups = [...course.matchAll(datesRegex)];
   // Some annual courses consist of two courses, but the main course heading does not have any relevant event data. On the other hand, some courses also have information in the first section and it should't be removed
   if (datesGroups.length > 1) {
+    let datesDefined = false; // Prevent infinite recursion for cases such as test/input/matematica2024Chromium.txt. FIXME any second group of professors is discarded with this workaround
     let subCourses = [];
     let tempCourse = "";
     for (let row of course.split("\n")) {
@@ -331,8 +332,16 @@ function parseIIICourse(
         tempCourse = tempCourse.trim();
         if (tempCourse !== "") subCourses.push(tempCourse);
         tempCourse = row;
+        datesDefined = false;
       } else {
-        tempCourse += "\n" + row;
+        if (datesRegex.test(row)) {
+          if (!datesDefined) {
+            datesDefined = true;
+            tempCourse += "\n" + row;
+          }
+        } else {
+          tempCourse += "\n" + row;
+        }
       }
     }
     tempCourse = tempCourse.trim();

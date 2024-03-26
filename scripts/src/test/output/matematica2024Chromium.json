@@ -1,0 +1,92 @@
+[
+  {
+    "summary": "MODEL IDENTIFICATION AND DATA ANALYSIS - 2ND MODULE",
+    "start": "2024-02-19T08:15:00.000+01:00",
+    "end": "2024-02-19T10:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.135+01:00",
+    "location": "T.2.2 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240527T061500Z",
+    "description": "Lezione\nDocenti:\nSavaresi Sergio Matteo\nDelcaro Giacomo"
+  },
+  {
+    "summary": "MODEL IDENTIFICATION AND DATA ANALYSIS - 2ND MODULE",
+    "start": "2024-02-20T16:15:00.000+01:00",
+    "end": "2024-02-20T18:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.137+01:00",
+    "location": "T.2.2 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240528T141500Z",
+    "description": "Esercitazione\nDocenti:\nSavaresi Sergio Matteo\nDelcaro Giacomo"
+  },
+  {
+    "summary": "MODEL IDENTIFICATION AND DATA ANALYSIS - 2ND MODULE",
+    "start": "2024-02-21T16:15:00.000+01:00",
+    "end": "2024-02-21T18:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.138+01:00",
+    "location": "2.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240529T141500Z",
+    "description": "Lezione\nDocenti:\nSavaresi Sergio Matteo\nDelcaro Giacomo"
+  },
+  {
+    "summary": "MODEL IDENTIFICATION AND DATA ANALYSIS - 2ND MODULE",
+    "start": "2024-02-22T08:15:00.000+01:00",
+    "end": "2024-02-22T10:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.139+01:00",
+    "location": "2.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240530T061500Z",
+    "description": "Esercitazione\nDocenti:\nSavaresi Sergio Matteo\nDelcaro Giacomo"
+  },
+  {
+    "summary": "FINANCIAL ENGINEERING",
+    "start": "2024-02-19T10:15:00.000+01:00",
+    "end": "2024-02-19T13:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.140+01:00",
+    "location": "E\\F (Milano Città Studi - Via Bonardi - Edificio 11 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240527T081500Z",
+    "description": "Lezione\nDocenti:\nBaviera Roberto\nNassigh Aldo"
+  },
+  {
+    "summary": "FINANCIAL ENGINEERING",
+    "start": "2024-02-20T08:15:00.000+01:00",
+    "end": "2024-02-20T11:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.141+01:00",
+    "location": "T.0.2 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Seminterrato)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240528T061500Z",
+    "description": "Lezione\nDocenti:\nBaviera Roberto\nNassigh Aldo"
+  },
+  {
+    "summary": "FINANCIAL ENGINEERING",
+    "start": "2024-02-21T08:15:00.000+01:00",
+    "end": "2024-02-21T10:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.141+01:00",
+    "location": "3.1.3 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240529T061500Z",
+    "description": "Lezione\nDocenti:\nBaviera Roberto\nNassigh Aldo"
+  },
+  {
+    "summary": "INSURANCE & ECONOMETRICS",
+    "start": "2024-02-21T14:15:00.000+01:00",
+    "end": "2024-02-21T16:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.142+01:00",
+    "location": "7.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 7 - Piano Terra Soppalco)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240529T121500Z",
+    "description": "Lezione\nDocenti:\nAzzone Michele\nStocco Davide\nBrachetta Matteo\nDell'Acqua Silvia"
+  },
+  {
+    "summary": "INSURANCE & ECONOMETRICS",
+    "start": "2024-02-22T15:15:00.000+01:00",
+    "end": "2024-02-22T18:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.142+01:00",
+    "location": "3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240530T131500Z",
+    "description": "Lezione\nDocenti:\nAzzone Michele\nStocco Davide\nBrachetta Matteo\nDell'Acqua Silvia"
+  },
+  {
+    "summary": "INSURANCE & ECONOMETRICS",
+    "start": "2024-02-23T15:15:00.000+01:00",
+    "end": "2024-02-23T18:15:00.000+01:00",
+    "dtstamp": "2024-03-26T02:15:59.143+01:00",
+    "location": "3.1.6 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20240531T131500Z",
+    "description": "Esercitazione\nDocenti:\nAzzone Michele\nStocco Davide\nBrachetta Matteo\nDell'Acqua Silvia"
+  }
+]
