@@ -146,9 +146,8 @@ ${timetableInput}
   }
   issueText += "</details>";
 
-  document.getElementById(
-    "github-link"
-  ).href = `${base_issue_url}?body=${encodeURIComponent(issueText)}`;
+  document.getElementById("github-link").href =
+    `${base_issue_url}?body=${encodeURIComponent(issueText)}`;
 }
 
 function displayErrorPopup(rawErrorInfo = null) {
