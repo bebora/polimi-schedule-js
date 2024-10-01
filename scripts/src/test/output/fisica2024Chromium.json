@@ -1,0 +1,173 @@
+[
+  {
+    "summary": "MECCANICA DEI SOLIDI",
+    "start": "2024-09-16T14:15:00.000+02:00",
+    "end": "2024-09-16T16:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.008+02:00",
+    "location": "5.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241216T131500Z",
+    "description": "Professors:\nBocciarelli Massimiliano\nBertolli Veronica\nPapa Tommaso"
+  },
+  {
+    "summary": "MECCANICA DEI SOLIDI",
+    "start": "2024-09-17T12:15:00.000+02:00",
+    "end": "2024-09-17T14:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.010+02:00",
+    "location": "OSVALDO DE DONATO (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241217T111500Z",
+    "description": "Professors:\nBocciarelli Massimiliano\nBertolli Veronica\nPapa Tommaso"
+  },
+  {
+    "summary": "MECCANICA DEI SOLIDI",
+    "start": "2024-09-19T09:15:00.000+02:00",
+    "end": "2024-09-19T11:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.010+02:00",
+    "location": "T.2.3 (Milano Città Studi - Via Bonardi - Edificio 13 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241219T081500Z",
+    "description": "Professors:\nBocciarelli Massimiliano\nBertolli Veronica\nPapa Tommaso"
+  },
+  {
+    "summary": "MECCANICA DEI SOLIDI",
+    "start": "2024-09-20T13:15:00.000+02:00",
+    "end": "2024-09-20T15:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.011+02:00",
+    "location": "2.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241220T121500Z",
+    "description": "Professors:\nBocciarelli Massimiliano\nBertolli Veronica\nPapa Tommaso"
+  },
+  {
+    "summary": "OTTICA FISICA",
+    "start": "2024-09-16T14:15:00.000+02:00",
+    "end": "2024-09-16T18:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.012+02:00",
+    "location": "3.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241216T131500Z",
+    "description": "Professors:\nCerullo Giulio Nicola Felice\nManzoni Cristian"
+  },
+  {
+    "summary": "OTTICA FISICA",
+    "start": "2024-09-16T09:15:00.000+02:00",
+    "end": "2024-09-16T11:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.012+02:00",
+    "location": "26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241216T081500Z",
+    "description": "Professors:\nCerullo Giulio Nicola Felice\nManzoni Cristian"
+  },
+  {
+    "summary": "OTTICA FISICA",
+    "start": "2024-09-17T08:15:00.000+02:00",
+    "end": "2024-09-17T10:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.012+02:00",
+    "location": "OSVALDO DE DONATO (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241217T071500Z",
+    "description": "Professors:\nCerullo Giulio Nicola Felice\nManzoni Cristian"
+  },
+  {
+    "summary": "OTTICA FISICA",
+    "start": "2024-09-18T10:15:00.000+02:00",
+    "end": "2024-09-18T12:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.013+02:00",
+    "location": "25.0.1 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241218T091500Z",
+    "description": "Professors:\nCerullo Giulio Nicola Felice\nManzoni Cristian"
+  },
+  {
+    "summary": "OTTICA FISICA",
+    "start": "2024-09-19T08:15:00.000+02:00",
+    "end": "2024-09-19T10:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.013+02:00",
+    "location": "B.4.4 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quarto)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241219T071500Z",
+    "description": "Professors:\nCerullo Giulio Nicola Felice\nManzoni Cristian"
+  },
+  {
+    "summary": "FONDAMENTI DI ELETTRONICA (PER ING. FISICA)",
+    "start": "2024-09-16T11:15:00.000+02:00",
+    "end": "2024-09-16T13:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.014+02:00",
+    "location": "26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241216T101500Z",
+    "description": "Professors:\nFerrari Giorgio\nSacchi Emanuele\nMaurina Arianna Adelaide"
+  },
+  {
+    "summary": "FONDAMENTI DI ELETTRONICA (PER ING. FISICA)",
+    "start": "2024-09-17T14:15:00.000+02:00",
+    "end": "2024-09-17T16:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.015+02:00",
+    "location": "26.15 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241217T131500Z",
+    "description": "Professors:\nFerrari Giorgio\nSacchi Emanuele\nMaurina Arianna Adelaide"
+  },
+  {
+    "summary": "FONDAMENTI DI ELETTRONICA (PER ING. FISICA)",
+    "start": "2024-09-18T15:15:00.000+02:00",
+    "end": "2024-09-18T17:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.015+02:00",
+    "location": "3.0.3 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241218T141500Z",
+    "description": "Professors:\nFerrari Giorgio\nSacchi Emanuele\nMaurina Arianna Adelaide"
+  },
+  {
+    "summary": "FONDAMENTI DI ELETTRONICA (PER ING. FISICA)",
+    "start": "2024-09-20T10:15:00.000+02:00",
+    "end": "2024-09-20T12:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.015+02:00",
+    "location": "5.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241220T091500Z",
+    "description": "Professors:\nFerrari Giorgio\nSacchi Emanuele\nMaurina Arianna Adelaide"
+  },
+  {
+    "summary": "SCIENZA E TECNOLOGIA DEI MATERIALI",
+    "start": "2024-09-17T10:15:00.000+02:00",
+    "end": "2024-09-17T12:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.016+02:00",
+    "location": "AULA VIRTUALE LEO (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241217T091500Z",
+    "description": "Professors:\nCastiglioni Chiara\nMilani Alberto"
+  },
+  {
+    "summary": "SCIENZA E TECNOLOGIA DEI MATERIALI",
+    "start": "2024-09-17T10:15:00.000+02:00",
+    "end": "2024-09-17T12:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.016+02:00",
+    "location": "OSVALDO DE DONATO (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241217T091500Z",
+    "description": "Professors:\nCastiglioni Chiara\nMilani Alberto"
+  },
+  {
+    "summary": "SCIENZA E TECNOLOGIA DEI MATERIALI",
+    "start": "2024-09-18T08:15:00.000+02:00",
+    "end": "2024-09-18T10:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.016+02:00",
+    "location": "25.0.1 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241218T071500Z",
+    "description": "Professors:\nCastiglioni Chiara\nMilani Alberto"
+  },
+  {
+    "summary": "SCIENZA E TECNOLOGIA DEI MATERIALI",
+    "start": "2024-09-19T14:15:00.000+02:00",
+    "end": "2024-09-19T16:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.017+02:00",
+    "location": "3.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241219T131500Z",
+    "description": "Professors:\nCastiglioni Chiara\nMilani Alberto"
+  },
+  {
+    "summary": "SCIENZA E TECNOLOGIA DEI MATERIALI",
+    "start": "2024-09-20T15:15:00.000+02:00",
+    "end": "2024-09-20T18:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.017+02:00",
+    "location": "LB01 (-)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241220T141500Z",
+    "description": "Professors:\nCastiglioni Chiara\nMilani Alberto"
+  },
+  {
+    "summary": "SCIENZA E TECNOLOGIA DEI MATERIALI",
+    "start": "2024-09-20T08:15:00.000+02:00",
+    "end": "2024-09-20T10:15:00.000+02:00",
+    "dtstamp": "2024-10-01T23:22:38.017+02:00",
+    "location": "5.0.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 5 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20241220T071500Z",
+    "description": "Professors:\nCastiglioni Chiara\nMilani Alberto"
+  }
+]

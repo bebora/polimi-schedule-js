@@ -226,6 +226,7 @@ function buildProfessorsList(course, alreadyMatchedTitles) {
 }
 
 function getProfessorString(lessonType, professorNames) {
+  //TODO lessonType may be null, find other ways to get the right language
   let pluralSelector = null;
   let languageTable = professorsLookup[languageLookup[lessonType] || "en"];
 
@@ -265,7 +266,7 @@ function parseAUICCourse(course, professorNames, courseName) {
     let endHour = timesLocations[i * regexCapturingGroups + 3];
     let endMinute = timesLocations[i * regexCapturingGroups + 4];
     let lessonType = timesLocations[i * regexCapturingGroups + 5];
-    lessonType = lessonType[0].toUpperCase() + lessonType.substring(1);
+    lessonType = lessonType[0].toUpperCase() + lessonType.substring(1); //TODO can lessonType be null also here? No examples yet
     let location = timesLocations[i * regexCapturingGroups + 6];
     let dates = timesLocations[i * regexCapturingGroups + 7]
       .split("\n\n")[0]
@@ -290,7 +291,10 @@ function parseAUICCourse(course, professorNames, courseName) {
       dtstamp: DateTime.now(),
       location: location,
       description:
-        lessonType + "\n" + professorString + "\n" + professorNames.join("\n"),
+        (lessonType === null ? "" : `${lessonType}\n`) +
+        professorString +
+        "\n" +
+        professorNames.join("\n"),
     };
     if (dates.length > 0) {
       event.rdate = dates
@@ -450,9 +454,9 @@ function parseIIICourse(
         let lessonType = null;
         if (!noRoomTest.test(j)) {
           let roomMatch =
-            /,\s*(.+)\s+in\s+(?:.*?)(?:aula|classroom|lecture theatre|the classroom|the|room) (.*)/.exec(
+            /\d(?:\s*(?:am|pm))?(,\s*(.+))?\s+in\s+(?:aula|classroom|lecture theatre|the classroom|the|room) (.*)/.exec(
               j
-            ); // "the" is for "the CLASD classroom" ad example
+            ); // "the" is for "the CLASD classroom" for example
           if (roomMatch === null) {
             // Some room descriptions do not contain "in" and/or have a weird text order. It seems to happen only in English.
             // The lessonType is assumed to be a regular lesson and "classroom lesson" will be stripped
@@ -464,9 +468,11 @@ function parseIIICourse(
               location = inaccurateRoomMatch[1];
             }
           } else {
-            lessonType =
-              roomMatch[1][0].toUpperCase() + roomMatch[1].substring(1);
-            location = roomMatch[2];
+            if (roomMatch[2] !== undefined) {
+              lessonType =
+                roomMatch[2][0].toUpperCase() + roomMatch[2].substring(1);
+            }
+            location = roomMatch[3];
           }
         }
         let professorString = getProfessorString(lessonType, professorNames);
@@ -479,8 +485,7 @@ function parseIIICourse(
           location: location,
           rrule: "FREQ=WEEKLY;UNTIL=" + dateToUTCRuleText(lastDay),
           description:
-            lessonType +
-            "\n" +
+            (lessonType === null ? "" : `${lessonType}\n`) +
             professorString +
             "\n" +
             professorNames.join("\n"),

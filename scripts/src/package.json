@@ -1,6 +1,6 @@
 {
   "name": "polimi-schedule-js",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Convert PoliMi timetables to ICS files",
   "main": "schedule-to-ical.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "webpage": "node_modules/.bin/esbuild ui.js --bundle --minify --sourcemap --format=iife --global-name=bundle --outfile=../dist/web-core-bundle.js",
     "userscript": "node build/userscriptBundler.js",
     "format": "npx prettier --write .",
-    "prepare": "cd ../.. && husky install scripts/src/.husky"
+    "prepare": "cd ../.. && husky scripts/src/.husky"
   },
   "repository": {
     "type": "git",
@@ -28,16 +28,16 @@
   },
   "homepage": "https://github.com/bebora/polimi-schedule-js#readme",
   "devDependencies": {
-    "esbuild": "^0.20.2",
+    "esbuild": "^0.24.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "mocha": "^10.3.0",
-    "prettier": "3.2.5"
+    "prettier": "3.3.3"
   },
   "dependencies": {
     "file-saver": "^2.0.5",
     "immutable-ics": "^0.4.0",
-    "luxon": "^3.4.4",
+    "luxon": "^3.5.0",
     "uuid": "^9.0.1"
   },
   "type": "module"
