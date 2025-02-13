@@ -254,7 +254,7 @@ function getProfessorString(lessonType, professorNames) {
 function parseAUICCourse(course, professorNames, courseName) {
   const events = [];
   let timeLocationRegex =
-    /^\s*([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2}), (.+?(?=\sin\s|\sClassroom\s|\sAula\s))(?: in (?:the)?\s*(?:aula|classroom|lecture theatre))*\s*(.*)$/gim;
+    /^\s*([^\s]*) (?:dalle|from) (\d{2}):(\d{2}) (?:alle|to) (\d{2}):(\d{2})(?:,\s*)?(.+?(?=\sin\s|\sClassroom\s|\sAula\s))?(?: in (?:the)?\s*(?:aula|classroom|lecture theatre))*\s*(.*)$/gim;
   let timesLocations = [...course.split(timeLocationRegex)];
   timesLocations.splice(0, 1); //Remove the first match as it is the course heading, which has already been parsed
   let regexCapturingGroups = 8;
