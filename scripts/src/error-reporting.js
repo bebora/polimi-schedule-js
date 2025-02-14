@@ -1,11 +1,11 @@
 const supaKeyPieces = [
-  "wwPttUUOIWAu_giTon7gdEXNXS0MWMrREnQw8CeZLpM",
-  "eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFobXBrdXNoa2tja29kbnFwYm56Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQwMTQ2OTQsImV4cCI6MTk3OTU5MDY5NH0",
+  "3yBR5pjy9xZqnRm5KK4cWK2tiQVWQwWSpmRQjBuoFi4",
+  "eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlsa2dtcmpyZ3ZvcWdsbHRrZ2dvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk1Mjc0ODEsImV4cCI6MjA1NTEwMzQ4MX0",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
 ];
 
 const supaKey = supaKeyPieces.reverse().join(".");
-const apiSubdomain = "qhmpkushkkckodnqpbnz";
+const apiSubdomain = "ylkgmrjrgvoqglltkggo";
 const supaEndpoint = `https://${apiSubdomain}.supabase.co/rest/v1/error_logs`;
 
 /**

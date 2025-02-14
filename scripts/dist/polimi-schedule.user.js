@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     polimi-schedule-js
-// @version  2.0.13
+// @version  2.0.14
 // @match    https://www4.ceda.polimi.it/manifesti/manifesti/controller/GestioneCarrelloPublic.do*
 // @match    https://www13.ceda.polimi.it/oralez/oralez/controller/MainDesktop.do*
 // @grant    none
