@@ -1,0 +1,137 @@
+[
+  {
+    "summary": "TECHNOLOGIES FOR FOOD CHEMISTRY",
+    "start": "2026-09-14T16:15:00.000+02:00",
+    "end": "2026-09-14T18:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.737+02:00",
+    "location": "2.1.3 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261221T151500Z",
+    "description": "Professor:\nDichiarante Valentina"
+  },
+  {
+    "summary": "TECHNOLOGIES FOR FOOD CHEMISTRY",
+    "start": "2026-09-16T13:15:00.000+02:00",
+    "end": "2026-09-16T15:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.739+02:00",
+    "location": "9.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261223T121500Z",
+    "description": "Professor:\nDichiarante Valentina"
+  },
+  {
+    "summary": "PRINCIPLES OF FOOD MANUFACTURING",
+    "start": "2026-09-14T12:15:00.000+02:00",
+    "end": "2026-09-14T14:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.740+02:00",
+    "location": "2.1.3 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261221T111500Z",
+    "description": "Professor:\nMasi Maurizio"
+  },
+  {
+    "summary": "PRINCIPLES OF FOOD MANUFACTURING",
+    "start": "2026-09-15T13:15:00.000+02:00",
+    "end": "2026-09-15T16:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.742+02:00",
+    "location": "25.1.6 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261222T121500Z",
+    "description": "Professor:\nMasi Maurizio"
+  },
+  {
+    "summary": "PRINCIPLES OF FOOD MANUFACTURING",
+    "start": "2026-09-18T15:15:00.000+02:00",
+    "end": "2026-09-18T18:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.743+02:00",
+    "location": "26.0.3 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261218T141500Z",
+    "description": "Professor:\nMasi Maurizio"
+  },
+  {
+    "summary": "AGRI-FOOD SUPPLY CHAIN PERSPECTIVES",
+    "start": "2026-09-14T14:15:00.000+02:00",
+    "end": "2026-09-14T16:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.744+02:00",
+    "location": "2.1.3 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261221T131500Z",
+    "description": "Professor:\nCiccullo Federica"
+  },
+  {
+    "summary": "AGRI-FOOD SUPPLY CHAIN PERSPECTIVES",
+    "start": "2026-09-17T12:15:00.000+02:00",
+    "end": "2026-09-17T14:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.744+02:00",
+    "location": "26.0.2 (Milano Città Studi - Via Golgi 20 - Edificio 26 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261217T111500Z",
+    "description": "Professor:\nCiccullo Federica"
+  },
+  {
+    "summary": "UNIT OPERATIONS AND PROCESSES OF FOOD INDUSTRY",
+    "start": "2026-09-16T15:15:00.000+02:00",
+    "end": "2026-09-16T18:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.744+02:00",
+    "location": "9.0.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 9 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261223T141500Z",
+    "description": "Professor:\nCapelli Laura Maria Teresa"
+  },
+  {
+    "summary": "UNIT OPERATIONS AND PROCESSES OF FOOD INDUSTRY",
+    "start": "2026-09-17T16:15:00.000+02:00",
+    "end": "2026-09-17T18:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.745+02:00",
+    "location": "B.5.3 (Milano Città Studi - Via Bonardi - Edificio 14 - Piano Quinto)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261217T151500Z",
+    "description": "Professor:\nCapelli Laura Maria Teresa"
+  },
+  {
+    "summary": "UNIT OPERATIONS AND PROCESSES OF FOOD INDUSTRY",
+    "start": "2026-09-18T12:15:00.000+02:00",
+    "end": "2026-09-18T15:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.745+02:00",
+    "location": "2.1.1 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261218T111500Z",
+    "description": "Professor:\nCapelli Laura Maria Teresa"
+  },
+  {
+    "summary": "ENGINEERING PROPERTIES OF FOODS",
+    "start": "2026-09-15T08:15:00.000+02:00",
+    "end": "2026-09-15T12:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.746+02:00",
+    "location": "25.1.2 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261222T071500Z",
+    "description": "Professor:\nMauri Emanuele"
+  },
+  {
+    "summary": "TRANSPORT PHENOMENA",
+    "start": "2026-09-14T08:15:00.000+02:00",
+    "end": "2026-09-14T10:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.747+02:00",
+    "location": "25.1.6 (Milano Città Studi - Via Golgi 40 - Edificio 25 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261221T071500Z",
+    "description": "Professor:\nBernasconi Roberto"
+  },
+  {
+    "summary": "TRANSPORT PHENOMENA",
+    "start": "2026-09-16T13:15:00.000+02:00",
+    "end": "2026-09-16T15:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.747+02:00",
+    "location": "2.2.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 2 - Piano Secondo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261223T121500Z",
+    "description": "Professor:\nBernasconi Roberto"
+  },
+  {
+    "summary": "THERMODYNAMICS OF MIXTURES",
+    "start": "2026-09-17T10:15:00.000+02:00",
+    "end": "2026-09-17T12:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.749+02:00",
+    "location": "E.P.3 (Milano Città Studi - Via Colombo 40 - Edificio 32.3 - Piano Terra)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261217T091500Z",
+    "description": "Professor:\nMauri Emanuele"
+  },
+  {
+    "summary": "THERMODYNAMICS OF MIXTURES",
+    "start": "2026-09-18T08:15:00.000+02:00",
+    "end": "2026-09-18T10:15:00.000+02:00",
+    "dtstamp": "2026-09-13T15:39:57.749+02:00",
+    "location": "7.1.2 (Milano Città Studi - Piazza Leonardo da Vinci 32 - Edificio 7 - Piano Primo)",
+    "rrule": "FREQ=WEEKLY;UNTIL=20261218T071500Z",
+    "description": "Professor:\nMauri Emanuele"
+  }
+]

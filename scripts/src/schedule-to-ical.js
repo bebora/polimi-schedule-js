@@ -150,7 +150,7 @@ function isValidDate(line) {
 
 const unacceptableTitleWords = `${Object.keys(weekdays).join(
   "|"
-)}|Virtual classroom|Aula virtuale|Inizio lezioni|Start of lessons|Lectures start|Lessons start|Fine lezioni|End of lessons*|Lectures end|Lessons end|Semester:|Semestre:|${auicDateRegexSource}|\\(|\\)`;
+)}|Virtual classroom|Aula virtuale|Inizio lezioni|Start of lessons|Lectures start|Lessons start|Fine lezioni|End of lessons*|Lectures end|Lessons end|Semester:|Semestre:|Period:|Periodo:|${auicDateRegexSource}|\\(|\\)`;
 
 /**
  * Detect whether course dates are in dd/mm/yyyy or mm/dd/yyyy format
@@ -700,7 +700,7 @@ function parseText(allCourses, firstTry = true) {
  * @return {IcalendarData}
  */
 function getIcalendar(events) {
-  // console.log(JSON.stringify(events.data, null, 2))
+  // console.log(JSON.stringify(events.data, null, 2));
   const versionProperty = new Property({ name: "VERSION", value: 2 });
   const prodId = new Property({ name: "PRODID", value: "bebora@github" });
 
